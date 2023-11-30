@@ -1,0 +1,92 @@
+/* Default button style */
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+
+    padding: 0.3rem 0.5rem;
+    border: 2px solid;
+    border-radius: 0.3rem;
+    transition: all 200ms ease-out;
+}
+
+.text {
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 200ms ease-out;
+}
+
+.svg {
+    width: 1rem;
+    transition: all 200ms ease-out;
+}
+
+/* Primary Button Styles */
+.btn.primary {
+    background-color: var(--color-primary);
+    border-color: transparent;
+}
+
+.text.primary {
+    color: var(--color-darker);
+}
+
+.svg.primary.color_fill svg {
+    fill: var(--color-darker);
+}
+.svg.primary.color_stroke svg {
+    stroke: var(--color-darker);
+}
+
+.btn.primary:focus .text.primary {
+    color: var(--color-primary);
+}
+
+.btn.primary:focus .svg.primary.color_fill svg {
+    fill: var(--color-primary);
+}
+
+.btn.primary:focus .svg.primary.color_stroke svg {
+    stroke: var(--color-primary);
+}
+
+.btn.primary:focus {
+    background-color: transparent;
+    border-color: var(--color-primary);
+}
+
+/* Primary Outline Button Styles */
+.btn.primary_outline {
+    background-color: transparent;
+    border-color: var(--color-primary);
+}
+
+.text.primary_outline {
+    color: var(--color-primary);
+}
+
+.svg.primary_outline.color_fill svg {
+    fill: var(--color-primary);
+}
+.svg.primary_outline.color_stroke svg {
+    stroke: var(--color-primary);
+}
+
+.btn.primary_outline:focus .text.primary_outline {
+    color: var(--color-darker);
+}
+
+.btn.primary_outline:focus .svg.primary_outline.color_fill svg {
+    fill: var(--color-darker);
+}
+
+.btn.primary_outline:focus .svg.primary_outline.color_stroke svg {
+    stroke: var(--color-darker);
+}
+
+.btn.primary_outline:focus {
+    background-color: var(--color-primary);
+    border-color: transparent;
+}
