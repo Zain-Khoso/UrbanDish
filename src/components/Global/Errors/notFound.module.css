@@ -1,0 +1,27 @@
+.error_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    width: 100dvw;
+    height: 100dvh;
+}
+
+.error_page .expression {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.error_page .context {
+    font-size: 1.2rem;
+}
+
+.error_page .error > i {
+    font-size: 1rem;
+}
+
+.error_page .error {
+    overflow: visible;
+}
