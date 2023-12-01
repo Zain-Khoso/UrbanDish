@@ -5,12 +5,14 @@ export function ButtonPrimary({ text, svg = "", colorFill, colorStroke }) {
     return (
         <button className={`${styles.btn} ${styles.primary}`}>
             <span className={`${styles.text} ${styles.primary}`}>{text}</span>
-            <div
-                className={`${styles.svg} ${styles.primary} ${
-                    colorFill && styles.color_fill
-                } ${colorStroke && styles.color_stroke}`}>
-                {svg}
-            </div>
+            {svg && (
+                <div
+                    className={`${styles.svg} ${styles.primary} ${
+                        colorFill && styles.color_fill
+                    } ${colorStroke && styles.color_stroke}`}>
+                    {svg}
+                </div>
+            )}
         </button>
     );
 }
@@ -26,12 +28,14 @@ export function ButtonPrimaryOutline({
             <span className={`${styles.text} ${styles.primary_outline}`}>
                 {text}
             </span>
-            <div
-                className={`${styles.svg} ${styles.primary_outline} ${
-                    colorFill && styles.color_fill
-                } ${colorStroke && styles.color_stroke}`}>
-                {svg}
-            </div>
+            {svg && (
+                <div
+                    className={`${styles.svg} ${styles.primary_outline} ${
+                        colorFill && styles.color_fill
+                    } ${colorStroke && styles.color_stroke}`}>
+                    {svg}
+                </div>
+            )}
         </button>
     );
 }

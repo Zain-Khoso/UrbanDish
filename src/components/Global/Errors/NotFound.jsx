@@ -1,5 +1,6 @@
 // Assets.
-import { useRouteError } from "react-router-dom";
+import { useRouteError, Link } from "react-router-dom";
+import { ArrowLeft } from "react-feather";
 import styles from "./notFound.module.css";
 
 export default function NotFound() {
@@ -14,6 +15,12 @@ export default function NotFound() {
             <p className={styles.error}>
                 <i>{errorInfo.statusText || errorInfo.message}</i>
             </p>
+            <Link to="/" className={styles.link}>
+                <div className={styles.svg_wrapper}>
+                    <ArrowLeft />
+                </div>
+                <span className={styles.text}>Return to Home</span>
+            </Link>
         </section>
     );
 }

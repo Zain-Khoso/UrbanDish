@@ -16,6 +16,7 @@
 
 .error_page .context {
     font-size: 1.2rem;
+    color: var(--color-alert);
 }
 
 .error_page .error > i {
@@ -24,4 +25,21 @@
 
 .error_page .error {
     overflow: visible;
+}
+
+.error_page .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.error_page .link .svg_wrapper svg {
+    width: 1.2rem;
+    stroke: var(--color-link);
+}
+
+.error_page .link .text {
+    font-size: 1.2rem;
+    color: var(--color-link);
 }
