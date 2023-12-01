@@ -1,7 +1,7 @@
 // Assets
 import styles from "./buttons.module.css";
 
-export function ButtonPrimary({ text, svg, colorFill, colorStroke }) {
+export function ButtonPrimary({ text, svg = "", colorFill, colorStroke }) {
     return (
         <button className={`${styles.btn} ${styles.primary}`}>
             <span className={`${styles.text} ${styles.primary}`}>{text}</span>
@@ -15,7 +15,12 @@ export function ButtonPrimary({ text, svg, colorFill, colorStroke }) {
     );
 }
 
-export function ButtonPrimaryOutline({ text, svg, colorFill, colorStroke }) {
+export function ButtonPrimaryOutline({
+    text,
+    svg = "",
+    colorFill,
+    colorStroke,
+}) {
     return (
         <button className={`${styles.btn} ${styles.primary_outline}`}>
             <span className={`${styles.text} ${styles.primary_outline}`}>
