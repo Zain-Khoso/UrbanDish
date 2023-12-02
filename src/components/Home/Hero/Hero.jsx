@@ -1,7 +1,9 @@
+// Utils
+import { ArrowDownCircle } from "react-feather";
+
 // Assets
 import styles from "./hero.module.css";
 import favicon from "../../../assets/favicon.png";
-import { ArrowDownCircle } from "react-feather";
 
 // Components
 import { ButtonPrimary } from "../../Global/Buttons/Buttons";

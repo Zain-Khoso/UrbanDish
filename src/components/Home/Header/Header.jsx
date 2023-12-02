@@ -1,18 +1,12 @@
-// React
-import { useState } from "react";
-
 // Assets
 import heroImage from "../../../assets/hero.jpg";
 import styles from "./header.module.css";
 
 // Components
-import Navbar from "../../Global/Navbar/Navbar";
-import HamburgerMenu from "../../Global/HamburgerMenu/HamburgerMenu";
+import { Navbar } from "../../Global/Navbar/Navbar";
 import Hero from "../Hero/Hero";
 
 export default function Header() {
-    const [hamburgerVisible, setHamburgerVisible] = useState(false);
-
     return (
         <header className={styles.header}>
             {/* Background */}
@@ -22,13 +16,7 @@ export default function Header() {
             </section>
 
             {/* Navbar */}
-            <Navbar
-                hamburgerVisible={hamburgerVisible}
-                onHamburgerClick={setHamburgerVisible}
-            />
-
-            {/* Hamburger Menu */}
-            <HamburgerMenu hamburgerVisible={hamburgerVisible} />
+            <Navbar />
 
             {/* Hero Section */}
             <Hero />

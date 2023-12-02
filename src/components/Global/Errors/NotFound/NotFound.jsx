@@ -1,6 +1,8 @@
-// Assets.
+// Utils
 import { useRouteError, Link } from "react-router-dom";
 import { ArrowLeft } from "react-feather";
+
+// Assets.
 import styles from "./notFound.module.css";
 
 export default function NotFound() {
