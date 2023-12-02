@@ -6,7 +6,7 @@ import styles from "./hero.module.css";
 import favicon from "../../../assets/favicon.png";
 
 // Components
-import { ButtonPrimary } from "../../Global/Buttons/Buttons";
+import Button from "../../Global/Buttons/Button";
 
 export default function Hero() {
     return (
@@ -19,12 +19,7 @@ export default function Hero() {
                 Savor the Brew, Delight in the Chew!
             </p>
 
-            <ButtonPrimary
-                text="Explore"
-                svg={<ArrowDownCircle />}
-                colorFill={false}
-                colorStroke={true}
-            />
+            <Button type="primary" text="Explore" svg={<ArrowDownCircle />} />
         </section>
     );
 }

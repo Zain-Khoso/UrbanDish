@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import styles from "./hamburgerMenu.module.css";
 
 // Components
-import { ButtonPrimaryOutline, ButtonDangerOutline } from "../Buttons/Buttons";
+import Button from "../Buttons/Button";
 
 export default function HamburgerMenu({ hamburgerVisible }) {
     const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
@@ -31,19 +31,19 @@ export default function HamburgerMenu({ hamburgerVisible }) {
                 </div>
 
                 {isAuthenticated ? (
-                    <ButtonDangerOutline
+                    <Button
+                        type="danger_outline"
                         text="LOGOUT"
                         svg={<User />}
                         colorFill={true}
-                        colorStroke={true}
                         onClick={handleLogout}
                     />
                 ) : (
-                    <ButtonPrimaryOutline
+                    <Button
+                        type="primary_outline"
                         text="LOGIN"
                         svg={<User />}
                         colorFill={true}
-                        colorStroke={true}
                         onClick={loginWithRedirect}
                     />
                 )}

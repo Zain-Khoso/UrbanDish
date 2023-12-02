@@ -6,7 +6,7 @@ import { User } from "react-feather";
 import styles from "./unAuthenticated.module.css";
 
 // Components
-import { ButtonPrimaryOutline } from "../../Buttons/Buttons";
+import Button from "../../Buttons/Button";
 
 export default function UnAuthenticated() {
     const { loginWithRedirect } = useAuth0();
@@ -15,12 +15,12 @@ export default function UnAuthenticated() {
         <div className={styles.authentication_error}>
             <h1 className={`${styles.expression}`}>Oops</h1>
             <p className={styles.context}>
-                You must be loged in to visit this page.
-                <ButtonPrimaryOutline
+                You must be logged in to visit this page.
+                <Button
+                    type="primary_outline"
                     text="LOGIN"
                     svg={<User />}
                     colorFill={true}
-                    colorStroke={true}
                     onClick={loginWithRedirect}
                 />
             </p>
