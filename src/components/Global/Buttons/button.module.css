@@ -124,3 +124,71 @@
     background-color: var(--color-danger);
     border-color: transparent;
 }
+
+/* Darker Button Styles */
+.btn.darker {
+    background-color: var(--color-darker);
+    border-color: transparent;
+}
+
+.text.darker {
+    color: var(--color-light);
+}
+
+.svg.darker.color_fill svg {
+    fill: var(--color-light);
+}
+.svg.darker.color_stroke svg {
+    stroke: var(--color-light);
+}
+
+.btn.darker:focus .text.darker {
+    color: var(--color-darker);
+}
+
+.btn.darker:focus .svg.darker.color_fill svg {
+    fill: var(--color-darker);
+}
+
+.btn.darker:focus .svg.darker.color_stroke svg {
+    stroke: var(--color-darker);
+}
+
+.btn.darker:focus {
+    background-color: transparent;
+    border-color: var(--color-darker);
+}
+
+/* Primary Darker Button Styles */
+.btn.primary_darker {
+    background-color: var(--color-primary-darker);
+    border-color: transparent;
+}
+
+.text.primary_darker {
+    color: var(--color-light);
+}
+
+.svg.primary_darker.color_fill svg {
+    fill: var(--color-light);
+}
+.svg.primary_darker.color_stroke svg {
+    stroke: var(--color-light);
+}
+
+.btn.primary_darker:focus .text.primary_darker {
+    color: var(--color-primary-darker);
+}
+
+.btn.primary_darker:focus .svg.primary_darker.color_fill svg {
+    fill: var(--color-primary-darker);
+}
+
+.btn.primary_darker:focus .svg.primary_darker.color_stroke svg {
+    stroke: var(--color-primary-darker);
+}
+
+.btn.primary_darker:focus {
+    background-color: transparent;
+    border-color: var(--color-primary-darker);
+}

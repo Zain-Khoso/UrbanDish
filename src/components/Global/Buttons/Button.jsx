@@ -12,6 +12,8 @@ export default function Button({
     const buttonTypes = {
         primary: styles.primary,
         primary_outline: styles.primary_outline,
+        primary_darker: styles.primary_darker,
+        darker: styles.darker,
         danger_outline: styles.danger_outline,
     };
 

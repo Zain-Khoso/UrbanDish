@@ -67,7 +67,7 @@ export default function HamburgerMenu({ hamburgerVisible }) {
                 </li>
 
                 <li>
-                    <Link to="/" className={styles.link}>
+                    <Link to="/contact-us" className={styles.link}>
                         Contact Us
                     </Link>
                 </li>
