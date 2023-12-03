@@ -6,7 +6,7 @@ import { User, Mail, MessageCircle, Send } from "react-feather";
 import styles from "./contactUs.module.css";
 
 // Components
-import { Navbar } from "../Global/Navbar/Navbar/Navbar";
+import { Navbar } from "../../Global/Navigation/Navbar/Navbar";
 
 export default function ContactUs() {
     const [name, setName] = useState("");
