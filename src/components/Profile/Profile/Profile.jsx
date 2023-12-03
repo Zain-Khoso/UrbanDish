@@ -5,7 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import styles from "./profile.module.css";
 
 // Components
-import { Navbar } from "../../Global/Navbar/Navbar";
+import { Navbar } from "../../Global/Navigation/Navbar/Navbar";
 import UnAuthenticated from "../../Global/Errors/UnAuthenticated/UnAuthenticated";
 import Accordion from "../Accordion/Accordion";
 

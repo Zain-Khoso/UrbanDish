@@ -3,7 +3,7 @@ import heroImage from "../../../assets/hero.jpg";
 import styles from "./header.module.css";
 
 // Components
-import { Navbar } from "../../Global/Navbar/Navbar";
+import { Navbar } from "../../Global/Navigation/Navbar/Navbar";
 import Hero from "../Hero/Hero";
 
 export default function Header() {
