@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import styles from "./hamburgerMenu.module.css";
 
 // Components
-import Button from "../Buttons/Button";
+import Button from "../../Buttons/Button";
 
 export default function HamburgerMenu({ hamburgerVisible }) {
     const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
