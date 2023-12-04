@@ -1,0 +1,25 @@
+.header {
+    width: 100%;
+    height: 100%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.hero .slogon {
+    font-size: 1.5rem;
+    font-family: var(--font-primary);
+}
+
+.hero .context_slogon {
+    color: rgba(210, 210, 210, 0.6);
+}

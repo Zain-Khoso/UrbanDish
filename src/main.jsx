@@ -6,8 +6,9 @@ import { Auth0Provider } from "@auth0/auth0-react";
 
 // Components
 import Home from "./components/Home/Home";
-import Profile from "./components/Profile/Profile/Profile";
+import Profile from "./components/Profile/Profile";
 import ContactUs from "./components/ContactUs/ContactUs";
+import AboutUs from "./components/AboutUs/AboutUs";
 import NotFound from "./components/Global/Errors/NotFound/NotFound";
 
 // Router Setup.
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
     {
         path: "/contact-us",
         element: <ContactUs />,
+    },
+    {
+        path: "/about-us",
+        element: <AboutUs />,
     },
 ]);
 

@@ -5,9 +5,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import styles from "./profile.module.css";
 
 // Components
-import { Navbar } from "../../Global/Navigation/Navbar/Navbar";
-import UnAuthenticated from "../../Global/Errors/UnAuthenticated/UnAuthenticated";
-import Accordion from "../Accordion/Accordion";
+import { Navbar } from "../Global/Navigation/Navbar/Navbar";
+import UnAuthenticated from "../Global/Errors/UnAuthenticated/UnAuthenticated";
+import Accordion from "../Global/Accordion/Accordion";
 
 export default function Profile() {
     const { user, isAuthenticated, isLoading } = useAuth0();
@@ -37,6 +37,7 @@ export default function Profile() {
                         </div>
                         <div className={styles.profile_body}>
                             <Accordion
+                                type="dark"
                                 visibleText="Email"
                                 hiddenText={
                                     user.email ? user.email : "Not Provided"
@@ -44,6 +45,7 @@ export default function Profile() {
                             />
 
                             <Accordion
+                                type="dark"
                                 visibleText="Username"
                                 hiddenText={
                                     user.nickname
@@ -53,6 +55,7 @@ export default function Profile() {
                             />
 
                             <Accordion
+                                type="dark"
                                 visibleText="Name"
                                 hiddenText={
                                     user.given_name
@@ -62,6 +65,7 @@ export default function Profile() {
                             />
 
                             <Accordion
+                                type="dark"
                                 visibleText="Full Name"
                                 hiddenText={
                                     user.name ? user.name : "Not Provided"
@@ -69,6 +73,7 @@ export default function Profile() {
                             />
 
                             <Accordion
+                                type="dark"
                                 visibleText="Locale"
                                 hiddenText={
                                     user.locale ? user.locale : "Not Provided"

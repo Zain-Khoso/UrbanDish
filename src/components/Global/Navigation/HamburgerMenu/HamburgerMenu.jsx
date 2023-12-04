@@ -51,7 +51,7 @@ export default function HamburgerMenu({ hamburgerVisible }) {
 
             <ul className={styles.navigation}>
                 <li>
-                    <Link to="/" className={styles.link}>
+                    <Link to="/about-us" className={styles.link}>
                         About Us
                     </Link>
                 </li>
