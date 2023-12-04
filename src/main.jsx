@@ -9,6 +9,7 @@ import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
 import ContactUs from "./components/ContactUs/ContactUs";
 import AboutUs from "./components/AboutUs/AboutUs";
+import BuyMeCoffee from "./components/BuyMeCoffee/BuyMeCoffee";
 import NotFound from "./components/Global/Errors/NotFound/NotFound";
 
 // Router Setup.
@@ -23,12 +24,16 @@ const router = createBrowserRouter([
         element: <Profile />,
     },
     {
-        path: "/contact-us",
-        element: <ContactUs />,
-    },
-    {
         path: "/about-us",
         element: <AboutUs />,
+    },
+    {
+        path: "/buy-me-coffee",
+        element: <BuyMeCoffee />,
+    },
+    {
+        path: "/contact-us",
+        element: <ContactUs />,
     },
 ]);
 
