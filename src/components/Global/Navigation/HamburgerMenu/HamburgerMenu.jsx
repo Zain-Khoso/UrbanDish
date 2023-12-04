@@ -1,7 +1,8 @@
 // Utils
-import { User } from "react-feather";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { User } from "react-feather";
 
 // Assets
 import styles from "./hamburgerMenu.module.css";
@@ -75,3 +76,11 @@ export default function HamburgerMenu({ hamburgerVisible }) {
         </div>
     );
 }
+
+HamburgerMenu.defaultProps = {
+    hamburgerVisible: false,
+};
+
+HamburgerMenu.propTypes = {
+    hamburgerVisible: PropTypes.bool,
+};

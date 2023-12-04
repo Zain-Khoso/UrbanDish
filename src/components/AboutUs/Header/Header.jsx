@@ -30,11 +30,7 @@ export default function Header() {
                 </p>
 
                 <Link to="/contact-us">
-                    <Button
-                        type="primary"
-                        text="Contact Us"
-                        svg={<PhoneOutgoing />}
-                    />
+                    <Button text="Contact Us" svg={<PhoneOutgoing />} />
                 </Link>
             </section>
         </header>

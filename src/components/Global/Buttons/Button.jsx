@@ -1,12 +1,15 @@
+// Utils
+import PropTypes from "prop-types";
+
 // Assets
 import styles from "./button.module.css";
 
 export default function Button({
     type,
     text,
-    svg = "",
-    colorFill = false,
-    colorStroke = true,
+    svg,
+    colorFill,
+    colorStroke,
     onClick,
 }) {
     const buttonTypes = {
@@ -36,3 +39,21 @@ export default function Button({
         </button>
     );
 }
+
+Button.defaultProps = {
+    type: "primary",
+    text: "Not Provided",
+    svg: "",
+    colorFill: false,
+    colorStroke: true,
+    onClick: () => {},
+};
+
+Button.propTypes = {
+    type: PropTypes.string,
+    text: PropTypes.string,
+    svg: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    colorFill: PropTypes.bool,
+    colorStroke: PropTypes.bool,
+    onClick: PropTypes.func,
+};

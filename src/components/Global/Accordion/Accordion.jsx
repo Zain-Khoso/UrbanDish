@@ -1,16 +1,12 @@
 // Utils
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { ChevronDown } from "react-feather";
 
 // Assets
 import styles from "./accordion.module.css";
 
-export default function Accordion({
-    type,
-    open = false,
-    visibleText,
-    hiddenText,
-}) {
+export default function Accordion({ type, open, visibleText, hiddenText }) {
     const [active, setActive] = useState(open);
 
     const accordionTypes = {
@@ -39,3 +35,17 @@ export default function Accordion({
         </div>
     );
 }
+
+Accordion.defaultProps = {
+    type: "primary",
+    open: false,
+    visibleText: "Not Provided",
+    hiddenText: "Not Provided",
+};
+
+Accordion.propTypes = {
+    type: PropTypes.string,
+    open: PropTypes.bool,
+    visibleText: PropTypes.string,
+    hiddenText: PropTypes.string,
+};

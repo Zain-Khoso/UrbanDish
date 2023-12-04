@@ -1,6 +1,7 @@
 // Utils
-import { Info } from "react-feather";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { Info } from "react-feather";
 
 // Assets
 import styles from "./dishCard.module.css";
@@ -25,9 +26,22 @@ export default function DishCard({ img, types, title, description }) {
                         __html: description.slice(0, 500) + "...",
                     }}></p>
                 <Link to="/">
-                    <Button type="primary" text="More on this" svg={<Info />} />
+                    <Button text="More on this" svg={<Info />} />
                 </Link>
             </div>
         </div>
     );
 }
+
+DishCard.defaultProps = {
+    types: ["Not", "Available"],
+    title: "Not Available",
+    description: "Not Available",
+};
+
+DishCard.propTypes = {
+    img: PropTypes.any,
+    types: PropTypes.array,
+    title: PropTypes.string,
+    description: PropTypes.string,
+};

@@ -19,7 +19,7 @@ export default function Hero() {
                 Savor the Brew, Delight in the Chew!
             </p>
 
-            <Button type="primary" text="Explore" svg={<ArrowDownCircle />} />
+            <Button text="Explore" svg={<ArrowDownCircle />} />
         </section>
     );
 }
