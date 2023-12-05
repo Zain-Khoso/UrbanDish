@@ -1,5 +1,5 @@
 // Utils
-import { useState } from "react";
+import { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { ChevronDown } from "react-feather";
 
@@ -9,17 +9,17 @@ import styles from "./accordion.module.css";
 export default function Accordion({ type, open, visibleText, hiddenText }) {
     const [active, setActive] = useState(open);
 
-    const accordionTypes = {
+    const accordionTypes = useRef({
         primary: styles.primary,
         primary_darker: styles.primary_darker,
         dark: styles.dark,
         darker: styles.darker,
-    };
+    });
 
     return (
         <div
             className={`${styles.accordion} ${active && styles.active} ${
-                accordionTypes[type]
+                accordionTypes.current[type]
             }`}>
             <button className={styles.head} onClick={() => setActive(!active)}>
                 <span className={styles.text}>{visibleText}</span>
