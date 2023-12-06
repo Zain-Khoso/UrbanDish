@@ -16,14 +16,14 @@ export default function UnAuthenticated() {
             <h1 className={`${styles.expression}`}>Oops</h1>
             <p className={styles.context}>
                 You must be logged in to visit this page.
-                <Button
-                    type="primary_outline"
-                    text="LOGIN"
-                    svg={<User />}
-                    colorFill={true}
-                    onClick={loginWithRedirect}
-                />
             </p>
+            <Button
+                type="primary_outline"
+                text="LOGIN"
+                svg={<User />}
+                colorFill={true}
+                onClick={loginWithRedirect}
+            />
         </div>
     );
 }

@@ -6,7 +6,7 @@ import styles from "./buyMeCoffee.module.css";
 import image from "../../assets/coffee.webp";
 
 // Conponents
-import { Navbar } from "../Global/Navigation/Navbar/Navbar";
+import Navbar from "../Global/Navigation/Navbar/Navbar";
 import Button from "../Global/Buttons/Button";
 
 export default function BuyMeCoffee() {
@@ -18,7 +18,7 @@ export default function BuyMeCoffee() {
                 <img src={image} alt="A cup of coffee" />
             </div>
             <textarea
-                rows="3"
+                rows="5"
                 placeholder="Your Message For Me..."
                 className={styles.message}></textarea>
 

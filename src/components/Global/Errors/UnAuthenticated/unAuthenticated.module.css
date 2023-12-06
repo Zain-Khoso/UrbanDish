@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 2rem;
 
     width: 90%;
     transform: translate(-50%, -50%);
@@ -18,12 +18,6 @@
 }
 
 .authentication_error .context {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-
     font-size: 1.2rem;
-    color: var(--color-warning);
+    color: var(--color-alert);
 }

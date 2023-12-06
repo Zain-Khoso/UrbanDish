@@ -58,8 +58,8 @@ export default function HamburgerMenu({ hamburgerVisible }) {
                 </li>
 
                 <li>
-                    <Link to="/" className={styles.link}>
-                        Recipies
+                    <Link to="/recipes" className={styles.link}>
+                        Recipes
                     </Link>
                 </li>
 

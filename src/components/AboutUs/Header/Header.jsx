@@ -6,7 +6,7 @@ import { PhoneOutgoing } from "react-feather";
 import styles from "./header.module.css";
 
 // Components
-import { Navbar } from "../../Global/Navigation/Navbar/Navbar";
+import Navbar from "../../Global/Navigation/Navbar/Navbar";
 import LandingBackground from "../../Global/LandingBackground/LandingBackground";
 import Button from "../../Global/Buttons/Button";
 

@@ -7,9 +7,14 @@ import { Auth0Provider } from "@auth0/auth0-react";
 // Components
 import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
-import ContactUs from "./components/ContactUs/ContactUs";
 import AboutUs from "./components/AboutUs/AboutUs";
+import Recipes from "./components/Recipes/Recipes";
+import RecipyHome from "./components/Recipes/RecipyHome/RecipyHome";
+import RecipyDetail, {
+    loader as recipyDetailLoader,
+} from "./components/Recipes/RecipyDetail/RecipyDetail";
 import BuyMeCoffee from "./components/BuyMeCoffee/BuyMeCoffee";
+import ContactUs from "./components/ContactUs/ContactUs";
 import NotFound from "./components/Global/Errors/NotFound/NotFound";
 
 // Router Setup.
@@ -22,18 +27,38 @@ const router = createBrowserRouter([
     {
         path: "/profile",
         element: <Profile />,
+        errorElement: <NotFound />,
     },
     {
         path: "/about-us",
         element: <AboutUs />,
+        errorElement: <NotFound />,
+    },
+    {
+        path: "/recipes",
+        element: <Recipes />,
+        errorElement: <NotFound />,
+        children: [
+            {
+                path: "",
+                element: <RecipyHome />,
+            },
+            {
+                path: ":recipyID",
+                element: <RecipyDetail />,
+                loader: recipyDetailLoader,
+            },
+        ],
     },
     {
         path: "/buy-me-coffee",
         element: <BuyMeCoffee />,
+        errorElement: <NotFound />,
     },
     {
         path: "/contact-us",
         element: <ContactUs />,
+        errorElement: <NotFound />,
     },
 ]);
 

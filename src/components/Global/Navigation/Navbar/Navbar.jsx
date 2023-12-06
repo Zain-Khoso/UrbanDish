@@ -8,7 +8,7 @@ import styles from "./navbar.module.css";
 // Components
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
-export function Navbar() {
+export default function Navbar() {
     const [hamburgerVisible, setHamburgerVisible] = useState(false);
 
     return (
