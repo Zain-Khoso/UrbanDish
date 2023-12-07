@@ -17,19 +17,21 @@ export default function RecipyHome() {
 
     useEffect(() => {
         (async function () {
-            const res = await fetch(
-                `https://api.spoonacular.com/recipes/complexSearch?sort=random&number=10&apiKey=${
-                    import.meta.env.VITE_SPOONACULAR_API_KEY
-                }`
-            );
-            const data = await res.json();
-            setRecipes(recipes.concat(data["results"]));
-
-            // const res = await fetch("/src/assets/foodData.json");
-
+            // const res = await fetch(
+            //     `https://api.spoonacular.com/recipes/complexSearch?sort=random&number=10&apiKey=${
+            //         import.meta.env.VITE_SPOONACULAR_API_KEY
+            //     }`
+            // );
             // const data = await res.json();
-
             // setRecipes(recipes.concat(data["results"]));
+
+            // TODO:
+
+            const res = await fetch("/src/assets/foodData.json");
+
+            const data = await res.json();
+
+            setRecipes(recipes.concat(data["results"]));
         })();
     }, [compRerender]);
 

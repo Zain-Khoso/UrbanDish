@@ -1,12 +1,12 @@
 // Utils
-import { useRouteError, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "react-feather";
 
 // Assets.
 import styles from "./notFound.module.css";
 
 export default function NotFound() {
-    const errorInfo = useRouteError();
+    const navigate = useNavigate();
 
     return (
         <section className={styles.error_page}>
@@ -14,15 +14,12 @@ export default function NotFound() {
             <p className={styles.context}>
                 Sorry, an unexpected error occured.
             </p>
-            <p className={styles.error}>
-                <i>{errorInfo.statusText || errorInfo.message}</i>
-            </p>
-            <Link to="/" className={styles.link}>
+            <button className={styles.link} onClick={() => navigate(-1)}>
                 <div className={styles.svg_wrapper}>
                     <ArrowLeft />
                 </div>
-                <span className={styles.text}>Return to Home</span>
-            </Link>
+                <span className={styles.text}>Go back</span>
+            </button>
         </section>
     );
 }

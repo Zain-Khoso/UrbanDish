@@ -9,14 +9,17 @@ import styles from "./recipyDetail.module.css";
 import Navbar from "../../Global/Navigation/Navbar/Navbar";
 
 export async function loader({ params }) {
-    const res = await fetch(
-        `https://api.spoonacular.com/recipes/${
-            params.recipyID
-        }/information?includeNutrition=false&apiKey=${
-            import.meta.env.VITE_SPOONACULAR_API_KEY
-        }`
-    );
-    // const res = await fetch("/src/assets/recipy.json");
+    // const res = await fetch(
+    //     `https://api.spoonacular.com/recipes/${
+    //         params.recipyID
+    //     }/information?includeNutrition=false&apiKey=${
+    //         import.meta.env.VITE_SPOONACULAR_API_KEY
+    //     }`
+    // );
+
+    // TODO
+
+    const res = await fetch("/src/assets/recipy.json");
 
     const recipy = await res.json();
     const dishTypes = recipy["dishTypes"];
