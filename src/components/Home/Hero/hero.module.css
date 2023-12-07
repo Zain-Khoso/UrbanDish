@@ -14,8 +14,19 @@
     width: 60%;
 }
 
-.hero .slogon {
-    font-size: 1.5rem;
+.hero .image img {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+}
+
+.hero .title {
+    font-size: 1.7rem;
     font-family: var(--font-primary);
-    color: var(--color-light);
+    color: var(--color-primary);
+}
+
+.hero .slogon {
+    width: 80%;
+    font-size: 1.2rem;
+    color: rgba(210, 210, 210, 0.6);
 }

@@ -15,6 +15,8 @@ export default function Hero() {
                 <img src={favicon} alt="Company Logo" />
             </div>
 
+            <h1 className={styles.title}>Belly Brains</h1>
+
             <p className={styles.slogon}>
                 Savor the Brew, Delight in the Chew!
             </p>
