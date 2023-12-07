@@ -1,5 +1,6 @@
 // Utils
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { sendForm } from "@emailjs/browser";
 import { User, Mail, MessageCircle, Send } from "react-feather";
 
 // Assets
@@ -12,9 +13,17 @@ export default function ContactUs() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const form = useRef(null);
 
     const sendMail = function (event) {
         event.preventDefault();
+
+        sendForm(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_EMAILJS_FORM_ID,
+            form.current,
+            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        );
 
         setName("");
         setEmail("");
@@ -28,7 +37,7 @@ export default function ContactUs() {
             <section className={styles.container}>
                 <h1 className={styles.heading}>Contact Us</h1>
 
-                <form onSubmit={sendMail} className={styles.form}>
+                <form ref={form} onSubmit={sendMail} className={styles.form}>
                     <div className={styles.field}>
                         <div className={styles.svg_wrapper}>
                             <User />
@@ -38,6 +47,7 @@ export default function ContactUs() {
                             name="user_name"
                             placeholder="Your Name"
                             className={styles.entry}
+                            minLength="4"
                             value={name}
                             onChange={(e) => {
                                 setName(e.target.value);
@@ -53,6 +63,7 @@ export default function ContactUs() {
                             type="email"
                             name="user_email"
                             placeholder="Your Email"
+                            minLength="10"
                             className={styles.entry}
                             value={email}
                             onChange={(e) => {
@@ -70,6 +81,7 @@ export default function ContactUs() {
                             name="message"
                             placeholder="Your Message"
                             className={styles.entry}
+                            minLength="20"
                             value={message}
                             onChange={(e) => {
                                 setMessage(e.target.value);

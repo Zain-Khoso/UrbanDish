@@ -17,15 +17,14 @@ export default function RecipySearchForm({ setRecipes }) {
 
     useEffect(() => {
         const dataFetcher = async function () {
-            // const res = await fetch(searchURL);
-            // const data = await res.json();
-            // setRecipes(data["results"]);
-
-            // TODO:
-
-            const res = await fetch("/src/assets/foodData.json");
+            const res = await fetch(searchURL);
             const data = await res.json();
-            setRecipes(data["results"].slice(0, 5));
+            setRecipes(data["results"]);
+
+            // ** DEVELOPMENT ONLY **
+            // const res = await fetch("/src/assets/foodData.json");
+            // const data = await res.json();
+            // setRecipes(data["results"].slice(0, 5));
         };
 
         if (staticSearchQuery !== "") dataFetcher();
