@@ -1,5 +1,6 @@
 // Utils
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft } from "react-feather";
 
 // Assets
@@ -8,28 +9,28 @@ import styles from "./recipyDetail.module.css";
 // Components
 import Navbar from "../../Global/Navigation/Navbar/Navbar";
 
-export async function loader({ params }) {
-    const res = await fetch(
-        `https://api.spoonacular.com/recipes/${
-            params.recipyID
-        }/information?includeNutrition=false&apiKey=${
-            import.meta.env.VITE_SPOONACULAR_API_KEY
-        }`
-    );
-
-    // ** DEVELOPMENT ONLY **
-    // const res = await fetch(`http://localhost:3000/recipes/${params.recipyID}`);
-
-    const recipy = await res.json();
-    const dishTypes = recipy["dishTypes"];
-    const ingredients = recipy["extendedIngredients"];
-
-    return { recipy, dishTypes, ingredients };
-}
-
 export default function RecipyDetail() {
-    const { recipy, dishTypes = [], ingredients = [] } = useLoaderData();
+    const [recipy, setRecipy] = useState({
+        dishTypes: [],
+        extendedIngredients: [],
+    });
+
+    const { recipyID } = useParams();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        (async function () {
+            const response = await fetch(
+                (import.meta.env.VITE_PRODUCTION === "true" ? true : false)
+                    ? `https://api.spoonacular.com/recipes/${recipyID}/information?includeNutrition=false&apiKey=${
+                          import.meta.env.VITE_SPOONACULAR_API_KEY
+                      }`
+                    : `http://localhost:3000/recipes/${recipyID}`
+            );
+
+            setRecipy(await response.json());
+        })();
+    }, []);
 
     return (
         <>
@@ -57,7 +58,7 @@ export default function RecipyDetail() {
                 </h4>
                 <ul className={styles.list}>
                     <li className={styles.subtitle}>Dish Types</li>
-                    {dishTypes.map((item, index) => (
+                    {recipy["dishTypes"].map((item, index) => (
                         <li key={index} className={styles.list_item}>
                             &middot;{" "}
                             {item
@@ -74,7 +75,7 @@ export default function RecipyDetail() {
 
                 <ul className={`${styles.list} ${styles.ingre_list}`}>
                     <li className={styles.subtitle}>Ingredients</li>
-                    {ingredients.map((item, index) => (
+                    {recipy["extendedIngredients"].map((item, index) => (
                         <li key={index} className={styles.list_item}>
                             &middot;{" "}
                             {item["original"]

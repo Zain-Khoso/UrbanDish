@@ -13,18 +13,17 @@ export default function Dishes({ random, needed, data }) {
 
     useEffect(() => {
         const dataFetcher = async function () {
-            const res = await fetch(
-                `https://api.spoonacular.com/recipes/complexSearch?sort=random&number=${needed}&apiKey=${
-                    import.meta.env.VITE_SPOONACULAR_API_KEY
-                }`
+            const response = await fetch(
+                (import.meta.env.VITE_PRODUCTION === "true" ? true : false)
+                    ? `https://api.spoonacular.com/recipes/complexSearch?sort=random&number=${needed}&apiKey=${
+                          import.meta.env.VITE_SPOONACULAR_API_KEY
+                      }`
+                    : "http://localhost:3000/recipes?_start=1&_end=6"
             );
-            const res_data = await res.json();
-            setRecipes(res_data["results"]);
 
-            // ** DEVELOPMENT ONLY **
-            // const res = await fetch("http://localhost:3000/recipes");
-            // const res_data = await res.json();
-            // setRecipes(res_data.slice(0, needed));
+            const data = await response.json();
+
+            setRecipes(data["results"] || data);
         };
 
         random && dataFetcher();
