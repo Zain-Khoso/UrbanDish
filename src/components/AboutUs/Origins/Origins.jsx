@@ -1,3 +1,6 @@
+// Utils
+import { useRef } from "react";
+
 // Assets
 import styles from "./origins.module.css";
 import originImg from "../../../assets/origin.jpg";
@@ -6,7 +9,7 @@ import originImg from "../../../assets/origin.jpg";
 import Accordion from "../../Global/Accordion/Accordion";
 
 export default function Origins() {
-    const aboutData = [
+    const originData = useRef([
         [
             "The Birth of Flavorful Dreams",
             "Established on July 9th, 1969, in the vibrant city of Sukkur, Belly Brains began as a humble eatery with a passion for crafting culinary delights. Founded by the visionary chef, Marco Savori, the restaurant quickly gained fame for its innovative approach to food and commitment to excellence.",
@@ -23,7 +26,7 @@ export default function Origins() {
             "Your Story with Belly Brains",
             "Today, as we continue Chef Marco's legacy, Belly Brains invites you to join us in savoring the extraordinary. Whether you're a loyal patron from the early days or a newcomer exploring our menu for the first time, we welcome you to experience the magic that began on that summer day in Sukkur over five decades ago. Cheers to the timeless flavors and the journey ahead!",
         ],
-    ];
+    ]);
 
     return (
         <section className={styles.origin}>
@@ -33,27 +36,15 @@ export default function Origins() {
 
             <div className={styles.body}>
                 <h2 className={styles.heading}>Our Origins</h2>
-                {aboutData.map(([title, context], index) => {
-                    if (index === 0) {
-                        return (
-                            <Accordion
-                                key={index}
-                                open={true}
-                                type="primary_darker"
-                                visibleText={title}
-                                hiddenText={context}
-                            />
-                        );
-                    }
-                    return (
-                        <Accordion
-                            key={index}
-                            type="primary_darker"
-                            visibleText={title}
-                            hiddenText={context}
-                        />
-                    );
-                })}
+                {originData.current.map(([title, context], index) => (
+                    <Accordion
+                        key={index}
+                        open={index === 0 ? true : false}
+                        type="primary_darker"
+                        visibleText={title}
+                        hiddenText={context}
+                    />
+                ))}
             </div>
         </section>
     );
