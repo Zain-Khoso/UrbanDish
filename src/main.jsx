@@ -10,9 +10,7 @@ import Profile from "./components/Profile/Profile";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Recipes from "./components/Recipes/Recipes";
 import RecipyHome from "./components/Recipes/RecipyHome/RecipyHome";
-import RecipyDetail, {
-    loader as recipyDetailLoader,
-} from "./components/Recipes/RecipyDetail/RecipyDetail";
+import RecipyDetail from "./components/Recipes/RecipyDetail/RecipyDetail";
 import BuyMeCoffee from "./components/BuyMeCoffee/BuyMeCoffee";
 import ContactUs from "./components/ContactUs/ContactUs";
 import NotFound from "./components/Global/Errors/NotFound/NotFound";
@@ -46,7 +44,6 @@ const router = createBrowserRouter([
             {
                 path: ":recipyID",
                 element: <RecipyDetail />,
-                loader: recipyDetailLoader,
             },
         ],
     },

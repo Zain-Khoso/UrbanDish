@@ -12,27 +12,24 @@ import Dishes from "../../Global/Dishes/Dishes";
 import Button from "../../Global/Buttons/Button";
 
 export default function RecipyHome() {
-    const [compRerender, setCompRerender] = useState(0);
+    const [rerenderSwitch, setRerenderSwitch] = useState(true);
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
         (async function () {
-            const res = await fetch(
-                `https://api.spoonacular.com/recipes/complexSearch?sort=random&number=10&apiKey=${
-                    import.meta.env.VITE_SPOONACULAR_API_KEY
-                }`
+            const response = await fetch(
+                (import.meta.env.VITE_PRODUCTION === "true" ? true : false)
+                    ? `https://api.spoonacular.com/recipes/complexSearch?sort=random&number=10&apiKey=${
+                          import.meta.env.VITE_SPOONACULAR_API_KEY
+                      }`
+                    : "http://localhost:3000/recipes"
             );
-            const data = await res.json();
-            setRecipes(recipes.concat(data["results"]));
 
-            // ** DEVELOPMENT ONLY **
-            // const res = await fetch("/src/assets/foodData.json");
+            const data = await response.json();
 
-            // const data = await res.json();
-
-            // setRecipes(recipes.concat(data["results"]));
+            setRecipes(recipes.concat(data["results"] || data));
         })();
-    }, [compRerender]);
+    }, [rerenderSwitch]);
 
     return (
         <>
@@ -46,7 +43,7 @@ export default function RecipyHome() {
                 <Button
                     text="See More Dishes"
                     svg={<MoreVertical />}
-                    onClick={() => setCompRerender(compRerender + 1)}
+                    onClick={() => setRerenderSwitch(!rerenderSwitch)}
                 />
             </main>
         </>

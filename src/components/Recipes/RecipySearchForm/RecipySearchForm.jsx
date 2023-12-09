@@ -12,46 +12,43 @@ export default function RecipySearchForm({ setRecipes }) {
     const [searchQuery, setSearchQuery] = useState("");
     const [searchURL, setSearchURL] = useState("");
 
-    const searchForm = useRef(null);
-    const staticSearchQuery = useRef("");
+    const staticSearchQuery = useRef(null);
+    const searchInput = useRef(null);
 
     useEffect(() => {
         const dataFetcher = async function () {
-            const res = await fetch(searchURL);
-            const data = await res.json();
-            setRecipes(data["results"]);
-
-            // ** DEVELOPMENT ONLY **
-            // const res = await fetch("/src/assets/foodData.json");
-            // const data = await res.json();
-            // setRecipes(data["results"].slice(0, 5));
+            const response = await fetch(searchURL);
+            const data = await response.json();
+            setRecipes(data["results"] || data);
         };
 
-        if (staticSearchQuery !== "") dataFetcher();
+        staticSearchQuery && dataFetcher();
     }, [searchURL]);
 
     const runSearch = function (event) {
         event.preventDefault();
+        searchInput.current.focus();
+
         if (searchQuery === staticSearchQuery.current) return;
 
         staticSearchQuery.current = searchQuery;
 
         setSearchURL(
-            `https://api.spoonacular.com/recipes/complexSearch?query=${searchQuery}&number=5&apiKey=${
-                import.meta.env.VITE_SPOONACULAR_API_KEY
-            }`
+            (import.meta.env.VITE_PRODUCTION === "true" ? true : false)
+                ? `https://api.spoonacular.com/recipes/complexSearch?query=${searchQuery}&number=5&apiKey=${
+                      import.meta.env.VITE_SPOONACULAR_API_KEY
+                  }`
+                : "http://localhost:3000/recipes?_start=1&_end=6"
         );
     };
 
     return (
-        <form
-            ref={searchForm}
-            onSubmit={runSearch}
-            className={styles.search_bar}>
+        <form onSubmit={runSearch} className={styles.search_bar}>
             <input
                 type="text"
                 placeholder="Lunch..."
                 name="query"
+                ref={searchInput}
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 className={styles.query}
