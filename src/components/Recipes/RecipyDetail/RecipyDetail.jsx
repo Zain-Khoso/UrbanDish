@@ -18,7 +18,7 @@ export async function loader({ params }) {
     );
 
     // ** DEVELOPMENT ONLY **
-    // const res = await fetch("/src/assets/recipy.json");
+    // const res = await fetch(`http://localhost:3000/recipes/${params.recipyID}`);
 
     const recipy = await res.json();
     const dishTypes = recipy["dishTypes"];

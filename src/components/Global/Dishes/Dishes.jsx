@@ -22,11 +22,9 @@ export default function Dishes({ random, needed, data }) {
             setRecipes(res_data["results"]);
 
             // ** DEVELOPMENT ONLY **
-            // const res = await fetch("/src/assets/foodData.json");
-
+            // const res = await fetch("http://localhost:3000/recipes");
             // const res_data = await res.json();
-
-            // setRecipes(res_data["results"].slice(0, 3));
+            // setRecipes(res_data.slice(0, needed));
         };
 
         random && dataFetcher();

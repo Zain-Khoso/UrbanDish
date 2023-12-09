@@ -26,11 +26,11 @@ export default function RecipyHome() {
             setRecipes(recipes.concat(data["results"]));
 
             // ** DEVELOPMENT ONLY **
-            // const res = await fetch("/src/assets/foodData.json");
+            // const res = await fetch("http://localhost:3000/recipes");
 
             // const data = await res.json();
 
-            // setRecipes(recipes.concat(data["results"]));
+            // setRecipes(recipes.concat(data));
         })();
     }, [compRerender]);
 

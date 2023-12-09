@@ -22,9 +22,9 @@ export default function RecipySearchForm({ setRecipes }) {
             setRecipes(data["results"]);
 
             // ** DEVELOPMENT ONLY **
-            // const res = await fetch("/src/assets/foodData.json");
+            // const res = await fetch("http://localhost:3000/recipes");
             // const data = await res.json();
-            // setRecipes(data["results"].slice(0, 5));
+            // setRecipes(data.slice(3, 8));
         };
 
         if (staticSearchQuery !== "") dataFetcher();
