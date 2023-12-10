@@ -2,11 +2,11 @@
 import { Coffee } from "react-feather";
 
 // Assets
-import styles from "./buyMeCoffee.module.css";
+import styles from "./styles/buyMeCoffee.module.css";
 
 // Conponents
-import Navbar from "../Global/Navigation/Navbar/Navbar";
-import Button from "../Global/Buttons/Button";
+import Navbar from "../Global/Navbar";
+import Button from "../Global/Button";
 
 export default function BuyMeCoffee() {
     return (

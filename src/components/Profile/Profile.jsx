@@ -2,15 +2,37 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
 // Assets
-import styles from "./profile.module.css";
+import styles from "./styles/profile.module.css";
 
 // Components
-import Navbar from "../Global/Navigation/Navbar/Navbar";
-import UnAuthenticated from "../Global/Errors/UnAuthenticated/UnAuthenticated";
-import Accordion from "../Global/Accordion/Accordion";
+import Navbar from "../Global/Navbar";
+import UnAuthenticated from "../Global/UnAuthenticated";
+import Accordion from "../Global/Accordion";
 
 export default function Profile() {
     const { user, isAuthenticated, isLoading } = useAuth0();
+
+    const format = function (text) {
+        const fomatedText = text
+            .split("_")
+            .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
+            .join(" ");
+
+        return fomatedText;
+    };
+
+    const getFormatedUser = function () {
+        return Object.keys(user)
+            .map(function (item) {
+                if (["picture", "updated_at", "sub"].includes(item)) return;
+                if (typeof user[item] !== "string") return;
+
+                const formatedItem = format(item);
+                const returnValue = [formatedItem, user[item]];
+                return returnValue;
+            })
+            .filter((item) => item !== undefined);
+    };
 
     if (!isAuthenticated) return <UnAuthenticated />;
 
@@ -22,9 +44,9 @@ export default function Profile() {
                 <div className={`${styles.loading_text}`}>Loading...</div>
             ) : (
                 <section className={styles.container}>
-                    <h1 className={styles.heading}>
+                    <div className={styles.heading}>
                         <span>Profile</span>
-                    </h1>
+                    </div>
 
                     <div className={styles.profile_wrapper}>
                         <div className={styles.profile_head}>
@@ -36,49 +58,15 @@ export default function Profile() {
                             </h2>
                         </div>
                         <div className={styles.profile_body}>
-                            <Accordion
-                                type="dark"
-                                visibleText="Email"
-                                hiddenText={
-                                    user.email ? user.email : "Not Provided"
-                                }
-                            />
-
-                            <Accordion
-                                type="dark"
-                                visibleText="Username"
-                                hiddenText={
-                                    user.nickname
-                                        ? user.nickname
-                                        : "Not Provided"
-                                }
-                            />
-
-                            <Accordion
-                                type="dark"
-                                visibleText="Name"
-                                hiddenText={
-                                    user.given_name
-                                        ? user.given_name
-                                        : "Not Provided"
-                                }
-                            />
-
-                            <Accordion
-                                type="dark"
-                                visibleText="Full Name"
-                                hiddenText={
-                                    user.name ? user.name : "Not Provided"
-                                }
-                            />
-
-                            <Accordion
-                                type="dark"
-                                visibleText="Locale"
-                                hiddenText={
-                                    user.locale ? user.locale : "Not Provided"
-                                }
-                            />
+                            {user &&
+                                getFormatedUser().map((item, index) => (
+                                    <Accordion
+                                        key={index}
+                                        type="dark"
+                                        visibleText={item[0]}
+                                        hiddenText={item[1]}
+                                    />
+                                ))}
                         </div>
                     </div>
                 </section>

@@ -4,10 +4,10 @@ import { sendForm } from "@emailjs/browser";
 import { User, Mail, MessageCircle, Send } from "react-feather";
 
 // Assets
-import styles from "./contactUs.module.css";
+import styles from "./styles/contactUs.module.css";
 
 // Components
-import Navbar from "../Global/Navigation/Navbar/Navbar";
+import Navbar from "../Global/Navbar";
 
 export default function ContactUs() {
     const [name, setName] = useState("");

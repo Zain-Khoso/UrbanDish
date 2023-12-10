@@ -9,11 +9,11 @@ import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Recipes from "./components/Recipes/Recipes";
-import RecipyHome from "./components/Recipes/RecipyHome/RecipyHome";
-import RecipyDetail from "./components/Recipes/RecipyDetail/RecipyDetail";
+import RecipyHome from "./components/Recipes/RecipyHome";
+import RecipyDetail from "./components/Recipes/RecipyDetail";
 import BuyMeCoffee from "./components/BuyMeCoffee/BuyMeCoffee";
 import ContactUs from "./components/ContactUs/ContactUs";
-import NotFound from "./components/Global/Errors/NotFound/NotFound";
+import NotFound from "./components/Global/NotFound";
 
 // Router Setup.
 const router = createBrowserRouter([
