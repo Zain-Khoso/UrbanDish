@@ -8,15 +8,47 @@ import styles from "./styles/recipyDetail.module.css";
 
 // Components
 import Navbar from "../Global/Navbar";
+import BulletList from "./BulletList";
 
 export default function RecipyDetail() {
-    const [recipy, setRecipy] = useState({
-        dishTypes: [],
-        extendedIngredients: [],
-    });
+    const [recipy, setRecipy] = useState(undefined);
 
     const { recipyID } = useParams();
     const navigate = useNavigate();
+
+    const format = function (text) {
+        // Using a regular expression to insert a space before each capital letter.
+        const proccessedText = text.replace(/([a-z])([A-Z])/g, "$1 $2");
+
+        // Capitalizing the first letter.
+        return proccessedText.charAt(0).toUpperCase() + proccessedText.slice(1);
+    };
+
+    const getFormatedDetails = function () {
+        return Object.keys(recipy)
+            .map((item) => {
+                if (
+                    ![
+                        "readyInMinutes",
+                        "healthScore",
+                        "pricePerServing",
+                        "creditsText",
+                        "vegan",
+                    ].includes(item)
+                )
+                    return;
+                const formattedItem = format(item);
+                return [
+                    formattedItem,
+                    item !== "vegan"
+                        ? recipy[item]
+                        : recipy[item]
+                        ? "YES"
+                        : "NO",
+                ];
+            })
+            .filter((item) => item !== undefined);
+    };
 
     useEffect(() => {
         (async function () {
@@ -32,76 +64,48 @@ export default function RecipyDetail() {
         })();
     }, []);
 
+    // recipy && console.log(getFormatedDetails());
+
     return (
         <>
             <Navbar />
 
-            <main className={styles.container}>
-                <div className={styles.image_wrapper}>
-                    <img src={recipy.image} alt="An image of the dish" />
-                </div>
-                <h1 className={styles.title}>{recipy.title}</h1>
-                <h4 className={styles.minor_detail}>
-                    Ready In: <b>{recipy.readyInMinutes} Minuts </b>
-                </h4>
-                <h4 className={styles.minor_detail}>
-                    Health Score: <b>{recipy.healthScore}</b>
-                </h4>
-                <h4 className={`${styles.minor_detail} ${styles.price}`}>
-                    Price: <b>${recipy.pricePerServing}</b>
-                </h4>
-                <h4 className={styles.minor_detail}>
-                    First Cooked By: <b>{recipy.creditsText}</b>
-                </h4>
-                <h4 className={styles.minor_detail}>
-                    Vegan: <b>{recipy.vegan ? "YES" : "NO"}</b>
-                </h4>
-                <ul className={styles.list}>
-                    <li className={styles.subtitle}>Dish Types</li>
-                    {recipy["dishTypes"].map((item, index) => (
-                        <li key={index} className={styles.list_item}>
-                            &middot;{" "}
-                            {item
-                                .split(" ")
-                                .map(
-                                    (word) =>
-                                        word.charAt(0).toUpperCase() +
-                                        word.slice(1)
-                                )
-                                .join(" ")}
-                        </li>
-                    ))}
-                </ul>
-
-                <ul className={`${styles.list} ${styles.ingre_list}`}>
-                    <li className={styles.subtitle}>Ingredients</li>
-                    {recipy["extendedIngredients"].map((item, index) => (
-                        <li key={index} className={styles.list_item}>
-                            &middot;{" "}
-                            {item["original"]
-                                .split(" ")
-                                .map(
-                                    (word) =>
-                                        word.charAt(0).toUpperCase() +
-                                        word.slice(1)
-                                )
-                                .join(" ")}
-                        </li>
-                    ))}
-                </ul>
-
-                <h3 className={styles.subtitle}>Summary</h3>
-                <p
-                    className={styles.summary}
-                    dangerouslySetInnerHTML={{ __html: recipy.summary }}></p>
-
-                <button className={styles.go_back} onClick={() => navigate(-1)}>
-                    <div className={styles.svg_wrapper}>
-                        <ArrowLeft />
+            {recipy && (
+                <main className={styles.container}>
+                    <div className={styles.image_wrapper}>
+                        <img src={recipy.image} alt="An image of the dish" />
                     </div>
-                    <span className={styles.text}>Go Back</span>
-                </button>
-            </main>
+                    <h1 className={styles.title}>{recipy.title}</h1>
+                    {getFormatedDetails().map((item, index) => (
+                        <h4 key={index} className={styles.minor_detail}>
+                            {item[0]}: <b>{item[1]}</b>
+                        </h4>
+                    ))}
+
+                    <BulletList title="Dish Types" list={recipy["dishTypes"]} />
+
+                    <BulletList
+                        title="Ingredients"
+                        list={recipy["extendedIngredients"]}
+                    />
+
+                    <h3 className={styles.subtitle}>Summary</h3>
+                    <p
+                        className={styles.summary}
+                        dangerouslySetInnerHTML={{
+                            __html: recipy.summary,
+                        }}></p>
+
+                    <button
+                        className={styles.go_back}
+                        onClick={() => navigate(-1)}>
+                        <div className={styles.svg_wrapper}>
+                            <ArrowLeft />
+                        </div>
+                        <span className={styles.text}>Go Back</span>
+                    </button>
+                </main>
+            )}
         </>
     );
 }

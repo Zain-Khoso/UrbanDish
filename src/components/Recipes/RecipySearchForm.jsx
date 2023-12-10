@@ -22,14 +22,15 @@ export default function RecipySearchForm({ setRecipes }) {
             setRecipes(data["results"] || data);
         };
 
-        staticSearchQuery && dataFetcher();
+        staticSearchQuery.current && dataFetcher();
     }, [searchURL]);
 
     const runSearch = function (event) {
         event.preventDefault();
         searchInput.current.focus();
 
-        if (searchQuery === staticSearchQuery.current) return;
+        if (searchQuery === staticSearchQuery.current || searchQuery === "")
+            return;
 
         staticSearchQuery.current = searchQuery;
 

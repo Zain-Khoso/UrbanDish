@@ -23,6 +23,12 @@
     color: var(--color-primary);
 }
 
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--color-primary-darker);
+    margin-top: 2rem;
+}
+
 .minor_detail,
 .minor_detail > b {
     font-size: 1rem;
@@ -35,30 +41,6 @@
 
 .price > b {
     color: lightgreen;
-}
-
-.list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    width: 100%;
-}
-
-.ingre_list {
-    gap: 1rem;
-}
-
-.subtitle {
-    font-size: 1.5rem;
-    color: var(--color-primary-darker);
-    margin-top: 2rem;
-}
-
-.list_item {
-    font-size: 1rem;
-    text-align: left;
-    line-height: 1.5;
 }
 
 .summary {

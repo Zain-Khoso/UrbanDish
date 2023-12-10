@@ -8,7 +8,7 @@ import styles from "./styles/recipyHome.module.css";
 // Components
 import Header from "./Header";
 import RecipySearchForm from "./RecipySearchForm";
-import Dishes from "../Global/Dishes";
+import DishCard from "../Global/DishCard";
 import Button from "../Global/Button";
 
 export default function RecipyHome() {
@@ -38,7 +38,16 @@ export default function RecipyHome() {
             <main className={styles.section}>
                 <RecipySearchForm setRecipes={setRecipes} />
 
-                <Dishes random={false} data={recipes} />
+                <div className={styles.dishes}>
+                    {recipes.map((recipy) => (
+                        <DishCard
+                            key={recipy.id}
+                            id={recipy.id}
+                            img={recipy.image}
+                            title={recipy.title}
+                        />
+                    ))}
+                </div>
 
                 <Button
                     text="See More Dishes"
