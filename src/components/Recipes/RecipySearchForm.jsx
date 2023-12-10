@@ -3,10 +3,10 @@ import { useState, useRef, useEffect } from "react";
 import { Filter, Search } from "react-feather";
 
 // Assets
-import styles from "./recipySearchForm.module.css";
+import styles from "./styles/recipySearchForm.module.css";
 
 // Component
-import Button from "../../Global/Buttons/Button";
+import Button from "../Global/Button";
 
 export default function RecipySearchForm({ setRecipes }) {
     const [searchQuery, setSearchQuery] = useState("");

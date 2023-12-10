@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import { MoreVertical } from "react-feather";
 
 // Assets
-import styles from "./recipyHome.module.css";
+import styles from "./styles/recipyHome.module.css";
 
 // Components
-import Header from "../Header/Header";
-import RecipySearchForm from "../RecipySearchForm/RecipySearchForm";
-import Dishes from "../../Global/Dishes/Dishes";
-import Button from "../../Global/Buttons/Button";
+import Header from "./Header";
+import RecipySearchForm from "./RecipySearchForm";
+import Dishes from "../Global/Dishes";
+import Button from "../Global/Button";
 
 export default function RecipyHome() {
     const [rerenderSwitch, setRerenderSwitch] = useState(true);

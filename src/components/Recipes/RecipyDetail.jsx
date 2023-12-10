@@ -4,10 +4,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft } from "react-feather";
 
 // Assets
-import styles from "./recipyDetail.module.css";
+import styles from "./styles/recipyDetail.module.css";
 
 // Components
-import Navbar from "../../Global/Navigation/Navbar/Navbar";
+import Navbar from "../Global/Navbar";
 
 export default function RecipyDetail() {
     const [recipy, setRecipy] = useState({

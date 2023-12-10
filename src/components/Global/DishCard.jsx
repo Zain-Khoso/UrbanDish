@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import { Info } from "react-feather";
 
 // Assets
-import styles from "./dishCard.module.css";
+import styles from "./styles/dishCard.module.css";
 
 // Components
-import Button from "../Buttons/Button";
+import Button from "./Button";
 
 export default function DishCard({ id, img, title }) {
     return (

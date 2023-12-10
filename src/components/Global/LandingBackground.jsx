@@ -2,8 +2,8 @@
 import PropTypes from "prop-types";
 
 // Assets
-import styles from "./landingBackground.module.css";
-import default_bg_img from "../../../assets/hero.jpg";
+import styles from "./styles/landingBackground.module.css";
+import default_bg_img from "../../assets/hero.jpg";
 
 export default function LandingBackground({ bg_img }) {
     return (

@@ -1,10 +1,10 @@
 // Assets
-import styles from "./header.module.css";
+import styles from "./styles/header.module.css";
 
 // Components
-import Navbar from "../../Global/Navigation/Navbar/Navbar";
-import LandingBackground from "../../Global/LandingBackground/LandingBackground";
-import Hero from "../Hero/Hero";
+import Navbar from "../Global/Navbar";
+import LandingBackground from "../Global/LandingBackground";
+import Hero from "./Hero";
 
 export default function Header() {
     return (

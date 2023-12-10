@@ -3,7 +3,7 @@ import { useRef } from "react";
 import PropTypes from "prop-types";
 
 // Assets
-import styles from "./button.module.css";
+import styles from "./styles/button.module.css";
 
 export default function Button({
     type,

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "react-feather";
 
 // Assets.
-import styles from "./notFound.module.css";
+import styles from "./styles/notFound.module.css";
 
 export default function NotFound() {
     const navigate = useNavigate();

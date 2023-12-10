@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 // Assets
-import styles from "./dishes.module.css";
+import styles from "./styles/dishes.module.css";
 
 // Components
-import DishCard from "../DishCard/DishCard";
+import DishCard from "./DishCard";
 
 export default function Dishes({ random, needed, data }) {
     const [recipes, setRecipes] = useState([]);

@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { Coffee } from "react-feather";
 
 // Assets
-import styles from "./header.module.css";
+import styles from "./styles/header.module.css";
 
 // Components
-import LandingBackground from "../../Global/LandingBackground/LandingBackground";
-import Navbar from "../../Global/Navigation/Navbar/Navbar";
-import Button from "../../Global/Buttons/Button";
+import LandingBackground from "../Global/LandingBackground";
+import Navbar from "../Global/Navbar";
+import Button from "../Global/Button";
 
 export default function Header() {
     return (

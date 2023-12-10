@@ -1,5 +1,5 @@
 // Components
-import Header from "./Header/Header";
+import Header from "./Header";
 
 export default function Home() {
     return (

@@ -2,12 +2,12 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
 // Assets
-import styles from "./profile.module.css";
+import styles from "./styles/profile.module.css";
 
 // Components
-import Navbar from "../Global/Navigation/Navbar/Navbar";
-import UnAuthenticated from "../Global/Errors/UnAuthenticated/UnAuthenticated";
-import Accordion from "../Global/Accordion/Accordion";
+import Navbar from "../Global/Navbar";
+import UnAuthenticated from "../Global/UnAuthenticated";
+import Accordion from "../Global/Accordion";
 
 export default function Profile() {
     const { user, isAuthenticated, isLoading } = useAuth0();

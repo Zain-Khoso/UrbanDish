@@ -2,11 +2,11 @@
 import { ArrowDownCircle } from "react-feather";
 
 // Assets
-import styles from "./hero.module.css";
-import favicon from "../../../assets/favicon.png";
+import styles from "./styles/hero.module.css";
+import favicon from "../../assets/favicon.png";
 
 // Components
-import Button from "../../Global/Buttons/Button";
+import Button from "../Global/Button";
 
 export default function Hero() {
     return (

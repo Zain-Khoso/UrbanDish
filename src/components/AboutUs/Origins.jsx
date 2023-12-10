@@ -2,11 +2,11 @@
 import { useRef } from "react";
 
 // Assets
-import styles from "./origins.module.css";
-import originImg from "../../../assets/origin.jpg";
+import styles from "./styles/origins.module.css";
+import originImg from "../../assets/origin.jpg";
 
 // Components
-import Accordion from "../../Global/Accordion/Accordion";
+import Accordion from "../Global/Accordion";
 
 export default function Origins() {
     const originData = useRef([

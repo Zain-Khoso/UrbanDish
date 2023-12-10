@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 import { User } from "react-feather";
 
 // Assets
-import styles from "./hamburgerMenu.module.css";
+import styles from "./styles/hamburgerMenu.module.css";
 
 // Components
-import Button from "../../Buttons/Button";
+import Button from "./Button";
 
 export default function HamburgerMenu({ hamburgerVisible }) {
     const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();

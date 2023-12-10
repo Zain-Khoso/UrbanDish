@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { PhoneOutgoing } from "react-feather";
 
 // Assets
-import styles from "./header.module.css";
+import styles from "./styles/header.module.css";
 
 // Components
-import Navbar from "../../Global/Navigation/Navbar/Navbar";
-import LandingBackground from "../../Global/LandingBackground/LandingBackground";
-import Button from "../../Global/Buttons/Button";
+import Navbar from "../Global/Navbar";
+import LandingBackground from "../Global/LandingBackground";
+import Button from "../Global/Button";
 
 export default function Header() {
     return (

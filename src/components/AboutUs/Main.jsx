@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { Compass } from "react-feather";
 
 // Assets
-import styles from "./main.module.css";
+import styles from "./styles/main.module.css";
 
 // Components
-import Dishes from "../../Global/Dishes/Dishes";
-import Origins from "../Origins/Origins";
-import Button from "../../Global/Buttons/Button";
+import Dishes from "../Global/Dishes";
+import Origins from "./Origins";
+import Button from "../Global/Button";
 
 export default function Main() {
     return (

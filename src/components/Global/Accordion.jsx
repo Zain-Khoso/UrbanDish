@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { ChevronDown } from "react-feather";
 
 // Assets
-import styles from "./accordion.module.css";
+import styles from "./styles/accordion.module.css";
 
 export default function Accordion({ type, open, visibleText, hiddenText }) {
     const [active, setActive] = useState(open);
