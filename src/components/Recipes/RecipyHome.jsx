@@ -1,5 +1,5 @@
 // Utils
-import { useState, useEffect } from "react";
+import { useSpoonacular } from "../../hooks/useSpoonacular";
 import { MoreVertical } from "react-feather";
 
 // Assets
@@ -12,34 +12,33 @@ import DishCard from "../Global/DishCard";
 import Button from "../Global/Button";
 
 export default function RecipyHome() {
-    const [rerenderSwitch, setRerenderSwitch] = useState(true);
-    const [recipes, setRecipes] = useState([]);
+    const {
+        data: recipes,
+        error,
+        isLoading,
+        addMoreData: addMoreRecipes,
+        fetchNewData: searchRecipes,
+    } = useSpoonacular(
+        (import.meta.env.VITE_PRODUCTION === "true" ? true : false)
+            ? `https://api.spoonacular.com/recipes/complexSearch?sort=random&number=10&apiKey=${
+                  import.meta.env.VITE_SPOONACULAR_API_KEY
+              }`
+            : "http://localhost:3000/recipes"
+    );
 
-    useEffect(() => {
-        (async function () {
-            const response = await fetch(
-                (import.meta.env.VITE_PRODUCTION === "true" ? true : false)
-                    ? `https://api.spoonacular.com/recipes/complexSearch?sort=random&number=10&apiKey=${
-                          import.meta.env.VITE_SPOONACULAR_API_KEY
-                      }`
-                    : "http://localhost:3000/recipes"
-            );
+    if (isLoading) return <h2 style={{ color: "green" }}>Loading...</h2>;
 
-            const data = await response.json();
-
-            setRecipes(recipes.concat(data["results"] || data));
-        })();
-    }, [rerenderSwitch]);
+    if (error) return <h2 style={{ color: "red" }}>Error</h2>;
 
     return (
         <>
             <Header />
 
             <main className={styles.section}>
-                <RecipySearchForm setRecipes={setRecipes} />
+                <RecipySearchForm searchRecipes={searchRecipes} />
 
                 <div className={styles.dishes}>
-                    {recipes.map((recipy) => (
+                    {recipes?.map((recipy) => (
                         <DishCard
                             key={recipy.id}
                             id={recipy.id}
@@ -52,7 +51,7 @@ export default function RecipyHome() {
                 <Button
                     text="See More Dishes"
                     svg={<MoreVertical />}
-                    onClick={() => setRerenderSwitch(!rerenderSwitch)}
+                    onClick={addMoreRecipes}
                 />
             </main>
         </>
