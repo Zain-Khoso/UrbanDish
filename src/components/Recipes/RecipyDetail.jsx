@@ -1,6 +1,6 @@
 // Utils
-import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSpoonacular } from "../../hooks/useSpoonacular";
 import { ArrowLeft } from "react-feather";
 
 // Assets
@@ -11,8 +11,6 @@ import Navbar from "../Global/Navbar";
 import BulletList from "./BulletList";
 
 export default function RecipyDetail() {
-    const [recipy, setRecipy] = useState(undefined);
-
     const { recipyID } = useParams();
     const navigate = useNavigate();
 
@@ -50,21 +48,21 @@ export default function RecipyDetail() {
             .filter((item) => item !== undefined);
     };
 
-    useEffect(() => {
-        (async function () {
-            const response = await fetch(
-                (import.meta.env.VITE_PRODUCTION === "true" ? true : false)
-                    ? `https://api.spoonacular.com/recipes/${recipyID}/information?includeNutrition=false&apiKey=${
-                          import.meta.env.VITE_SPOONACULAR_API_KEY
-                      }`
-                    : `http://localhost:3000/recipes/${recipyID}`
-            );
+    const {
+        data: recipy,
+        error,
+        isLoading,
+    } = useSpoonacular(
+        (import.meta.env.VITE_PRODUCTION === "true" ? true : false)
+            ? `https://api.spoonacular.com/recipes/${recipyID}/information?includeNutrition=false&apiKey=${
+                  import.meta.env.VITE_SPOONACULAR_API_KEY
+              }`
+            : `http://localhost:3000/recipes/${recipyID}`
+    );
 
-            setRecipy(await response.json());
-        })();
-    }, []);
+    if (isLoading) return <h2 style={{ color: "green" }}>Loading...</h2>;
 
-    // recipy && console.log(getFormatedDetails());
+    if (error) return <h2 style={{ color: "red" }}>Error</h2>;
 
     return (
         <>

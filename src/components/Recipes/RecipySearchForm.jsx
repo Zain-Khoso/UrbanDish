@@ -8,22 +8,11 @@ import styles from "./styles/recipySearchForm.module.css";
 // Component
 import Button from "../Global/Button";
 
-export default function RecipySearchForm({ setRecipes }) {
+export default function RecipySearchForm({ searchRecipes }) {
     const [searchQuery, setSearchQuery] = useState("");
-    const [searchURL, setSearchURL] = useState("");
 
     const staticSearchQuery = useRef(null);
     const searchInput = useRef(null);
-
-    useEffect(() => {
-        const dataFetcher = async function () {
-            const response = await fetch(searchURL);
-            const data = await response.json();
-            setRecipes(data["results"] || data);
-        };
-
-        staticSearchQuery.current && dataFetcher();
-    }, [searchURL]);
 
     const runSearch = function (event) {
         event.preventDefault();
@@ -34,7 +23,7 @@ export default function RecipySearchForm({ setRecipes }) {
 
         staticSearchQuery.current = searchQuery;
 
-        setSearchURL(
+        searchRecipes(
             (import.meta.env.VITE_PRODUCTION === "true" ? true : false)
                 ? `https://api.spoonacular.com/recipes/complexSearch?query=${searchQuery}&number=5&apiKey=${
                       import.meta.env.VITE_SPOONACULAR_API_KEY
