@@ -1,14 +1,17 @@
 // Utils
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useContext } from "react";
 import { Filter, Search } from "react-feather";
 
 // Assets
 import styles from "./styles/recipySearchForm.module.css";
 
-// Component
+// Contexts & Components
+import { RecipesContext } from "../../Contexts";
 import Button from "../Global/Button";
 
-export default function RecipySearchForm({ searchRecipes }) {
+export default function RecipySearchForm() {
+    const searchRecipes = useContext(RecipesContext);
+
     const [searchQuery, setSearchQuery] = useState("");
 
     const staticSearchQuery = useRef(null);

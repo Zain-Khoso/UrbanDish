@@ -5,7 +5,8 @@ import { MoreVertical } from "react-feather";
 // Assets
 import styles from "./styles/recipyHome.module.css";
 
-// Components
+// Contexts & Components
+import { RecipesContext } from "../../Contexts";
 import Header from "./Header";
 import RecipySearchForm from "./RecipySearchForm";
 import DishCard from "../Global/DishCard";
@@ -31,11 +32,11 @@ export default function RecipyHome() {
     if (error) return <h2 style={{ color: "red" }}>Error</h2>;
 
     return (
-        <>
+        <RecipesContext.Provider value={searchRecipes}>
             <Header />
 
             <main className={styles.section}>
-                <RecipySearchForm searchRecipes={searchRecipes} />
+                <RecipySearchForm />
 
                 <div className={styles.dishes}>
                     {recipes?.map((recipy) => (
@@ -54,6 +55,6 @@ export default function RecipyHome() {
                     onClick={addMoreRecipes}
                 />
             </main>
-        </>
+        </RecipesContext.Provider>
     );
 }
