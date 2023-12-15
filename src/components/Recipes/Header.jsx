@@ -6,15 +6,12 @@ import { Coffee } from "react-feather";
 import styles from "./styles/header.module.css";
 
 // Components
-import LandingBackground from "../Global/LandingBackground";
 import Navbar from "../Global/Navbar";
 import Button from "../Global/Button";
 
 export default function Header() {
     return (
         <header className={styles.header}>
-            <LandingBackground />
-
             <Navbar />
 
             <section className={styles.hero}>

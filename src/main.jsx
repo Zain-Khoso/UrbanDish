@@ -1,63 +1,11 @@
 // Utils
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react";
-
-// Components
-import Home from "./components/Home/Home";
-import Profile from "./components/Profile/Profile";
-import AboutUs from "./components/AboutUs/AboutUs";
-import Recipes from "./components/Recipes/Recipes";
-import RecipyHome from "./components/Recipes/RecipyHome";
-import RecipyDetail from "./components/Recipes/RecipyDetail";
-import BuyMeCoffee from "./components/BuyMeCoffee/BuyMeCoffee";
-import ContactUs from "./components/ContactUs/ContactUs";
-import NotFound from "./components/Global/NotFound";
-
-// Router Setup.
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Home />,
-        errorElement: <NotFound />,
-    },
-    {
-        path: "/profile",
-        element: <Profile />,
-        errorElement: <NotFound />,
-    },
-    {
-        path: "/about-us",
-        element: <AboutUs />,
-        errorElement: <NotFound />,
-    },
-    {
-        path: "/recipes",
-        element: <Recipes />,
-        errorElement: <NotFound />,
-        children: [
-            {
-                path: "",
-                element: <RecipyHome />,
-            },
-            {
-                path: ":recipyID",
-                element: <RecipyDetail />,
-            },
-        ],
-    },
-    {
-        path: "/buy-me-coffee",
-        element: <BuyMeCoffee />,
-        errorElement: <NotFound />,
-    },
-    {
-        path: "/contact-us",
-        element: <ContactUs />,
-        errorElement: <NotFound />,
-    },
-]);
+import router from "./Router";
+import { ThemeProvider } from "styled-components";
+import StyledGlobal, { theme } from "./Global.styled";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
@@ -67,7 +15,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             authorizationParams={{
                 redirect_uri: window.location.origin,
             }}>
-            <RouterProvider router={router} />
+            <ThemeProvider theme={theme}>
+                <StyledGlobal />
+                <RouterProvider router={router} />
+            </ThemeProvider>
         </Auth0Provider>
     </React.StrictMode>
 );
