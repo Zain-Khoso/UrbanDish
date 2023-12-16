@@ -2,9 +2,9 @@
 import { useRef } from "react";
 
 // Assets
-import Testimonial1 from "../../../assets/testimonial1.jpg";
-import Testimonial2 from "../../../assets/testimonial2.jpg";
-import Testimonial3 from "../../../assets/testimonial3.jpg";
+import Testimonial1 from "../../../assets/Testimonial1.jpg";
+import Testimonial2 from "../../../assets/Testimonial2.jpg";
+import Testimonial3 from "../../../assets/Testimonial3.jpg";
 
 // Components
 import { TestimonialWrapper, Testimonial } from "./testimonials.styled";
