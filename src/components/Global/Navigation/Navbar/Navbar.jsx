@@ -1,26 +1,37 @@
 // Utils
-// import { useState } from "react";
+import { useState } from "react";
 
 // Assets
 import logo from "../../../../assets/favicon.png";
 
-// Components
+// Contexts & Components
 import { Wrapper, StyledNavbar, StyledLink } from "./navbar.styled";
-import { StyledHambugerButton } from "../HamburgerButton/hamburgerButton.styled";
-// import HamburgerMenu from "./HamburgerMenu";
+import HamburgerButton from "../HamburgerButton/HamburgerButton";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import { DisplayBlanket } from "../../DisplayBlanket/displayBlanket.styled";
 
 export default function Navbar() {
-    // const [hamburgerVisible, setHamburgerVisible] = useState(false);
+    const [hamburgerVisible, setHamburgerVisible] = useState(false);
 
     return (
-        <Wrapper>
-            <StyledNavbar>
-                <StyledLink to="/">
-                    <img src={logo} alt="Brand Logo" />
-                </StyledLink>
+        <>
+            <Wrapper>
+                <StyledNavbar>
+                    <StyledLink to="/">
+                        <img src={logo} alt="Brand Logo" />
+                    </StyledLink>
 
-                <StyledHambugerButton />
-            </StyledNavbar>
-        </Wrapper>
+                    <HamburgerButton
+                        hamburgerVisible={hamburgerVisible}
+                        handleClick={setHamburgerVisible}
+                    />
+                </StyledNavbar>
+                <HamburgerMenu hamburgerVisible={hamburgerVisible} />
+            </Wrapper>
+
+            {hamburgerVisible && (
+                <DisplayBlanket onClick={() => setHamburgerVisible(false)} />
+            )}
+        </>
     );
 }

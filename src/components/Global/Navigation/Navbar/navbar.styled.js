@@ -11,7 +11,8 @@ export const Wrapper = styled("div")`
 
     width: 100%;
     height: ${({ theme }) => theme.Heights.navbarHeight};
-    z-index: 5;
+    z-index: 11;
+    overflow: visible;
 `;
 
 export const StyledNavbar = styled("nav")`
@@ -27,7 +28,7 @@ export const StyledNavbar = styled("nav")`
     backdrop-filter: blur(5px);
     padding: 0 1rem;
     border-bottom: 2px solid ${({ theme }) => theme.Colors.primary};
-    z-index: 6;
+    z-index: 13;
 `;
 
 export const StyledLink = styled(Link)`

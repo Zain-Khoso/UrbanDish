@@ -1,9 +1,14 @@
-export default function HamburgerButton({ className }) {
+// Components
+import { Wrapper, Line } from "./hamburgerButton.styled";
+
+export default function HamburgerButton({ hamburgerVisible, handleClick }) {
     return (
-        <button className={className}>
-            <span className="line"></span>
-            <span className="line"></span>
-            <span className="line"></span>
-        </button>
+        <Wrapper
+            $hamburgerVisible={hamburgerVisible}
+            onClick={() => handleClick(!hamburgerVisible)}>
+            <Line $hamburgerVisible={hamburgerVisible} />
+            <Line $hamburgerVisible={hamburgerVisible} />
+            <Line $hamburgerVisible={hamburgerVisible} />
+        </Wrapper>
     );
 }
