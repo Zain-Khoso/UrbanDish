@@ -11,10 +11,12 @@ import { PageLoader } from "./components/Global/Loaders.styled";
 // import RecipyDetail from "./components/Recipes/RecipyDetail";
 // import BuyMeCoffee from "./components/BuyMeCoffee/BuyMeCoffee";
 // import ContactUs from "./components/ContactUs/ContactUs";
-import NotFound from "./components/Global/NotFound";
 
 // Lazy Loaders
 const LazyHome = lazy(() => import("./components/Home/Home"));
+const LazyError = lazy(() =>
+    import("./components/Global/Errors/NotFound/NotFound")
+);
 
 // Router Setup.
 export default createBrowserRouter([
@@ -25,7 +27,11 @@ export default createBrowserRouter([
                 <LazyHome />
             </Suspense>
         ),
-        errorElement: <NotFound />,
+        errorElement: (
+            <Suspense fallback={<PageLoader />}>
+                <LazyError />
+            </Suspense>
+        ),
     },
     // {
     //     path: "/profile",
