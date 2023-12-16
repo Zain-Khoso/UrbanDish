@@ -74,7 +74,8 @@ export const theme = {
         lightOpacity: "rgba(255, 255, 255, 0.6)",
         green: "green",
         orange: "orange",
-        red: "red",
+        red: "rgb(255, 0, 0)",
+        redOpacity: "rgba(255, 0, 0, 0.6)",
     },
 
     Fonts: {

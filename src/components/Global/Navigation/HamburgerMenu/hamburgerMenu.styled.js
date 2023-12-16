@@ -31,6 +31,7 @@ export const Head = styled("div")`
 
     width: 100%;
     height: auto;
+    overflow: visible;
 `;
 
 export const ThemeToggleWrapper = styled("div")`

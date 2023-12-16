@@ -11,6 +11,7 @@ const Button = styled("button")`
     min-width: 3rem;
     min-height: 1rem;
     padding: 0.5rem 1.5rem;
+    border: 1px solid transparent;
     border-radius: 0.5rem;
 
     & span {
@@ -36,5 +37,21 @@ export const StyledButtonPrimary = styled(Button)`
 
     &:focus {
         box-shadow: 0 0 0.3rem ${({ theme }) => theme.Colors.primaryOpacity};
+    }
+`;
+
+export const StyledButtonRedOutline = styled(Button)`
+    border-color: ${({ theme }) => theme.Colors.red};
+
+    & span {
+        color: ${({ theme }) => theme.Colors.red};
+    }
+
+    & .svg-wrapper svg {
+        stroke: ${({ theme }) => theme.Colors.red};
+    }
+
+    &:focus {
+        box-shadow: 0 0 0.3rem ${({ theme }) => theme.Colors.red};
     }
 `;

@@ -13,10 +13,10 @@ import {
     NavItem,
     StyledLink,
 } from "./hamburgerMenu.styled";
-import { ButtonPrimary } from "../../Button/Button";
+import { ButtonPrimary, ButtonRedOutline } from "../../Button/Button";
 
 export default function HamburgerMenu({ hamburgerVisible }) {
-    const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+    const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
 
     // Logout function.
     const handleLogout = () =>
@@ -31,7 +31,19 @@ export default function HamburgerMenu({ hamburgerVisible }) {
                     </ThemeToggleButton>
                 </ThemeToggleWrapper>
 
-                <ButtonPrimary text="Sign In" svg={<User />} />
+                {isAuthenticated ? (
+                    <ButtonRedOutline
+                        text="Sign Out"
+                        svg={<User />}
+                        handleClick={handleLogout}
+                    />
+                ) : (
+                    <ButtonPrimary
+                        text="Sign In"
+                        svg={<User />}
+                        handleClick={loginWithRedirect}
+                    />
+                )}
             </Head>
             <Navigation>
                 <NavItem>
