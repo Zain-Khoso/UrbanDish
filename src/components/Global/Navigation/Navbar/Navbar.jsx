@@ -2,7 +2,7 @@
 // import { useState } from "react";
 
 // Assets
-import logo from "../../../../assets/Favicon.png";
+import logo from "../../../../assets/favicon.png";
 
 // Components
 import { Wrapper, StyledNavbar, StyledLink } from "./navbar.styled";

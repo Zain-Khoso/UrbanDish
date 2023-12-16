@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Compass } from "react-feather";
 
 // Assets
-import logo from "../../../assets/Favicon.png";
+import logo from "../../../assets/favicon.png";
 
 // Components
 import Navbar from "../../Global/Navigation/Navbar/Navbar";
