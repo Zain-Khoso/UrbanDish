@@ -1,18 +1,17 @@
 // Utils
 import { useAuth0 } from "@auth0/auth0-react";
 import PropTypes from "prop-types";
-import { User, Sunrise } from "react-feather";
+import { User } from "react-feather";
 
 // Components
 import {
     Wrapper,
     Head,
-    ThemeToggleWrapper,
-    ThemeToggleButton,
     Navigation,
     NavItem,
     StyledLink,
 } from "./hamburgerMenu.styled";
+import ThemeToggleButton from "../../ThemeToggleButton/ThemeToggleButton";
 import { ButtonPrimary, ButtonRedOutline } from "../../Button/Button";
 
 export default function HamburgerMenu({ hamburgerVisible }) {
@@ -25,11 +24,7 @@ export default function HamburgerMenu({ hamburgerVisible }) {
     return (
         <Wrapper $hamburgerVisible={hamburgerVisible}>
             <Head>
-                <ThemeToggleWrapper>
-                    <ThemeToggleButton>
-                        <Sunrise />
-                    </ThemeToggleButton>
-                </ThemeToggleWrapper>
+                <ThemeToggleButton />
 
                 {isAuthenticated ? (
                     <ButtonRedOutline

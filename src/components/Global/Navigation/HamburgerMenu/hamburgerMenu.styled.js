@@ -34,29 +34,6 @@ export const Head = styled("div")`
     overflow: visible;
 `;
 
-export const ThemeToggleWrapper = styled("div")`
-    display: flex;
-    align-items: center;
-    justify-content: left;
-
-    width: 6rem;
-    background-color: ${({ theme }) => theme.Colors.darkOpacity};
-    padding: 0.5rem;
-    border-radius: 1rem;
-`;
-
-export const ThemeToggleButton = styled("button")`
-    width: 1.8rem;
-    aspect-ratio: 1/1;
-    background-color: ${({ theme }) => theme.Colors.lightOpacity};
-    border-radius: 50%;
-
-    & svg {
-        scale: 70%;
-        stroke: ${({ theme }) => theme.Colors.dark};
-    }
-`;
-
 export const Navigation = styled("ul")`
     display: flex;
     flex-direction: column;
