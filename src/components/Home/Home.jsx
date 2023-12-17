@@ -7,7 +7,7 @@ import { StyledMain } from "./Main/main.styled";
 import Footer from "../Global/Footer/Footer";
 
 export default function Home() {
-    useDocTitle("Home");
+    useDocTitle("Home | Belly Brains");
 
     return (
         <>

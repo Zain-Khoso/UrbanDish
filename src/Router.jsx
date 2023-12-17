@@ -4,7 +4,6 @@ import { createBrowserRouter } from "react-router-dom";
 
 // Components
 import { PageLoader } from "./components/Global/Loaders.styled";
-// import Profile from "./components/Profile/Profile";
 // import AboutUs from "./components/AboutUs/AboutUs";
 // import Recipes from "./components/Recipes/Recipes";
 // import RecipyHome from "./components/Recipes/RecipyHome";
@@ -17,6 +16,7 @@ const LazyHome = lazy(() => import("./components/Home/Home"));
 const LazyError = lazy(() =>
     import("./components/Global/Errors/NotFound/NotFound")
 );
+// const LazyProfile = lazy(() => import("./components/Profile/Profile"));
 
 // Router Setup.
 export default createBrowserRouter([
@@ -35,8 +35,16 @@ export default createBrowserRouter([
     },
     // {
     //     path: "/profile",
-    //     element: <Profile />,
-    //     errorElement: <NotFound />,
+    //     element: (
+    //         <Suspense fallback={<PageLoader />}>
+    //             <LazyProfile />
+    //         </Suspense>
+    //     ),
+    //     errorElement: (
+    //         <Suspense fallback={<PageLoader />}>
+    //             <LazyError />
+    //         </Suspense>
+    //     ),
     // },
     // {
     //     path: "/about-us",
