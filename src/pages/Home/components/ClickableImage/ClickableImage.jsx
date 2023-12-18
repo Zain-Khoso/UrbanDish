@@ -4,8 +4,9 @@ import { useState } from "react";
 // Components
 import { PersonImgWrapper } from "./clickableImage.styled";
 import { DisplayBlanket } from "../../../../components/DisplayBlanket/displayBlanket.styled";
+import LazyImage from "../../../../components/LazyImage/LazyImage";
 
-export default function ClickableImage({ id, image }) {
+export default function ClickableImage({ id, image, placeholder }) {
     const [inlarge, setInLarge] = useState(false);
 
     return (
@@ -14,7 +15,11 @@ export default function ClickableImage({ id, image }) {
             <PersonImgWrapper
                 $inlarge={inlarge}
                 onClick={() => setInLarge(!inlarge)}>
-                <img src={image} alt={`Testimonial ${id}`} />
+                <LazyImage
+                    alt={`Testimonial ${id}`}
+                    src={image}
+                    placeholderSrc={placeholder}
+                />
             </PersonImgWrapper>
         </>
     );

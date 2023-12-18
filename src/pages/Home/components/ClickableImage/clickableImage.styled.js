@@ -12,9 +12,4 @@ export const PersonImgWrapper = styled("div")`
     border-radius: 50%;
     translate: -50% -50%;
     z-index: ${({ $inlarge }) => $inlarge && 10};
-
-    & img {
-        width: auto;
-        height: 100%;
-    }
 `;
