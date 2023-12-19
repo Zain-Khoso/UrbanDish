@@ -1,4 +1,5 @@
 // Utils
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, X, Compass } from "react-feather";
 
@@ -7,47 +8,24 @@ import {
     StyledMain,
     Section,
     SectionTitle,
-    SocialsWrapper,
-    SVGLink,
     CTA,
     TextPrimary,
 } from "./main.styled";
+import SocialBar from "../../../../components/SocialsBar/SocialBar";
 import Services from "../Services/Services";
 import Testimonials from "../Testimonials/Testimonials";
 import { ButtonPrimary } from "../../../../components/Button/Button";
 
 export default function Main() {
+    const SocialData = useRef([
+        { link: "https://facebook.com/ZAIN1KHOSO", svg: <Facebook /> },
+        { link: "https://instagram.com/sphere_of_zain/", svg: <Instagram /> },
+        { link: "https://linkedin.com/in/zain-khoso", svg: <Linkedin /> },
+        { link: "https://twitter.com/SphereOfZain", svg: <X /> },
+    ]);
     return (
         <StyledMain>
-            <Section>
-                <SectionTitle>you can find us on.</SectionTitle>
-
-                <SocialsWrapper>
-                    <SVGLink
-                        to="https://facebook.com/ZAIN1KHOSO"
-                        target="_black">
-                        <Facebook />
-                    </SVGLink>
-
-                    <SVGLink
-                        to="https://instagram.com/sphere_of_zain/"
-                        target="_black">
-                        <Instagram />
-                    </SVGLink>
-
-                    <SVGLink
-                        to="https://linkedin.com/in/zain-khoso"
-                        target="_black">
-                        <Linkedin />
-                    </SVGLink>
-
-                    <SVGLink
-                        to="https://twitter.com/SphereOfZain"
-                        target="_black">
-                        <X />
-                    </SVGLink>
-                </SocialsWrapper>
-            </Section>
+            <SocialBar title="you can find us on" links={SocialData.current} />
 
             <Section>
                 <SectionTitle>why choose us.</SectionTitle>

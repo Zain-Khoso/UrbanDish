@@ -1,7 +1,8 @@
 // Utils
 import { useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 
-export default function LazyImage({ alt, placeholderSrc, src }) {
+export default function LazyImage({ alt, placeholderSrc, src, sizePriority }) {
     const isMounted = useRef(true);
     const imageElem = useRef(null);
 
@@ -43,9 +44,22 @@ export default function LazyImage({ alt, placeholderSrc, src }) {
     return (
         <img
             ref={imageElem}
-            style={{ width: "auto", height: "100%", filter: "blur(5px)" }}
+            style={{
+                width: `${sizePriority === "w" ? "100%" : "auto"}`,
+                height: `${sizePriority === "h" ? "100%" : "auto"}`,
+                filter: "blur(5px)",
+            }}
             alt={alt}
             src={placeholderSrc}
         />
     );
 }
+
+LazyImage.defaultProps = { sizePriority: "w" };
+
+LazyImage.propTypes = {
+    alt: PropTypes.string,
+    placeholderSrc: PropTypes.any,
+    src: PropTypes.any,
+    sizePriority: PropTypes.string,
+};
