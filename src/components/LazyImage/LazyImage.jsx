@@ -1,12 +1,12 @@
 // Utils
-import { useRef, useEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 
 export default function LazyImage({ alt, placeholderSrc, src, sizePriority }) {
     const isMounted = useRef(true);
     const imageElem = useRef(null);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!isMounted.current) return;
 
         const observerOptions = {
