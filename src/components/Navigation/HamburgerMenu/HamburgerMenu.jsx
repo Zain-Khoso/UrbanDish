@@ -42,7 +42,7 @@ export default function HamburgerMenu({ hamburgerVisible }) {
             </Head>
             <Navigation>
                 <NavItem>
-                    <StyledLink to="/">Prolife</StyledLink>
+                    <StyledLink to="/profile">Prolife</StyledLink>
                 </NavItem>
                 <NavItem>
                     <StyledLink to="/about-us">About Us</StyledLink>

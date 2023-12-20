@@ -6,7 +6,7 @@ import Navbar from "../../components/Navigation/Navbar/Navbar";
 import Main from "./components/Main/Main";
 
 export default function ContactUs() {
-    useDocTitle("Contact Us | Belly Brains");
+    useDocTitle("Contact Us");
 
     return (
         <>

@@ -5,7 +5,7 @@ export default function useDocTitle(title) {
     const isMounted = useRef(true);
 
     useEffect(() => {
-        if (isMounted.current) document.title = title;
+        if (isMounted.current) document.title = `${title} | Belly Brains`;
 
         const cleanUp = () => (isMounted.current = false);
 
