@@ -53,6 +53,7 @@ export default function Services() {
                             alt={`Service ${item.id}`}
                             placeholderSrc={item.placeholder}
                             src={item.image}
+                            sizePriority="h"
                         />
                     </ServiceImgWrapper>
                     <ServiceText>{item.text}</ServiceText>

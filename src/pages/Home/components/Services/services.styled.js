@@ -7,7 +7,7 @@ export const ServiceCard = styled("div")`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 
     width: 80%;
     max-width: 300px;
