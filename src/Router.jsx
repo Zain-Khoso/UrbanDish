@@ -7,6 +7,7 @@ import { Spinner } from "./components/Loaders/spinner.styled";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs"));
+const ContactUs = lazy(() => import("./pages/ContactUs/ContactUs"));
 const NotFound = lazy(() => import("./components/Errors/NotFound/NotFound"));
 
 // Router Setup.
@@ -29,6 +30,19 @@ export default createBrowserRouter([
         element: (
             <Suspense fallback={<Spinner />}>
                 <AboutUs />
+            </Suspense>
+        ),
+        errorElement: (
+            <Suspense fallback={<Spinner />}>
+                <NotFound />
+            </Suspense>
+        ),
+    },
+    {
+        path: "/contact-us",
+        element: (
+            <Suspense fallback={<Spinner />}>
+                <ContactUs />
             </Suspense>
         ),
         errorElement: (
