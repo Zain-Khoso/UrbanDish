@@ -7,8 +7,8 @@ import { StyledButtonPrimary, StyledButtonRedOutline } from "./button.styled";
 export function ButtonPrimary({ text, svg, handleClick }) {
     return (
         <StyledButtonPrimary onClick={handleClick}>
-            <span>{text}</span>
-            <div className="svg-wrapper">{svg}</div>
+            {text && <span>{text}</span>}
+            {svg && <div className="svg-wrapper">{svg}</div>}
         </StyledButtonPrimary>
     );
 }
@@ -28,8 +28,8 @@ ButtonPrimary.propTypes = {
 export function ButtonRedOutline({ text, svg, handleClick }) {
     return (
         <StyledButtonRedOutline onClick={handleClick}>
-            <span>{text}</span>
-            <div className="svg-wrapper">{svg}</div>
+            {text && <span>{text}</span>}
+            {svg && <div className="svg-wrapper">{svg}</div>}
         </StyledButtonRedOutline>
     );
 }

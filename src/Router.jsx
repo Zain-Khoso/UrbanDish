@@ -7,6 +7,7 @@ import { Spinner } from "./components/Loaders/spinner.styled";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs"));
+const Menu = lazy(() => import("./pages/Menu/Menu"));
 const ContactUs = lazy(() => import("./pages/ContactUs/ContactUs"));
 const NotFound = lazy(() => import("./components/Errors/NotFound/NotFound"));
 
@@ -30,6 +31,19 @@ export default createBrowserRouter([
         element: (
             <Suspense fallback={<Spinner />}>
                 <AboutUs />
+            </Suspense>
+        ),
+        errorElement: (
+            <Suspense fallback={<Spinner />}>
+                <NotFound />
+            </Suspense>
+        ),
+    },
+    {
+        path: "/menu",
+        element: (
+            <Suspense fallback={<Spinner />}>
+                <Menu />
             </Suspense>
         ),
         errorElement: (
