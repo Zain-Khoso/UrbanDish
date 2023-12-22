@@ -1,5 +1,7 @@
 // Utils
-import { useSpoonacular } from "../../hooks/useSpoonacular";
+import { useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMenu, selectMenu, setIsLoading } from "../../contexts/slice";
 import { ShoppingCart } from "react-feather";
 
 // Components
@@ -15,17 +17,21 @@ import {
 } from "./main.styled";
 
 export default function Main() {
-    const {
-        isLoading,
-        error,
-        data: dishes,
-    } = useSpoonacular(
-        (import.meta.env.VITE_PRODUCTION === "true" ? true : false)
-            ? `https://api.spoonacular.com/recipes/random?number=20&apiKey=${
-                  import.meta.env.VITE_SPOONACULAR_API_KEY
-              }`
-            : "http://localhost:3000/recipes"
-    );
+    const isMounted = useRef(true);
+
+    const dispatch = useDispatch();
+    const { isLoading, error, dishes } = useSelector(selectMenu);
+
+    useEffect(() => {
+        const fetchData = function () {
+            dispatch(setIsLoading());
+            dispatch(fetchMenu());
+        };
+
+        isMounted.current && fetchData();
+
+        return () => (isMounted.current = false);
+    }, []);
 
     if (isLoading) return <h2 style={{ color: "green" }}>Loading...</h2>;
 

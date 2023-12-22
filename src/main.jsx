@@ -2,6 +2,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./contexts/store";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { ThemeProvider } from "styled-components";
 import { darkTheme } from "./contexts/themes.styled";
@@ -18,7 +20,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             }}>
             <ThemeProvider theme={darkTheme}>
                 <DefaultStyles />
-                <RouterProvider router={router} />
+                <Provider store={store}>
+                    <RouterProvider router={router} />
+                </Provider>
             </ThemeProvider>
         </Auth0Provider>
     </React.StrictMode>

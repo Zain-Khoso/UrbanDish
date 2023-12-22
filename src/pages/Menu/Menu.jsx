@@ -7,6 +7,7 @@ import Main from "./components/Main/Main";
 
 export default function Menu() {
     useDocTitle("Menu");
+
     return (
         <>
             <Header />
