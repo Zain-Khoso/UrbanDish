@@ -28,7 +28,7 @@ export const StyledNavbar = styled("nav")`
     backdrop-filter: blur(5px);
     padding: 0 1rem;
     border-bottom: 2px solid ${({ theme }) => theme.Colors.primary};
-    z-index: 13;
+    z-index: ${({ $hamburgerVisible }) => ($hamburgerVisible ? 13 : 1)};
 `;
 
 export const StyledLink = styled(Link)`

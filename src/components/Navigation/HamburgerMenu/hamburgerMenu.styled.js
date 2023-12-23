@@ -20,7 +20,7 @@ export const Wrapper = styled("div")`
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     transition: all 500ms ease-out;
-    z-index: 12;
+    z-index: ${({ $hamburgerVisible }) => ($hamburgerVisible ? 12 : 1)};
 `;
 
 export const Head = styled("div")`

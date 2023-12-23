@@ -16,7 +16,7 @@ export default function Navbar() {
     return (
         <>
             <Wrapper $hamburgerVisible={hamburgerVisible}>
-                <StyledNavbar>
+                <StyledNavbar $hamburgerVisible={hamburgerVisible}>
                     <StyledLink to="/">
                         <img src={logo} alt="Brand Logo" />
                     </StyledLink>
