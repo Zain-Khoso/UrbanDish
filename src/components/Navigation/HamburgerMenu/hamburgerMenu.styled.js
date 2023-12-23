@@ -19,8 +19,8 @@ export const Wrapper = styled("div")`
     border-bottom: 2px solid ${({ theme }) => theme.Colors.lightOpacity};
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
-    transition: all 500ms ease-out;
-    z-index: ${({ $hamburgerVisible }) => ($hamburgerVisible ? 12 : 1)};
+    transition: top 500ms ease-out;
+    z-index: ${({ $hamburgerVisible }) => ($hamburgerVisible ? 12 : 2)};
 `;
 
 export const Head = styled("div")`
