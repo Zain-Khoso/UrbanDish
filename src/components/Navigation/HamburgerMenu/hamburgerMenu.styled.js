@@ -7,7 +7,6 @@ export const Wrapper = styled("div")`
     position: absolute;
     top: ${({ theme, $hamburgerVisible }) =>
         $hamburgerVisible ? theme.Heights.navbarHeight : "-100vh"};
-    /* top: -100vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;

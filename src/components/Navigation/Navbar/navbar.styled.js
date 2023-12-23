@@ -11,7 +11,7 @@ export const Wrapper = styled("div")`
 
     width: 100%;
     height: ${({ theme }) => theme.Heights.navbarHeight};
-    z-index: 11;
+    z-index: ${({ $hamburgerVisible }) => ($hamburgerVisible ? 11 : 1)};
     overflow: visible;
 `;
 
