@@ -21,7 +21,7 @@ export default function Main() {
 
             {isLoading && <DataLoader />}
 
-            <EndListener />
+            {!isLoading && <EndListener />}
         </StyledMain>
     );
 }

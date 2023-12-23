@@ -17,19 +17,13 @@ export default function EndListener() {
                 threshold: "0",
             };
 
-            const loadData = async function (entries) {
+            const loadData = function (entries) {
                 const [entry] = entries;
 
                 if (!entry.isIntersecting) return;
 
-                observer.unobserve(entry.target);
-
-                await (async () => {
-                    dispatch(setIsLoading());
-                    dispatch(fetchMenu());
-                })();
-
-                observer.observe(entry.target);
+                dispatch(setIsLoading());
+                dispatch(fetchMenu());
             };
 
             const observer = new IntersectionObserver(
