@@ -13,7 +13,7 @@ import {
     ButtonCart,
 } from "./item.styled";
 
-export default function Item({ dish }) {
+export default function Item({ dish, confirmMessage, setConfirmOrder }) {
     return (
         <Card>
             <ImageWrapper>
@@ -29,7 +29,9 @@ export default function Item({ dish }) {
             </Bullets>
 
             <ButtonBar>
-                <Button>
+                <Button
+                    disabled={confirmMessage}
+                    onClick={() => setConfirmOrder(true)}>
                     <span>Order Now</span>
                 </Button>
 
