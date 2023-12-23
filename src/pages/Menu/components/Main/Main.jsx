@@ -17,7 +17,7 @@ export default function Main() {
     const [confirmMessage, setConfirmMessage] = useState(false);
 
     // Data States
-    const { isLoading, error, dishes } = useSelector(selectMenu);
+    const { isLoading, error, dishes, searchMode } = useSelector(selectMenu);
 
     // Functions
     const confirmOrder = function () {
@@ -55,7 +55,7 @@ export default function Main() {
 
             {isLoading && <DataLoader />}
 
-            {!isLoading && <EndListener />}
+            {!isLoading && !searchMode && <EndListener />}
         </StyledMain>
     );
 }
