@@ -26,11 +26,11 @@ export const StyledButtonPrimary = styled(Button)`
     background-color: ${({ theme }) => theme.Colors.primary};
 
     & span {
-        color: ${({ theme }) => theme.Colors.dark};
+        color: ${({ theme }) => theme.Colors.theme};
     }
 
     & .svg-wrapper svg {
-        stroke: ${({ theme }) => theme.Colors.dark};
+        stroke: ${({ theme }) => theme.Colors.theme};
     }
 
     &:focus {

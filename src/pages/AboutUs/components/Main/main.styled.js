@@ -37,6 +37,7 @@ export const Wrapper = styled("div")`
 `;
 
 export const Title = styled("h4")`
+    font-weight: 600;
     text-transform: uppercase;
     text-align: left;
     color: ${({ theme }) => theme.Colors.primary};

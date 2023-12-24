@@ -14,7 +14,7 @@ export const Form = styled("form")`
 
     width: 100%;
     height: 80%;
-    background-color: ${({ theme }) => theme.Colors.darkOpacity};
+    background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 1rem;
     border-radius: 1rem;
 `;
@@ -26,7 +26,7 @@ export const Entry = styled("div")`
 
     width: 100%;
     padding: 0.5rem;
-    background-color: ${({ theme }) => theme.Colors.darkOpacity};
+    background-color: ${({ theme }) => theme.Colors.themeOpacity};
     border-bottom: 2px solid ${({ theme }) => theme.Colors.primaryOpacity};
     border-radius: 0.5rem;
 
@@ -60,7 +60,7 @@ export const Input = styled("input")`
     word-spacing: 2px;
 
     &::placeholder {
-        color: ${({ theme }) => theme.Colors.lightOpacity};
+        color: ${({ theme }) => theme.Colors.contrastOpacity};
     }
 `;
 
@@ -72,7 +72,7 @@ export const Message = styled("textarea")`
     word-spacing: 2px;
 
     &::placeholder {
-        color: ${({ theme }) => theme.Colors.lightOpacity};
+        color: ${({ theme }) => theme.Colors.contrastOpacity};
     }
 `;
 

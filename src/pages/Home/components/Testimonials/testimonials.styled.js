@@ -20,7 +20,7 @@ export const Testimonial = styled("div")`
 
     width: 80%;
     max-width: 300px;
-    background-color: ${({ theme }) => theme.Colors.darkOpacity};
+    background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 1rem;
     padding-top: 3rem;
     border-radius: 0.5rem;

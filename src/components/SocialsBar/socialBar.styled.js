@@ -22,7 +22,7 @@ export const SocialsWrapper = styled("div")`
     align-items: center;
 
     width: 100%;
-    background-color: ${({ theme }) => theme.Colors.darkOpacity};
+    background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 1rem;
 `;
 
@@ -35,7 +35,7 @@ export const SVGLink = styled(Link)`
     aspect-ratio: 1/1;
 
     & svg {
-        stroke: ${({ theme }) => theme.Colors.lightOpacity};
+        stroke: ${({ theme }) => theme.Colors.contrastOpacity};
         fill: none;
     }
 `;

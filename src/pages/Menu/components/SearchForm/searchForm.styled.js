@@ -13,7 +13,7 @@ export const Form = styled("form")`
 
     width: 100%;
     aspect-ratio: 6/1;
-    background-color: ${({ theme }) => theme.Colors.darkOpacity};
+    background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 0.5rem 1rem;
     border-radius: 1rem;
 `;

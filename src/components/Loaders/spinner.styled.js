@@ -11,7 +11,7 @@ export const Spinner = styled("div")`
 
     width: 20%;
     aspect-ratio: 1/1;
-    border: 0.5rem solid ${({ theme }) => theme.Colors.darkOpacity};
+    border: 0.5rem solid ${({ theme }) => theme.Colors.themeOpacity};
     border-top: 0.5rem solid ${({ theme }) => theme.Colors.primary};
     border-radius: 50%;
     translate: -50% -50%;

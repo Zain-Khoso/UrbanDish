@@ -14,7 +14,7 @@ export const Card = styled("main")`
     width: 100%;
     min-width: 320px;
     min-height: 320px;
-    background-color: ${({ theme }) => theme.Colors.darkOpacity};
+    background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 1rem;
     border-radius: 1rem;
 `;

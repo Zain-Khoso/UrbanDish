@@ -10,9 +10,9 @@ export const StyledNotification = styled("div")`
     align-items: center;
     gap: 1rem;
 
-    background-color: ${({ theme }) => theme.Themes.Dark};
+    background-color: ${({ theme }) => theme.Themes.Theme};
     padding: 0.8rem 0.5rem;
-    border: 1px solid ${({ theme }) => theme.Colors.lightOpacity};
+    border: 1px solid ${({ theme }) => theme.Colors.contrastOpacity};
     border-radius: 0.8rem;
     z-index: 2;
     transition: all 200ms;

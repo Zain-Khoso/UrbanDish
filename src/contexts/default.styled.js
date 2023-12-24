@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle`
     * {
         box-sizing: border-box;
-        color: ${({ theme }) => theme.Colors.light};
+        color: ${({ theme }) => theme.Colors.contrast};
         font-size: ${({ theme }) => theme.FontSizes.md};
         font-family: ${({ theme }) => theme.Fonts.secondary};
         font-weight: 400;
@@ -50,7 +50,7 @@ export default createGlobalStyle`
         
         width: 100dvw;
         height: 100dvh;
-        background-color: ${({ theme }) => theme.Themes.Dark};
+        background-color: ${({ theme }) => theme.Themes.Theme};
         overflow-y: auto;
         z-index: -10;
     }

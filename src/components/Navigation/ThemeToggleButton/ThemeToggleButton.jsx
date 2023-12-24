@@ -1,5 +1,6 @@
 // Utils
-import { useState } from "react";
+import { useContext } from "react";
+import { ToggleThemeContext } from "../../../contexts/themes.styled";
 import { Sun, Moon } from "react-feather";
 
 // Components
@@ -9,14 +10,14 @@ import {
 } from "./themeToggleButton.styled";
 
 export default function ThemeToggleButton() {
-    const [darkMode, setDarkMode] = useState(true);
+    const { isDark, setIsDark } = useContext(ToggleThemeContext);
 
     return (
         <ThemeToggleWrapper>
             <StyledThemeToggleButton
-                $darkMode={darkMode}
-                onClick={() => setDarkMode(!darkMode)}>
-                {darkMode ? <Sun /> : <Moon />}
+                $darkMode={isDark}
+                onClick={() => setIsDark(!isDark)}>
+                {isDark ? <Sun /> : <Moon />}
             </StyledThemeToggleButton>
         </ThemeToggleWrapper>
     );

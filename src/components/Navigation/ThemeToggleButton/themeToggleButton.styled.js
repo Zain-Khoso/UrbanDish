@@ -9,7 +9,7 @@ export const ThemeToggleWrapper = styled("div")`
 
     width: 6rem;
     height: 2.5rem;
-    background-color: ${({ theme }) => theme.Colors.darkOpacity};
+    background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 0.5rem;
     border-radius: 1rem;
 `;
@@ -20,12 +20,12 @@ export const StyledThemeToggleButton = styled("button")`
 
     width: 1.8rem;
     aspect-ratio: 1/1;
-    background-color: ${({ theme }) => theme.Colors.lightOpacity};
+    background-color: ${({ theme }) => theme.Colors.contrastOpacity};
     border-radius: 50%;
     transition: all 300ms ease-out;
 
     & svg {
         scale: 70%;
-        stroke: ${({ theme }) => theme.Colors.dark};
+        stroke: ${({ theme }) => theme.Colors.theme};
     }
 `;

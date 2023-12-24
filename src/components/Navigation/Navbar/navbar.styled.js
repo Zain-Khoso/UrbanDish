@@ -24,7 +24,7 @@ export const StyledNavbar = styled("nav")`
 
     width: 100%;
     height: ${({ theme }) => theme.Heights.navbarHeight};
-    background-color: ${({ theme }) => theme.Colors.darkOpacity};
+    background-color: ${({ theme }) => theme.Colors.themeOpacity};
     backdrop-filter: blur(5px);
     padding: 0 1rem;
     border-bottom: 2px solid ${({ theme }) => theme.Colors.primary};

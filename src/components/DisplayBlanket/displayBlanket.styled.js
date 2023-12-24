@@ -6,6 +6,6 @@ export const DisplayBlanket = styled("div")`
     position: fixed;
     inset: 0;
 
-    background-color: ${({ theme }) => theme.Colors.darkOpacity};
+    background-color: ${({ theme }) => theme.Colors.themeOpacity};
     z-index: 10;
 `;

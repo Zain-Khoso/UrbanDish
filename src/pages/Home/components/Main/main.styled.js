@@ -33,7 +33,7 @@ export const CTA = styled(Section)`
     align-items: center;
     gap: 1rem;
 
-    background-color: ${({ theme }) => theme.Colors.darkOpacity};
+    background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 1rem;
 
     & p {

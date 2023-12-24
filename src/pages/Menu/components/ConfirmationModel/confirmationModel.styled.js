@@ -13,10 +13,10 @@ export const Model = styled("div")`
     gap: 2rem;
 
     width: 300px;
-    background-color: ${({ theme }) => theme.Themes.Dark};
+    background-color: ${({ theme }) => theme.Themes.Theme};
     padding: 1rem;
     border-radius: 0.5rem;
-    box-shadow: 0 0 0.2rem ${({ theme }) => theme.Colors.lightOpacity};
+    box-shadow: 0 0 0.2rem ${({ theme }) => theme.Colors.contrastOpacity};
     translate: -50% -50%;
     z-index: 11;
 `;

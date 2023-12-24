@@ -48,5 +48,6 @@ export const Slogon = styled("h1")`
 
 export const SubText = styled("p")`
     max-width: 270px;
-    color: ${({ theme }) => theme.Colors.lightOpacity};
+    font-weight: 500;
+    color: ${({ theme }) => theme.Colors.contrastOpacity};
 `;
