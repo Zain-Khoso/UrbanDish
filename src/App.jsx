@@ -9,7 +9,7 @@ import {
 } from "./contexts/themes.styled";
 import DefaultStyles from "./contexts/default.styled";
 import { Provider } from "react-redux";
-import store from "./contexts/store";
+import store from "./config/store";
 import router from "./Router";
 
 export default function App() {

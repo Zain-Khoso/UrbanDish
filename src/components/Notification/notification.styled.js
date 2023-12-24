@@ -14,8 +14,8 @@ export const StyledNotification = styled("div")`
     padding: 0.8rem 0.5rem;
     border: 1px solid ${({ theme }) => theme.Colors.contrastOpacity};
     border-radius: 0.8rem;
-    z-index: 2;
-    transition: all 200ms;
+    z-index: 15;
+    transition: right 200ms;
 `;
 
 export const Title = styled("span")`

@@ -9,7 +9,7 @@ import Item from "../Item/Item";
 import DataLoader from "../../../../components/Loaders/DataLoader/DataLoader";
 import EndListener from "../EndListener/EndListener";
 import ConfirmationModel from "../ConfirmationModel/ConfirmationModel";
-import Notifcation from "../Notification/Notifcation";
+import Notifcation from "../../../../components/Notification/Notifcation";
 
 export default function Main() {
     // UI States
@@ -43,6 +43,7 @@ export default function Main() {
             ))}
 
             <Notifcation
+                text="Order Placed Successfully."
                 toggle={confirmMessage}
                 setToggle={setConfirmMessage}
             />
