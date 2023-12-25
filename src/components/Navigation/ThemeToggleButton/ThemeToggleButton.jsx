@@ -10,14 +10,14 @@ import {
 } from "./themeToggleButton.styled";
 
 export default function ThemeToggleButton() {
-    const { isDark, setIsDark } = useContext(ToggleThemeContext);
+    const { isLight, toggleTheme } = useContext(ToggleThemeContext);
 
     return (
         <ThemeToggleWrapper>
             <StyledThemeToggleButton
-                $darkMode={isDark}
-                onClick={() => setIsDark(!isDark)}>
-                {isDark ? <Sun /> : <Moon />}
+                $lightMode={isLight}
+                onClick={() => toggleTheme(!isLight)}>
+                {isLight ? <Moon /> : <Sun />}
             </StyledThemeToggleButton>
         </ThemeToggleWrapper>
     );

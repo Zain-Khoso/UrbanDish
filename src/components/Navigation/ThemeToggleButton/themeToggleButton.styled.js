@@ -16,7 +16,7 @@ export const ThemeToggleWrapper = styled("div")`
 
 export const StyledThemeToggleButton = styled("button")`
     position: absolute;
-    left: ${({ $darkMode }) => ($darkMode ? "0.5rem" : "3.7rem")};
+    left: ${({ $lightMode }) => ($lightMode ? "3.7rem" : "0.5rem")};
 
     width: 1.8rem;
     aspect-ratio: 1/1;

@@ -13,11 +13,18 @@ import store from "./config/store";
 import router from "./Router";
 
 export default function App() {
-    const [isDark, setIsDark] = useState(true);
+    const [isLight, setIsLight] = useState(
+        JSON.parse(localStorage.getItem("isLight"))
+    );
+
+    const toggleTheme = function () {
+        localStorage.setItem("isLight", !isLight);
+        setIsLight(!isLight);
+    };
 
     return (
-        <ToggleThemeContext.Provider value={{ isDark, setIsDark }}>
-            <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <ToggleThemeContext.Provider value={{ isLight, toggleTheme }}>
+            <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
                 <DefaultStyles />
                 <Provider store={store}>
                     <RouterProvider router={router} />
