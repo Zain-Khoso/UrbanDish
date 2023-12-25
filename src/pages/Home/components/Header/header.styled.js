@@ -35,7 +35,7 @@ export const HeroImgContainer = styled("div")`
 
     & img {
         border-radius: 50%;
-        box-shadow: 110px -10px 200px -40px
+        box-shadow: 90px -30px 200px -70px
             ${({ theme }) => theme.Colors.primary};
     }
 `;
@@ -47,7 +47,6 @@ export const Slogon = styled("h1")`
 `;
 
 export const SubText = styled("p")`
-    max-width: 270px;
     font-weight: 500;
     color: ${({ theme }) => theme.Colors.contrastOpacity};
 `;

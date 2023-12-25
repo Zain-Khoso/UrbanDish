@@ -23,6 +23,7 @@ export default function Main() {
         { link: "https://linkedin.com/in/zain-khoso", svg: <Linkedin /> },
         { link: "https://twitter.com/SphereOfZain", svg: <X /> },
     ]);
+
     return (
         <StyledMain>
             <SocialBar title="you can find us on" links={SocialData.current} />
