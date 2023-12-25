@@ -11,7 +11,6 @@
         "dev-server": "json-server --watch database/db.json"
     },
     "dependencies": {
-        "@auth0/auth0-react": "^2.2.3",
         "@emailjs/browser": "^3.11.0",
         "@reduxjs/toolkit": "^2.0.1",
         "axios": "^1.6.2",
