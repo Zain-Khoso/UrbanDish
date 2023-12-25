@@ -77,12 +77,6 @@ export default function SearchField() {
                     <X />
                 </div>
             </Button>
-
-            <Button>
-                <div className="svg-wrapper">
-                    <Filter />
-                </div>
-            </Button>
         </Form>
     );
 }

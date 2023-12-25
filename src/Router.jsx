@@ -5,10 +5,10 @@ import { createBrowserRouter } from "react-router-dom";
 // Components
 import { Spinner } from "./components/Loaders/spinner.styled";
 
-const Home = lazy(() => import("./pages/Home/Home"));
-const AboutUs = lazy(() => import("./pages/AboutUs/AboutUs"));
-const Menu = lazy(() => import("./pages/Menu/Menu"));
-const ContactUs = lazy(() => import("./pages/ContactUs/ContactUs"));
+const Home = lazy(() => import("./pages/Home/index"));
+const AboutUs = lazy(() => import("./pages/AboutUs/index"));
+const Menu = lazy(() => import("./pages/Menu/index"));
+const ContactUs = lazy(() => import("./pages/ContactUs/index"));
 const NotFound = lazy(() => import("./components/Errors/NotFound/NotFound"));
 
 // Router Setup.
