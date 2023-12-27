@@ -18,18 +18,12 @@ export const Container = styled("div")`
     transition: right 200ms;
 `;
 
-const Text = styled("span")`
+export const Text = styled("span")`
     font-weight: 500;
     letter-spacing: 0.5px;
     text-transform: capitalize;
-`;
-
-export const TextSuccess = styled(Text)`
-    color: ${({ theme }) => theme.Colors.primary};
-`;
-
-export const TextFailure = styled(Text)`
-    color: ${({ theme }) => theme.Colors.red};
+    color: ${({ theme, $success }) =>
+        $success ? theme.Colors.primary : theme.Colors.red};
 `;
 
 export const SVGWrapper = styled("button")`
@@ -41,7 +35,7 @@ export const SVGWrapper = styled("button")`
     }
 `;
 
-const ProgressBar = styled("div")`
+export const ProgressBar = styled("div")`
     position: absolute;
     left: 0;
     bottom: 0;
@@ -49,13 +43,8 @@ const ProgressBar = styled("div")`
     align-self: flex-start;
     width: ${({ $isOpen }) => ($isOpen ? "0%" : "100%")};
     height: 0.3rem;
-    transition: all ${({ $isOpen }) => ($isOpen ? "3s" : "0s")} 200ms;
-`;
+    background-color: ${({ theme, $success }) =>
+        $success ? theme.Colors.primary : theme.Colors.red};
 
-export const ProgressBarSuccess = styled(ProgressBar)`
-    background-color: ${({ theme }) => theme.Colors.primaryOpacity};
-`;
-
-export const ProgressBarFailure = styled(ProgressBar)`
-    background-color: ${({ theme }) => theme.Colors.red};
+    transition: width ${({ $isOpen }) => ($isOpen ? "3s" : "0s")} 200ms;
 `;
