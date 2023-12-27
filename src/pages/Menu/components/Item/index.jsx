@@ -1,6 +1,5 @@
 // Utils
 import PropTypes from "prop-types";
-import { ShoppingCart } from "react-feather";
 
 // Components
 import {
@@ -10,12 +9,9 @@ import {
     Bullet,
     ButtonBar,
     Button,
-    ButtonCart,
 } from "./styled";
-import {
-    PrimaryBtnText,
-    PrimaryBtnIconWrapper,
-} from "../../../../components/Button/styled";
+import CartButton from "../CartButton";
+import { PrimaryBtnText } from "../../../../components/Button/styled";
 
 export default function Item({ dish, confirmMessage, setConfirmOrder }) {
     return (
@@ -26,7 +22,7 @@ export default function Item({ dish, confirmMessage, setConfirmOrder }) {
 
             <Bullets>
                 <Bullet>Name:&nbsp; {dish.title}</Bullet>
-                <Bullet>For:&nbsp; {dish.dishTypes[0]}</Bullet>
+                <Bullet>For:&nbsp; {dish.dishTypes[0] || "surprise"}</Bullet>
                 <Bullet>
                     Price:&nbsp; ${Math.round(dish.pricePerServing)}
                 </Bullet>
@@ -38,12 +34,7 @@ export default function Item({ dish, confirmMessage, setConfirmOrder }) {
                     onClick={() => setConfirmOrder(true)}>
                     <PrimaryBtnText>Order Now</PrimaryBtnText>
                 </Button>
-
-                <ButtonCart>
-                    <PrimaryBtnIconWrapper>
-                        <ShoppingCart />
-                    </PrimaryBtnIconWrapper>
-                </ButtonCart>
+                <CartButton dish={dish} />
             </ButtonBar>
         </Card>
     );

@@ -54,7 +54,3 @@ export const ButtonBar = styled("div")`
 export const Button = styled(StyledButtonPrimary)`
     flex: 1;
 `;
-
-export const ButtonCart = styled(StyledButtonPrimary)`
-    padding: 0.5rem 0.8rem;
-`;
