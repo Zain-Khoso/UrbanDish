@@ -5,12 +5,15 @@ import useDocTitle from "../../hooks/useDocTitle";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "../../components/Footer";
+import RestoreScroll from "../../components/RestoreScroll";
 
 export default function AboutUs() {
     useDocTitle("About Us");
 
     return (
         <>
+            <RestoreScroll />
+
             <Header />
 
             <Main />

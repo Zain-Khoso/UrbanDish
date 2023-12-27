@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import { ErrorPage, AuthError } from "../../components/Errors";
 import Spinner from "../../components/Loaders/spinner.styled";
+import RestoreScroll from "../../components/RestoreScroll";
 
 export default function Menu() {
     useDocTitle("Menu");
@@ -20,6 +21,8 @@ export default function Menu() {
 
     return user ? (
         <>
+            <RestoreScroll />
+
             <Header />
 
             <Main />
