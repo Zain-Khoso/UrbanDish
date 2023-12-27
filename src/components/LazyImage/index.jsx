@@ -1,45 +1,12 @@
 // Utils
-import { useRef, useLayoutEffect } from "react";
+import { useRef } from "react";
 import PropTypes from "prop-types";
+import useLazyImage from "../../hooks/useLazyImage";
 
 export default function LazyImage({ alt, placeholderSrc, src, sizePriority }) {
-    const isMounted = useRef(true);
     const imageElem = useRef(null);
 
-    useLayoutEffect(() => {
-        if (!isMounted.current) return;
-
-        const observerOptions = {
-            root: null,
-            rootMargin: "200px",
-            threshold: "0",
-        };
-
-        const loadOrgImage = function (entries) {
-            const [entry] = entries;
-
-            if (!entry.isIntersecting) return;
-
-            entry.target.src = src;
-
-            entry.target.onload = function () {
-                entry.target.style.filter = "blur(0px)";
-
-                observer.unobserve(entry.target);
-            };
-        };
-
-        const observer = new IntersectionObserver(
-            loadOrgImage,
-            observerOptions
-        );
-
-        const cleanUp = () => (isMounted.current = false);
-
-        observer.observe(imageElem.current);
-
-        return cleanUp;
-    }, []);
+    useLazyImage(imageElem, src);
 
     return (
         <img
