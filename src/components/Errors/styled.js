@@ -21,6 +21,10 @@ export const Expression = styled("h1")`
     color: ${({ theme }) => theme.Colors.primary};
 `;
 
+export const Message = styled("p")`
+    width: 35ch;
+`;
+
 export const PrevLink = styled("button")`
     display: flex;
     justify-content: center;

@@ -3,13 +3,13 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
 // Components
-import { Spinner } from "./components/Loaders/spinner.styled";
+import Spinner from "./components/Loaders/spinner.styled";
+import { ErrorPage } from "./components/Errors";
 
 const Home = lazy(() => import("./pages/Home"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Menu = lazy(() => import("./pages/Menu"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
-const NotFound = lazy(() => import("./components/Errors/NotFound"));
 
 // Router Setup.
 export default createBrowserRouter([
@@ -22,7 +22,7 @@ export default createBrowserRouter([
         ),
         errorElement: (
             <Suspense fallback={<Spinner />}>
-                <NotFound />
+                <ErrorPage />
             </Suspense>
         ),
     },
@@ -35,7 +35,7 @@ export default createBrowserRouter([
         ),
         errorElement: (
             <Suspense fallback={<Spinner />}>
-                <NotFound />
+                <ErrorPage />
             </Suspense>
         ),
     },
@@ -48,7 +48,7 @@ export default createBrowserRouter([
         ),
         errorElement: (
             <Suspense fallback={<Spinner />}>
-                <NotFound />
+                <ErrorPage />
             </Suspense>
         ),
     },
@@ -61,7 +61,7 @@ export default createBrowserRouter([
         ),
         errorElement: (
             <Suspense fallback={<Spinner />}>
-                <NotFound />
+                <ErrorPage />
             </Suspense>
         ),
     },

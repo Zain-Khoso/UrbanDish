@@ -2,13 +2,13 @@
 import { useContext, useCallback } from "react";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, googleProvider } from "../../../config/firebase";
+import { auth, googleProvider } from "../../config/firebase";
 import { User } from "react-feather";
-import { NotificationContext } from "../../../contexts";
+import { NotificationContext } from "../../contexts";
 
 // Components
-import { ButtonPrimary, ButtonRedOutline } from "../../Button";
-import DataLoader from "../../Loaders/DataLoader";
+import { ButtonPrimary, ButtonRedOutline } from "../Button";
+import DataLoader from "../Loaders/DataLoader";
 
 export default function AuthButton() {
     // UI States

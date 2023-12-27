@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { SpinnerAnimation } from "./animations.styled";
 
 // Styles
-export const Spinner = styled("div")`
+export default styled("div")`
     position: fixed;
     inset: 0;
     top: 50%;

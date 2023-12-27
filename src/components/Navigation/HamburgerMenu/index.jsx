@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // Components
 import { Wrapper, Head, Navigation, NavItem, StyledLink } from "./styled";
 import ThemeToggleButton from "../ThemeToggleButton";
-import AuthButton from "../AuthButton";
+import AuthButton from "../../AuthButton";
 
 export default function HamburgerMenu({ hamburgerVisible }) {
     return (
