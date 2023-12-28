@@ -16,6 +16,7 @@ export default function Controller() {
     const { notifDispatch } = useContext(NotificationContext);
     const [showModel, setShowModel] = useState(false);
     const [orderModel, setOrderModel] = useState(true);
+    const [timmer, setTimmer] = useState(null);
 
     const [user] = useAuthState(auth);
     const dispatch = useDispatch();
@@ -44,21 +45,38 @@ export default function Controller() {
             await (async () => {
                 dispatch(deleteItems(selected, user.uid));
             })();
-            notifDispatch({
-                type: "success",
-                message: order ? messages[0][0] : messages[1][0],
-            });
+
+            notifDispatch({ type: "hide" });
+
             setTimeout(() => {
-                notifDispatch({ type: "hide" });
-            }, 3000);
+                notifDispatch({
+                    type: "success",
+                    message: order ? messages[0][0] : messages[1][0],
+                });
+
+                clearTimeout(timmer);
+                const timmerId = setTimeout(() => {
+                    notifDispatch({ type: "hide" });
+                }, 3000);
+
+                setTimmer(timmerId);
+            }, 500);
         } catch {
-            notifDispatch({
-                type: "failure",
-                message: order ? messages[0][1] : messages[1][1],
-            });
+            notifDispatch({ type: "hide" });
+
             setTimeout(() => {
-                notifDispatch({ type: "hide" });
-            }, 3000);
+                notifDispatch({
+                    type: "failure",
+                    message: order ? messages[0][1] : messages[1][1],
+                });
+
+                clearTimeout(timmer);
+                const timmerId = setTimeout(() => {
+                    notifDispatch({ type: "hide" });
+                }, 3000);
+
+                setTimmer(timmerId);
+            }, 500);
         }
     };
 

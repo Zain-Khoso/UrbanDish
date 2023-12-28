@@ -1,5 +1,5 @@
 // Utils
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { addDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { ShoppingCart } from "react-feather";
@@ -14,6 +14,7 @@ import { PrimaryBtnIconWrapper } from "../../../../components/Button/styled";
 
 export default function CartButton({ dish }) {
     // States & Contexts
+    const [timmer, setTimmer] = useState(null);
     const [user] = useAuthState(auth);
     const { notifDispatch } = useContext(NotificationContext);
 
@@ -27,15 +28,19 @@ export default function CartButton({ dish }) {
             );
 
             if (isPresent) {
-                notifDispatch({
-                    type: "failure",
-                    message: "Already preset in Cart.",
-                });
                 setTimeout(() => {
                     notifDispatch({
-                        type: "hide",
+                        type: "failure",
+                        message: "Already preset in Cart.",
                     });
-                }, 3000);
+
+                    clearTimeout(timmer);
+                    const timmerId = setTimeout(() => {
+                        notifDispatch({ type: "hide" });
+                    }, 3000);
+
+                    setTimmer(timmerId);
+                }, 500);
 
                 return;
             }
@@ -50,15 +55,21 @@ export default function CartButton({ dish }) {
             price: dish.pricePerServing,
         });
 
-        notifDispatch({
-            type: "success",
-            message: "Added to Cart.",
-        });
+        notifDispatch({ type: "hide" });
+
         setTimeout(() => {
             notifDispatch({
-                type: "hide",
+                type: "success",
+                message: "Added to Cart.",
             });
-        }, 3000);
+
+            clearTimeout(timmer);
+            const timmerId = setTimeout(() => {
+                notifDispatch({ type: "hide" });
+            }, 3000);
+
+            setTimmer(timmerId);
+        }, 500);
     };
     return (
         <ButtonCart onClick={addToCart}>

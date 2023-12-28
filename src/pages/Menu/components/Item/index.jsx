@@ -30,7 +30,7 @@ export default function Item({ dish, confirmMessage, setConfirmOrder }) {
 
             <ButtonBar>
                 <Button
-                    disabled={confirmMessage}
+                    // disabled={confirmMessage}
                     onClick={() => setConfirmOrder(true)}>
                     <PrimaryBtnText>Order Now</PrimaryBtnText>
                 </Button>

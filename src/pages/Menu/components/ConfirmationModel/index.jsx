@@ -18,7 +18,7 @@ export default function ConfirmationModel({ setModelVisiblity }) {
                 <ButtonPrimary
                     text="Place Order"
                     svg={<CheckCircle />}
-                    handleClick={() => setModelVisiblity(false)}
+                    handleClick={() => setModelVisiblity()}
                 />
             </Model>
         </>
