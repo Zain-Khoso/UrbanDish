@@ -7,7 +7,7 @@ import useDocTitle from "../../hooks/useDocTitle";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import { ErrorPage, AuthError } from "../../components/Errors";
-import Spinner from "../../components/Loaders/spinner.styled";
+import { Spinner } from "../../components/Loaders/spinner.styled";
 import RestoreScroll from "../../components/RestoreScroll";
 
 export default function AboutUs() {

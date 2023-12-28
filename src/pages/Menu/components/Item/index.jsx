@@ -13,7 +13,7 @@ import {
 import CartButton from "../CartButton";
 import { PrimaryBtnText } from "../../../../components/Button/styled";
 
-export default function Item({ dish, confirmMessage, setConfirmOrder }) {
+export default function Item({ dish, setConfirmOrder }) {
     return (
         <Card>
             <ImageWrapper>
@@ -29,9 +29,7 @@ export default function Item({ dish, confirmMessage, setConfirmOrder }) {
             </Bullets>
 
             <ButtonBar>
-                <Button
-                    // disabled={confirmMessage}
-                    onClick={() => setConfirmOrder(true)}>
+                <Button onClick={() => setConfirmOrder(true)}>
                     <PrimaryBtnText>Order Now</PrimaryBtnText>
                 </Button>
                 <CartButton dish={dish} />

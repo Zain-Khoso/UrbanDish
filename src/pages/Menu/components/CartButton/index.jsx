@@ -11,14 +11,17 @@ import { NotificationContext } from "../../../../contexts";
 // Components
 import { ButtonCart } from "./styled";
 import { PrimaryBtnIconWrapper } from "../../../../components/Button/styled";
+import { ContainedSpinner } from "../../../../components/Loaders/spinner.styled";
 
 export default function CartButton({ dish }) {
     // States & Contexts
+    const [isLoading, setIsLoading] = useState(false);
     const [timmer, setTimmer] = useState(null);
     const [user] = useAuthState(auth);
     const { notifDispatch } = useContext(NotificationContext);
 
     const addToCart = async function () {
+        setIsLoading(true);
         const { cart, empty, data } = await useCart(user.uid);
 
         // Checking if the clicked item is already present in user's cart.
@@ -41,6 +44,8 @@ export default function CartButton({ dish }) {
 
                     setTimmer(timmerId);
                 }, 500);
+
+                setIsLoading(false);
 
                 return;
             }
@@ -70,11 +75,13 @@ export default function CartButton({ dish }) {
 
             setTimmer(timmerId);
         }, 500);
+
+        setIsLoading(false);
     };
     return (
         <ButtonCart onClick={addToCart}>
             <PrimaryBtnIconWrapper>
-                <ShoppingCart />
+                {isLoading ? <ContainedSpinner /> : <ShoppingCart />}
             </PrimaryBtnIconWrapper>
         </ButtonCart>
     );

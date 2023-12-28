@@ -3,7 +3,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
 // Components
-import Spinner from "./components/Loaders/spinner.styled";
+import { Spinner } from "./components/Loaders/spinner.styled";
 import { ErrorPage } from "./components/Errors";
 
 const Home = lazy(() => import("./pages/Home"));
