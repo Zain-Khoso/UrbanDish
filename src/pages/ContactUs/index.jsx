@@ -2,8 +2,8 @@
 import useDocTitle from "../../hooks/useDocTitle";
 
 // Components
-import Navbar from "../../components/Navigation/Navbar/Navbar";
-import Main from "./components/Main/Main";
+import Navbar from "../../components/Navigation/Navbar";
+import Main from "./components/Main";
 
 export default function ContactUs() {
     useDocTitle("Contact Us");

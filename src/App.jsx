@@ -1,20 +1,36 @@
 // Utils
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import {
-    darkTheme,
-    lightTheme,
-    ToggleThemeContext,
-} from "./contexts/themes.styled";
-import DefaultStyles from "./contexts/default.styled";
-import { Provider } from "react-redux";
-import store from "./config/store";
+import useNotifReducer from "./hooks/useNotifReducer";
+
+// App Routes
 import router from "./Router";
 
+// Contexts
+import { ToggleThemeContext, NotificationContext } from "./contexts";
+
+// Dark/Light themes.
+import { darkTheme, lightTheme } from "./contexts/themes.styled";
+
+// Assets
+import DefaultStyles from "./contexts/default.styled";
+
 export default function App() {
+    // Dark / Light mode states.
     const [isLight, setIsLight] = useState(
         JSON.parse(localStorage.getItem("isLight"))
+    );
+
+    // Notification States
+    const defaultNotificationState = {
+        type: "success",
+        message: "Success !",
+        visiblity: false,
+    };
+    const [notifState, notifDispatch] = useReducer(
+        useNotifReducer,
+        defaultNotificationState
     );
 
     const toggleTheme = function () {
@@ -23,12 +39,18 @@ export default function App() {
     };
 
     return (
+        //  Providing utils to switch Light/Dark theme
         <ToggleThemeContext.Provider value={{ isLight, toggleTheme }}>
+            {/* Providing the active theme template, respectively */}
             <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
-                <DefaultStyles />
-                <Provider store={store}>
+                {/* Providing utils to generate dynamic notifications */}
+                <NotificationContext.Provider
+                    value={{ notifState, notifDispatch }}>
+                    {/* Default Styles */}
+                    <DefaultStyles />
+                    {/* Router */}
                     <RouterProvider router={router} />
-                </Provider>
+                </NotificationContext.Provider>
             </ThemeProvider>
         </ToggleThemeContext.Provider>
     );

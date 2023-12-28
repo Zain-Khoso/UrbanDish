@@ -10,8 +10,8 @@ import { ErrorPage, AuthError } from "../../components/Errors";
 import { Spinner } from "../../components/Loaders/spinner.styled";
 import RestoreScroll from "../../components/RestoreScroll";
 
-export default function Menu() {
-    useDocTitle("Menu");
+export default function AboutUs() {
+    useDocTitle("Cart");
 
     const [user, loading, error] = useAuthState(auth);
 

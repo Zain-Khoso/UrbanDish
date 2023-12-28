@@ -72,5 +72,3 @@ export const lightTheme = {
         navbarHeight: "3rem",
     },
 };
-
-export const ToggleThemeContext = createContext(null);

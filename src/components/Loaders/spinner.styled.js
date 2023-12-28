@@ -17,3 +17,12 @@ export const Spinner = styled("div")`
     translate: -50% -50%;
     animation: ${SpinnerAnimation} 500ms linear infinite;
 `;
+
+export const ContainedSpinner = styled("div")`
+    width: 20%;
+    aspect-ratio: 1/1;
+    border: 0.5rem solid ${({ theme }) => theme.Colors.primary};
+    border-top: 0.5rem solid ${({ theme }) => theme.Themes.Theme};
+    border-radius: 50%;
+    animation: ${SpinnerAnimation} 500ms linear infinite;
+`;
