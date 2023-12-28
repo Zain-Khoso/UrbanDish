@@ -1,12 +1,12 @@
 // Utils
 import { useContext } from "react";
-import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
+import { addDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { ShoppingCart } from "react-feather";
 import PropTypes from "prop-types";
-import { auth, fireStore } from "../../../../config/firebase";
+import { auth } from "../../../../config/firebase";
+import useCart from "../../../../hooks/useCart";
 import { NotificationContext } from "../../../../contexts";
-import useFilterFireStoreResponse from "../../hooks/useFilterFireStoreResponse";
 
 // Components
 import { ButtonCart } from "./styled";
@@ -18,13 +18,7 @@ export default function CartButton({ dish }) {
     const { notifDispatch } = useContext(NotificationContext);
 
     const addToCart = async function () {
-        // Getting current user's cart from firebase.
-        const cart = collection(fireStore, "cart");
-        const userQuery = query(cart, where("uid", "==", user.uid));
-        const { empty, docs } = await getDocs(userQuery);
-
-        // Filtering the response data.
-        const data = useFilterFireStoreResponse(docs);
+        const { cart, empty, data } = await useCart(user.uid);
 
         // Checking if the clicked item is already present in user's cart.
         if (!empty) {

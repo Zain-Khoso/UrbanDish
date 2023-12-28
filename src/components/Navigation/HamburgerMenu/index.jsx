@@ -21,6 +21,9 @@ export default function HamburgerMenu({ hamburgerVisible }) {
                     <StyledLink to="/menu">Menu</StyledLink>
                 </NavItem>
                 <NavItem>
+                    <StyledLink to="/cart">Cart</StyledLink>
+                </NavItem>
+                <NavItem>
                     <StyledLink to="/contact-us">Contact Us</StyledLink>
                 </NavItem>
             </Navigation>
