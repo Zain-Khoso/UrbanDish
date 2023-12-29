@@ -7,6 +7,7 @@ import {
     Container,
     Expression,
     Message,
+    ButtonGroup,
     PrevLink,
     Text,
     SVGWrapper,
@@ -31,11 +32,21 @@ export function ErrorPage() {
 }
 
 export function AuthError() {
+    const navigate = useNavigate();
+
     return (
         <Container>
             <Expression>Oops!</Expression>
-            <Message>You must log in to access this page.</Message>
-            <AuthButton />
+            <Message>You must sign in to access this page.</Message>
+            <ButtonGroup>
+                <PrevLink onClick={() => navigate(-1)}>
+                    <SVGWrapper>
+                        <ArrowLeft />
+                    </SVGWrapper>
+                    <Text>Go back</Text>
+                </PrevLink>
+                <AuthButton />
+            </ButtonGroup>
         </Container>
     );
 }

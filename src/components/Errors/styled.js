@@ -25,6 +25,13 @@ export const Message = styled("p")`
     width: 35ch;
 `;
 
+export const ButtonGroup = styled("div")`
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 2rem;
+`;
+
 export const PrevLink = styled("button")`
     display: flex;
     justify-content: center;
