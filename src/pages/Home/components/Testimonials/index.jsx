@@ -24,7 +24,10 @@ export default function Testimonials() {
     return (
         <TestimonialWrapper>
             {testimonials.map((item) => (
-                <Testimonial key={item.id}>
+                <Testimonial
+                    key={item.id}
+                    whileInView={{ opacity: 1, translateY: -70 }}
+                    viewport={{ once: true }}>
                     <ClickableImage
                         id={item.id}
                         image={item.image}

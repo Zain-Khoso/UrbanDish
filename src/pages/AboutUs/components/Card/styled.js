@@ -1,8 +1,9 @@
 // Utils
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 // Styles
-export const StyledCard = styled("div")`
+export const StyledCard = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,6 +12,8 @@ export const StyledCard = styled("div")`
 
     width: 100%;
     height: fit-content;
+    opacity: 0;
+    translate: 0 70px;
 `;
 
 export const Title = styled("h3")`

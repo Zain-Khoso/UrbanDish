@@ -1,5 +1,6 @@
 // Utils
 import { memo, useState } from "react";
+import { useTheme } from "styled-components";
 
 // Assets
 import logo from "../../../assets/favicon.png";
@@ -13,11 +14,17 @@ import Notification from "../Notification";
 
 export default memo(function Navbar() {
     // UI States
+    const theme = useTheme();
     const [hamburgerVisible, setHamburgerVisible] = useState(false);
 
     return (
         <>
-            <Wrapper $hamburgerVisible={hamburgerVisible}>
+            <Wrapper
+                $hamburgerVisible={hamburgerVisible}
+                animate={{
+                    opacity: 1,
+                    translateY: theme.Heights.navbarHeight,
+                }}>
                 <StyledNavbar $hamburgerVisible={hamburgerVisible}>
                     <StyledLink to="/">
                         <img src={logo} alt="Brand Logo" />

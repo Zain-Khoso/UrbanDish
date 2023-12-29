@@ -1,5 +1,6 @@
 // Utils
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 // Components
 import { CardsWrapper } from "../components.styled";
@@ -11,7 +12,7 @@ export const TestimonialWrapper = styled(CardsWrapper)`
     overflow: visible;
 `;
 
-export const Testimonial = styled("div")`
+export const Testimonial = styled(motion.div)`
     position: relative;
     display: flex;
     flex-direction: column;
@@ -25,4 +26,6 @@ export const Testimonial = styled("div")`
     padding-top: 3rem;
     border-radius: 0.5rem;
     overflow: visible;
+    opacity: 0;
+    translate: 0 70px;
 `;

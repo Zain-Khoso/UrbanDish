@@ -1,5 +1,6 @@
 // Utils
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 // Styles
 export const StyledMain = styled("main")`
@@ -18,24 +19,29 @@ export const Section = styled("section")`
     width: 100%;
 `;
 
-export const SectionTitle = styled("h2")`
+export const SectionTitle = styled(motion.h2)`
     font-family: ${({ theme }) => theme.Fonts.primary};
     text-align: left;
     text-transform: uppercase;
     color: ${({ theme }) => theme.Colors.primary};
     padding-left: 1rem;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    translate: 0 70px;
 `;
 
-export const CTA = styled(Section)`
+export const CTA = styled(motion.section)`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
 
+    width: 100%;
     background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 1rem;
+    opacity: 0;
+    translate: 0 70px;
 
     & p {
         font-family: ${({ theme }) => theme.Fonts.primary};

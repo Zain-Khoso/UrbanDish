@@ -15,7 +15,9 @@ export default function Header() {
         <StyledHeader>
             <Navbar />
 
-            <PageIntro>
+            <PageIntro
+                whileInView={{ opacity: 1, translateY: -70 }}
+                viewport={{ once: true }}>
                 <IntroTitle>What is Belly Brains?</IntroTitle>
 
                 <Illustration

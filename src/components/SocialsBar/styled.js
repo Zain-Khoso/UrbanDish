@@ -1,10 +1,13 @@
 // Utils
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 // Styles
-export const Container = styled("section")`
+export const Container = styled(motion.section)`
     width: 100%;
+    opacity: 0;
+    translate: 0 70px;
 `;
 
 export const Title = styled("h2")`

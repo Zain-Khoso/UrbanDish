@@ -6,7 +6,9 @@ import { Container, Title, SocialsWrapper, SVGLink } from "./styled";
 
 export default function SocialBar({ title, links, newTab }) {
     return (
-        <Container>
+        <Container
+            whileInView={{ opacity: 1, translateY: -70 }}
+            viewport={{ once: true }}>
             <Title>{title}</Title>
 
             <SocialsWrapper>

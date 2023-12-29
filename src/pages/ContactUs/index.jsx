@@ -1,4 +1,5 @@
 // Utils
+import { motion } from "framer-motion";
 import useDocTitle from "../../hooks/useDocTitle";
 
 // Components
@@ -9,10 +10,13 @@ export default function ContactUs() {
     useDocTitle("Contact Us");
 
     return (
-        <>
+        <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            exit={{ scaleX: 0 }}>
             <Navbar />
 
             <Main />
-        </>
+        </motion.div>
     );
 }

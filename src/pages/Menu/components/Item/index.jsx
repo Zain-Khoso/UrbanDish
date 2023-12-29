@@ -15,7 +15,9 @@ import { PrimaryBtnText } from "../../../../components/Button/styled";
 
 export default function Item({ dish, setConfirmOrder }) {
     return (
-        <Card>
+        <Card
+            whileInView={{ opacity: 1, translateY: -70 }}
+            viewport={{ once: true }}>
             <ImageWrapper>
                 <img src={dish.image} alt="A beatiful image of the dish" />
             </ImageWrapper>

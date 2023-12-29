@@ -1,10 +1,11 @@
 // Utils
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import { StyledButtonPrimary } from "../../../../components/Button/styled";
 
 // Styles
-export const Card = styled("main")`
+export const Card = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -17,6 +18,8 @@ export const Card = styled("main")`
     background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 1rem;
     border-radius: 1rem;
+    opacity: 0;
+    translate: 0 70px;
 `;
 
 export const ImageWrapper = styled("div")`

@@ -14,7 +14,9 @@ export default function Card({
     imageSizePriority,
 }) {
     return (
-        <StyledCard>
+        <StyledCard
+            whileInView={{ opacity: 1, translateY: -70 }}
+            viewport={{ once: true }}>
             <Title>{title}</Title>
             <ImageWrapper>
                 <LazyImage
