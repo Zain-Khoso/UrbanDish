@@ -14,6 +14,8 @@ export const StyledCard = styled("div")`
 `;
 
 export const Title = styled("h3")`
+    font-weight: 600;
+    letter-spacing: 0.1rem;
     text-align: left;
     text-transform: uppercase;
     color: ${({ theme }) => theme.Colors.primary};

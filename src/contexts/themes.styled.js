@@ -1,6 +1,3 @@
-// Utils
-import { createContext, useState } from "react";
-
 export const darkTheme = {
     Themes: {
         Theme: "rgb(30, 30, 30)",
@@ -44,8 +41,8 @@ export const lightTheme = {
     },
 
     Colors: {
-        primary: "rgb(0, 102, 0)",
-        primaryOpacity: "rgba(0, 102, 0, 0.6)",
+        primary: "rgb(0, 115, 0)",
+        primaryOpacity: "rgba(0, 115, 0, 0.6)",
         link: "rgba(11, 110, 165, 1)",
         linkOpacity: "rgba(11, 110, 165, 0.6)",
         theme: "rgb(255, 255, 255)",

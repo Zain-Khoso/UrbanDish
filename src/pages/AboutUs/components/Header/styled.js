@@ -9,6 +9,8 @@ export const StyledHeader = styled("header")`
     gap: 2rem;
 
     width: 100%;
+    padding: 1rem;
+    padding-top: calc(${({ theme }) => theme.Heights.navbarHeight} + 2rem);
     height: fit-content;
 `;
 
@@ -19,8 +21,6 @@ export const PageIntro = styled("section")`
 
     width: 100%;
     height: fit-content;
-    padding: 1rem;
-    padding-top: calc(${({ theme }) => theme.Heights.navbarHeight} + 2rem);
 `;
 
 export const IntroTitle = styled("h1")`
@@ -32,5 +32,4 @@ export const IntroTitle = styled("h1")`
 
 export const CardWrapper = styled("div")`
     width: 100%;
-    padding-inline: 1rem;
 `;

@@ -1,4 +1,6 @@
 // Assets
+import AboutUsDark from "../../assets/svgs/about-us-dark.svg";
+import AboutUsLight from "../../assets/svgs/about-us-light.svg";
 import PlaceholderFounder from "../../assets/placeholderFounder.jpg";
 import Founder from "../../assets/founder.jpg";
 
@@ -6,13 +8,22 @@ import Founder from "../../assets/founder.jpg";
 import { StyledHeader, PageIntro, IntroTitle, CardWrapper } from "./styled";
 import Navbar from "../../../../components/Navigation/Navbar";
 import Card from "../Card";
+import Illustration from "../../../../components/Illustration";
 
 export default function Header() {
     return (
         <StyledHeader>
             <Navbar />
+
             <PageIntro>
                 <IntroTitle>What is Belly Brains?</IntroTitle>
+
+                <Illustration
+                    light={AboutUsLight}
+                    dark={AboutUsDark}
+                    altText="Illustration of the about us page"
+                />
+
                 <p style={{ textAlign: "left" }}>
                     A culinary haven where passion meets plate. Established on
                     July 9th, 1969, in Sukkur, we have been crafting
@@ -22,6 +33,7 @@ export default function Header() {
                     begins here.
                 </p>
             </PageIntro>
+
             <CardWrapper>
                 <Card
                     title="Founder"
