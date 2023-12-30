@@ -47,7 +47,7 @@ export const Image = styled("img")`
     max-width: 10rem;
     border-radius: ${({ $isLarge }) => ($isLarge ? "50%" : "0")};
     translate: -50% -50%;
-    z-index: ${({ $isLarge }) => ($isLarge ? 11 : 1)};
+    z-index: ${({ $isLarge }) => ($isLarge ? 11 : -1)};
 `;
 
 export const Username = styled("h1")`
