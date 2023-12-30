@@ -95,7 +95,7 @@ Belly Brains is more than just a recipe center; it's a dynamic platform that sho
 
 ## Future Plans
 
-As of now, this marks the final version of the Belly Brains project for me. However, the journey doesn't end here! I invite the community to contribute, suggest improvements, and make this project even better.
+As of now, this marks the final version of the Belly Brains project for [me](https://github.com/Zain-Khoso). However, the journey doesn't end here! I invite the community to contribute, suggest improvements, and make this project even better.
 
 ### How to Contribute
 
