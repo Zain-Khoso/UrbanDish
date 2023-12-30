@@ -35,6 +35,8 @@ export const AboutBrand = styled("section")`
 
 export const Wrapper = styled(motion.div)`
     width: 100%;
+    max-width: 70ch;
+    margin-inline: auto;
     opacity: 0;
     translate: 0 70px;
 `;

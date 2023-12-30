@@ -10,6 +10,7 @@ export const Spinner = styled("div")`
     left: 50%;
 
     width: 20%;
+    max-width: 8rem;
     aspect-ratio: 1/1;
     border: 0.5rem solid ${({ theme }) => theme.Colors.themeOpacity};
     border-top: 0.5rem solid ${({ theme }) => theme.Colors.primary};

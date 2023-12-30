@@ -1,6 +1,5 @@
 // Utils
 import PropTypes from "prop-types";
-import { useTheme } from "styled-components";
 
 // Components
 import { Wrapper, Head, Navigation, NavItem, StyledLink } from "./styled";
@@ -8,14 +7,8 @@ import ThemeToggleButton from "../ThemeToggleButton";
 import AuthButton from "../../AuthButton";
 
 export default function HamburgerMenu({ hamburgerVisible }) {
-    const theme = useTheme();
-
     return (
-        <Wrapper
-            $hamburgerVisible={hamburgerVisible}
-            animate={{
-                top: hamburgerVisible ? theme.Heights.navbarHeight : "-100vh",
-            }}>
+        <Wrapper $hamburgerVisible={hamburgerVisible}>
             <Head>
                 <ThemeToggleButton />
                 <AuthButton />

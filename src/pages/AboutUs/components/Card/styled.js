@@ -11,9 +11,30 @@ export const StyledCard = styled(motion.div)`
     gap: 0.5rem;
 
     width: 100%;
+    max-width: 70ch;
     height: fit-content;
+    margin-inline: auto;
     opacity: 0;
     translate: 0 70px;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.tablet}) {
+        && {
+            flex-direction: row;
+            gap: 1rem;
+        }
+    }
+`;
+
+export const Visuals = styled("div")`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 0.5rem;
+
+    width: 100%;
+    min-width: 50%;
+    height: fit-content;
 `;
 
 export const Title = styled("h3")`
@@ -39,5 +60,11 @@ export const Text = styled("p")`
 
     & span {
         color: ${({ theme }) => theme.Colors.primary};
+    }
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.tablet}) {
+        && {
+            padding-top: calc(1lh + 0.5rem);
+        }
     }
 `;

@@ -12,7 +12,9 @@ export const Container = styled("div")`
     gap: 1rem;
 
     width: 100dvw;
+    max-width: ${({ theme }) => theme.Breakpoints.mobileLarge};
     height: 100dvh;
+    margin-inline: auto;
 `;
 
 export const Expression = styled("h1")`

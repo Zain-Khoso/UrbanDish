@@ -13,6 +13,12 @@ export const StyledHeader = styled("header")`
     padding: 1rem;
     padding-top: ${({ theme }) => theme.Heights.navbarHeight};
     height: fit-content;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.tablet}) {
+        && {
+            gap: 5rem;
+        }
+    }
 `;
 
 export const PageIntro = styled(motion.section)`
@@ -24,6 +30,14 @@ export const PageIntro = styled(motion.section)`
     height: fit-content;
     opacity: 0;
     translate: 0 100px;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.tablet}) {
+        && {
+            max-width: 70ch;
+            gap: 2rem;
+            margin-inline: auto;
+        }
+    }
 `;
 
 export const IntroTitle = styled("h1")`
@@ -31,6 +45,10 @@ export const IntroTitle = styled("h1")`
     font-family: ${({ theme }) => theme.Fonts.primary};
     text-align: left;
     color: ${({ theme }) => theme.Colors.primary};
+`;
+
+export const IntroText = styled("p")`
+    text-align: left;
 `;
 
 export const CardWrapper = styled("div")`

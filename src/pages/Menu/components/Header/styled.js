@@ -11,9 +11,17 @@ export const StyledHeader = styled("header")`
     gap: 1rem;
 
     width: 100%;
+    max-width: ${({ theme }) => theme.Breakpoints.mobileLarge};
     padding-top: calc(${({ theme }) => theme.Heights.navbarHeight} + 2rem);
     padding-bottom: 2rem;
     padding-inline: 1rem;
+    margin-inline: auto;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.tablet}) {
+        && {
+            max-width: ${({ theme }) => theme.Breakpoints.tablet};
+        }
+    }
 `;
 
 export const Title = styled("h1")`

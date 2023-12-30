@@ -32,6 +32,11 @@ export const darkTheme = {
     Heights: {
         navbarHeight: "3rem",
     },
+
+    Breakpoints: {
+        mobileLarge: "370px",
+        tablet: "500px",
+    },
 };
 
 export const lightTheme = {
@@ -67,5 +72,10 @@ export const lightTheme = {
 
     Heights: {
         navbarHeight: "3rem",
+    },
+
+    Breakpoints: {
+        mobileLarge: "370px",
+        tablet: "500px",
     },
 };

@@ -19,7 +19,7 @@ export const Testimonial = styled(motion.div)`
     justify-content: space-between;
     align-items: center;
 
-    width: 80%;
+    width: 100%;
     max-width: 300px;
     background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 1rem;
@@ -28,4 +28,10 @@ export const Testimonial = styled(motion.div)`
     overflow: visible;
     opacity: 0;
     translate: 0 70px;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.tablet}) {
+        && {
+            max-width: ${({ theme }) => theme.Breakpoints.mobileLarge};
+        }
+    }
 `;
