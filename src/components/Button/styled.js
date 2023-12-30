@@ -25,7 +25,9 @@ export const BtnIconWrapper = styled("div")`
 export const StyledButtonPrimary = styled(Button)`
     background-color: ${({ theme }) => theme.Colors.primary};
 
+    &:hover,
     &:focus {
+        cursor: pointer;
         box-shadow: 0 0 0.3rem ${({ theme }) => theme.Colors.primaryOpacity};
     }
 `;
@@ -43,7 +45,9 @@ export const PrimaryBtnIconWrapper = styled(BtnIconWrapper)`
 export const StyledButtonRedOutline = styled(Button)`
     border-color: ${({ theme }) => theme.Colors.red};
 
+    &:hover,
     &:focus {
+        cursor: pointer;
         box-shadow: 0 0 0.3rem ${({ theme }) => theme.Colors.red};
     }
 `;

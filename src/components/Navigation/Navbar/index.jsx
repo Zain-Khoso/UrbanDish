@@ -6,7 +6,7 @@ import { useTheme } from "styled-components";
 import logo from "../../../assets/favicon.png";
 
 // Components
-import { Wrapper, StyledNavbar, StyledLink } from "./styled";
+import { Wrapper, StyledNavbar, StyledLink, NavList, PageLink } from "./styled";
 import HamburgerButton from "../HamburgerButton";
 import HamburgerMenu from "../HamburgerMenu";
 import DisplayBlanket from "../../DisplayBlanket/styled";
@@ -34,6 +34,21 @@ export default memo(function Navbar() {
                         hamburgerVisible={hamburgerVisible}
                         handleClick={setHamburgerVisible}
                     />
+
+                    <NavList>
+                        <li>
+                            <PageLink to="/about-us">About</PageLink>
+                        </li>
+                        <li>
+                            <PageLink to="/menu">Menu</PageLink>
+                        </li>
+                        <li>
+                            <PageLink to="/cart">Cart</PageLink>
+                        </li>
+                        <li>
+                            <PageLink to="/contact-us">Contact</PageLink>
+                        </li>
+                    </NavList>
                 </StyledNavbar>
 
                 <HamburgerMenu hamburgerVisible={hamburgerVisible} />

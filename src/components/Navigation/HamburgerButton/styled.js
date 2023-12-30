@@ -8,6 +8,12 @@ export const Wrapper = styled("button")`
 
     width: 2rem;
     aspect-ratio: 1/1;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            display: none;
+        }
+    }
 `;
 
 export const Line = styled(motion.span)`

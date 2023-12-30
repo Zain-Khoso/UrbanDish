@@ -21,6 +21,12 @@ export const Container = styled("section")`
     width: min(80%, 320px);
     aspect-ratio: 9/16;
     translate: -50% -50%;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            padding-top: ${({ theme }) => theme.Heights.navbarHeight};
+        }
+    }
 `;
 
 export const Title = styled("h1")`

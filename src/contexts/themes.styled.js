@@ -1,3 +1,8 @@
+// Utils
+import useWindowDimension from "../hooks/useWindowDimension";
+
+const { width } = useWindowDimension();
+
 export const darkTheme = {
     Themes: {
         Theme: "rgb(30, 30, 30)",
@@ -30,12 +35,13 @@ export const darkTheme = {
     },
 
     Heights: {
-        navbarHeight: "3rem",
+        navbarHeight: width > 500 ? "5rem" : "3rem",
     },
 
     Breakpoints: {
         mobileLarge: "370px",
         tablet: "500px",
+        desktop: "1024px",
     },
 };
 
@@ -71,11 +77,12 @@ export const lightTheme = {
     },
 
     Heights: {
-        navbarHeight: "3rem",
+        navbarHeight: width > 500 ? "5rem" : "3rem",
     },
 
     Breakpoints: {
         mobileLarge: "370px",
         tablet: "500px",
+        desktop: "1024px",
     },
 };

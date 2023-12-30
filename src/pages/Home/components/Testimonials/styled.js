@@ -10,6 +10,15 @@ export const TestimonialWrapper = styled(CardsWrapper)`
     gap: 3rem;
     margin-top: 2rem;
     overflow: visible;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            justify-content: space-evenly;
+            column-gap: 0;
+
+            max-width: none;
+        }
+    }
 `;
 
 export const Testimonial = styled(motion.div)`
@@ -29,9 +38,9 @@ export const Testimonial = styled(motion.div)`
     opacity: 0;
     translate: 0 70px;
 
-    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.tablet}) {
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
         && {
-            max-width: ${({ theme }) => theme.Breakpoints.mobileLarge};
+            /* max-width: none; */
         }
     }
 `;

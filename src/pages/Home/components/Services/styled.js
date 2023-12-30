@@ -20,6 +20,14 @@ export const ServiceCard = styled(motion.div)`
             max-width: ${({ theme }) => theme.Breakpoints.mobileLarge};
         }
     }
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            max-width: none;
+            flex-grow: 1;
+            flex-basis: 40%;
+        }
+    }
 `;
 
 export const ServiceImgWrapper = styled("div")`

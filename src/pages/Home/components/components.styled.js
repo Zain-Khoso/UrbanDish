@@ -11,4 +11,17 @@ export const CardsWrapper = styled("div")`
 
     width: 100%;
     padding: 1rem;
+    margin-inline: auto;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            max-width: calc(
+                ${({ theme }) => theme.Breakpoints.desktop} - 200px
+            );
+            column-gap: 8rem;
+        }
+    }
 `;

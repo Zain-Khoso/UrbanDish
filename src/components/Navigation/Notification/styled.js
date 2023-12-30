@@ -16,6 +16,12 @@ export const Container = styled("div")`
     border-radius: 0.8rem;
     z-index: 15;
     transition: right 200ms;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            right: ${({ $isOpen }) => ($isOpen ? "3rem" : "-100vw")};
+        }
+    }
 `;
 
 export const Text = styled("span")`

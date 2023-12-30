@@ -28,6 +28,13 @@ export const SectionTitle = styled(motion.h2)`
     margin-bottom: 0.5rem;
     opacity: 0;
     translate: 0 70px;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
 `;
 
 export const CTA = styled(motion.section)`
@@ -46,9 +53,28 @@ export const CTA = styled(motion.section)`
     & p {
         font-family: ${({ theme }) => theme.Fonts.primary};
     }
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            flex-direction: row;
+            gap: 5rem;
+        }
+
+        && p {
+            font-size: ${({ theme }) => theme.FontSizes.lg};
+            width: 20ch;
+            line-height: 2.5;
+        }
+    }
 `;
 
 export const TextPrimary = styled("span")`
     font-family: inherit;
     color: ${({ theme }) => theme.Colors.primary};
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            font-size: ${({ theme }) => theme.FontSizes.lg};
+        }
+    }
 `;

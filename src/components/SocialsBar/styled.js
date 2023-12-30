@@ -17,6 +17,12 @@ export const Title = styled("h2")`
     color: ${({ theme }) => theme.Colors.primary};
     padding-left: 1rem;
     margin-bottom: 0.5rem;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            padding-left: 2rem;
+        }
+    }
 `;
 
 export const SocialsWrapper = styled("div")`
@@ -27,6 +33,12 @@ export const SocialsWrapper = styled("div")`
     width: 100%;
     background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 1rem;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            justify-content: space-evenly;
+        }
+    }
 `;
 
 export const SVGLink = styled(Link)`

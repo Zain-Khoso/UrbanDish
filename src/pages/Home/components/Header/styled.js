@@ -32,6 +32,16 @@ export const Hero = styled(motion.section)`
             max-width: ${({ theme }) => theme.Breakpoints.tablet};
         }
     }
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            flex-direction: row-reverse;
+            gap: 5rem;
+
+            max-width: ${({ theme }) => theme.Breakpoints.desktop};
+            padding-top: ${({ theme }) => theme.Heights.navbarHeight};
+        }
+    }
 `;
 
 export const Context = styled(motion.section)`
@@ -42,6 +52,14 @@ export const Context = styled(motion.section)`
     gap: 2rem;
 
     width: 100%;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            align-items: flex-start;
+
+            max-width: 40%;
+        }
+    }
 `;
 
 export const Slogon = styled("h1")`
@@ -56,9 +74,21 @@ export const Slogon = styled("h1")`
             min-height: 2lh;
         }
     }
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            text-align: left;
+        }
+    }
 `;
 
 export const SubText = styled("p")`
     font-weight: 500;
     color: ${({ theme }) => theme.Colors.contrastOpacity};
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            text-align: left;
+        }
+    }
 `;
