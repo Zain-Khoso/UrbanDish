@@ -30,11 +30,17 @@ export default function Main() {
                 />
 
                 <Section>
-                    <SectionTitle>why choose us.</SectionTitle>
+                    <SectionTitle
+                        whileInView={{ opacity: 1, translateY: -70 }}
+                        viewport={{ once: true }}>
+                        why choose us.
+                    </SectionTitle>
                     <Services />
                 </Section>
 
-                <CTA>
+                <CTA
+                    whileInView={{ opacity: 1, translateY: -70 }}
+                    viewport={{ once: true }}>
                     <p>
                         Try out our rich taste and flavor&nbsp;
                         <TextPrimary>Today.</TextPrimary>
@@ -48,7 +54,11 @@ export default function Main() {
                 </CTA>
 
                 <Section>
-                    <SectionTitle>thoughts about us.</SectionTitle>
+                    <SectionTitle
+                        whileInView={{ opacity: 1, translateY: -70 }}
+                        viewport={{ once: true }}>
+                        thoughts about us.
+                    </SectionTitle>
                     <Testimonials />
                 </Section>
             </Suspense>

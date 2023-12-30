@@ -13,6 +13,7 @@ export const StyledModel = styled("div")`
     gap: 1rem;
 
     width: 90%;
+    max-width: ${({ theme }) => theme.Breakpoints.mobileLarge};
     background-color: ${({ theme }) => theme.Themes.Theme};
     padding: 1rem;
     border-radius: 1rem;

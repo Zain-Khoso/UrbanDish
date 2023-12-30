@@ -19,8 +19,27 @@ export const Wrapper = styled("div")`
     border-bottom: 2px solid ${({ theme }) => theme.Colors.contrastOpacity};
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
-    transition: top 500ms ease-out;
+    transition: top 300ms ease-out;
     z-index: ${({ $hamburgerVisible }) => ($hamburgerVisible ? 12 : 2)};
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.tablet}) {
+        && {
+            top: ${({ theme }) => theme.Heights.navbarHeight};
+            right: ${({ $hamburgerVisible }) =>
+                $hamburgerVisible ? 0 : "-100vw"};
+            justify-content: flex-start;
+
+            width: 80%;
+            max-width: ${({ theme }) => theme.Breakpoints.mobileLarge};
+            height: calc(100dvh - ${({ theme }) => theme.Heights.navbarHeight});
+            border: 2px solid ${({ theme }) => theme.Colors.contrastOpacity};
+            border-right: 0;
+            border-radius: 0;
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+            transition: right 300ms ease-out;
+        }
+    }
 `;
 
 export const Head = styled("div")`

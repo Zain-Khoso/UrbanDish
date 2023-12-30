@@ -1,5 +1,7 @@
 // Utils
-import { createContext, useState } from "react";
+import useWindowDimension from "../hooks/useWindowDimension";
+
+const { width } = useWindowDimension();
 
 export const darkTheme = {
     Themes: {
@@ -33,7 +35,13 @@ export const darkTheme = {
     },
 
     Heights: {
-        navbarHeight: "3rem",
+        navbarHeight: width > 500 ? "5rem" : "3rem",
+    },
+
+    Breakpoints: {
+        mobileLarge: "370px",
+        tablet: "500px",
+        desktop: "1024px",
     },
 };
 
@@ -44,8 +52,8 @@ export const lightTheme = {
     },
 
     Colors: {
-        primary: "rgb(0, 102, 0)",
-        primaryOpacity: "rgba(0, 102, 0, 0.6)",
+        primary: "rgb(0, 115, 0)",
+        primaryOpacity: "rgba(0, 115, 0, 0.6)",
         link: "rgba(11, 110, 165, 1)",
         linkOpacity: "rgba(11, 110, 165, 0.6)",
         theme: "rgb(255, 255, 255)",
@@ -69,6 +77,12 @@ export const lightTheme = {
     },
 
     Heights: {
-        navbarHeight: "3rem",
+        navbarHeight: width > 500 ? "5rem" : "3rem",
+    },
+
+    Breakpoints: {
+        mobileLarge: "370px",
+        tablet: "500px",
+        desktop: "1024px",
     },
 };

@@ -12,7 +12,7 @@ export const Form = styled("form")`
     gap: 0.5rem;
 
     width: 100%;
-    aspect-ratio: 6/1;
+    height: 4rem;
     background-color: ${({ theme }) => theme.Colors.themeOpacity};
     padding: 0.5rem 1rem;
     border-radius: 1rem;

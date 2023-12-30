@@ -9,8 +9,16 @@ export const StyledMain = styled("main")`
     gap: 1rem;
 
     width: 100%;
+    max-width: ${({ theme }) => theme.Breakpoints.mobileLarge};
     padding: 1rem;
     padding-bottom: 11rem;
+    margin-inline: auto;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.tablet}) {
+        && {
+            max-width: ${({ theme }) => theme.Breakpoints.tablet};
+        }
+    }
 `;
 
 export const Title = styled("h2")`

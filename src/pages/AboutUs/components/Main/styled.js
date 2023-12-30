@@ -1,5 +1,6 @@
 // Utils
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 // Styles
 export const StyledMain = styled("main")`
@@ -32,8 +33,12 @@ export const AboutBrand = styled("section")`
     padding-inline: 1rem;
 `;
 
-export const Wrapper = styled("div")`
+export const Wrapper = styled(motion.div)`
     width: 100%;
+    max-width: 70ch;
+    margin-inline: auto;
+    opacity: 0;
+    translate: 0 70px;
 `;
 
 export const Title = styled("h4")`

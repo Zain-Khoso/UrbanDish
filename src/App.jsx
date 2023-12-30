@@ -2,6 +2,7 @@
 import { useState, useReducer } from "react";
 import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { AnimatePresence } from "framer-motion";
 import useNotifReducer from "./hooks/useNotifReducer";
 
 // App Routes
@@ -48,8 +49,11 @@ export default function App() {
                     value={{ notifState, notifDispatch }}>
                     {/* Default Styles */}
                     <DefaultStyles />
-                    {/* Router */}
-                    <RouterProvider router={router} />
+                    {/* Framer Motion page change animation config */}
+                    <AnimatePresence>
+                        {/* Router */}
+                        <RouterProvider router={router} />
+                    </AnimatePresence>
                 </NotificationContext.Provider>
             </ThemeProvider>
         </ToggleThemeContext.Provider>

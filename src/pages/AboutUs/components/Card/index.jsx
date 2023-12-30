@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 
 // Components
-import { StyledCard, Title, ImageWrapper, Text } from "./styled";
+import { StyledCard, Visuals, Title, ImageWrapper, Text } from "./styled";
 import LazyImage from "../../../../components/LazyImage";
 
 export default function Card({
@@ -14,16 +14,20 @@ export default function Card({
     imageSizePriority,
 }) {
     return (
-        <StyledCard>
-            <Title>{title}</Title>
-            <ImageWrapper>
-                <LazyImage
-                    alt={alt}
-                    placeholderSrc={placeholderImage}
-                    src={image}
-                    sizePriority={imageSizePriority || "w"}
-                />
-            </ImageWrapper>
+        <StyledCard
+            whileInView={{ opacity: 1, translateY: -70 }}
+            viewport={{ once: true }}>
+            <Visuals>
+                <Title>{title}</Title>
+                <ImageWrapper>
+                    <LazyImage
+                        alt={alt}
+                        placeholderSrc={placeholderImage}
+                        src={image}
+                        sizePriority={imageSizePriority || "w"}
+                    />
+                </ImageWrapper>
+            </Visuals>
             <Text dangerouslySetInnerHTML={{ __html: text }}></Text>
         </StyledCard>
     );

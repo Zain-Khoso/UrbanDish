@@ -176,7 +176,9 @@ export default function Main() {
                 newTab={false}
             />
             <AboutBrand>
-                <Wrapper>
+                <Wrapper
+                    whileInView={{ opacity: 1, translateY: -70 }}
+                    viewport={{ once: true }}>
                     <Title>our mission</Title>
                     <Para>
                         At Belly Brains, our mission is to ignite culinary
@@ -187,7 +189,9 @@ export default function Main() {
                         that savor the joy of shared indulgence.
                     </Para>
                 </Wrapper>
-                <Wrapper>
+                <Wrapper
+                    whileInView={{ opacity: 1, translateY: -70 }}
+                    viewport={{ once: true }}>
                     <Title>future plans</Title>
                     <Para>
                         At Belly Brains, the future holds a tantalizing array of

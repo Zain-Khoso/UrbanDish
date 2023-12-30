@@ -1,6 +1,7 @@
 // Utils
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../config/firebase";
+import { motion } from "framer-motion";
 import useDocTitle from "../../hooks/useDocTitle";
 
 // Components
@@ -20,13 +21,16 @@ export default function Menu() {
     if (error) return <ErrorPage />;
 
     return user ? (
-        <>
+        <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            exit={{ scaleX: 0 }}>
             <RestoreScroll />
 
             <Header />
 
             <Main />
-        </>
+        </motion.div>
     ) : (
         <AuthError />
     );

@@ -12,7 +12,9 @@ export const Container = styled("div")`
     gap: 1rem;
 
     width: 100dvw;
+    max-width: ${({ theme }) => theme.Breakpoints.mobileLarge};
     height: 100dvh;
+    margin-inline: auto;
 `;
 
 export const Expression = styled("h1")`
@@ -23,6 +25,13 @@ export const Expression = styled("h1")`
 
 export const Message = styled("p")`
     width: 35ch;
+`;
+
+export const ButtonGroup = styled("div")`
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 2rem;
 `;
 
 export const PrevLink = styled("button")`

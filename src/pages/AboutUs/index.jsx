@@ -1,4 +1,5 @@
 // Utils
+import { motion } from "framer-motion";
 import useDocTitle from "../../hooks/useDocTitle";
 
 // Components
@@ -11,7 +12,10 @@ export default function AboutUs() {
     useDocTitle("About Us");
 
     return (
-        <>
+        <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            exit={{ scaleX: 0 }}>
             <RestoreScroll />
 
             <Header />
@@ -19,6 +23,6 @@ export default function AboutUs() {
             <Main />
 
             <Footer />
-        </>
+        </motion.div>
     );
 }

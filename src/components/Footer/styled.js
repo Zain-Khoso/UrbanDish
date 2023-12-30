@@ -35,6 +35,12 @@ export const SocialsWrapper = styled("div")`
     display: flex;
     align-items: center;
     gap: 0.8rem;
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            gap: 3rem;
+        }
+    }
 `;
 
 export const SVGLink = styled(Link)`
@@ -44,5 +50,11 @@ export const SVGLink = styled(Link)`
     & svg {
         stroke: ${({ theme }) => theme.Colors.contrastOpacity};
         fill: none;
+    }
+
+    @media screen and (min-width: ${({ theme }) => theme.Breakpoints.desktop}) {
+        && {
+            width: calc(${({ theme }) => theme.Heights.navbarHeight} - 3rem);
+        }
     }
 `;

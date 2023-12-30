@@ -25,7 +25,10 @@ export default function Services() {
     return (
         <ServicesWrapper>
             {services.map((item) => (
-                <ServiceCard key={item.id}>
+                <ServiceCard
+                    key={item.id}
+                    whileInView={{ opacity: 1, translateY: -70 }}
+                    viewport={{ once: true }}>
                     <ServiceImgWrapper>
                         <LazyImage
                             alt={`Service ${item.id}`}

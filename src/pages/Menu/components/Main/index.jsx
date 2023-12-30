@@ -8,7 +8,7 @@ import { NotificationContext } from "../../../../contexts";
 import { StyledMain, ErrorMessage } from "./styled";
 import Item from "../Item";
 import DataLoader from "../../../../components/Loaders/DataLoader";
-import EndListener from "../EndListener/EndListener";
+import EndListener from "../EndListener";
 import ConfirmationModel from "../ConfirmationModel";
 
 export default function Main() {
