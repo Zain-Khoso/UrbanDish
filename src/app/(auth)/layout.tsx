@@ -2,7 +2,7 @@
 import { Nunito } from 'next/font/google';
 
 // Styles.
-import './globals.css';
+import '../globals.css';
 
 // Types.
 import type { Metadata } from 'next';
@@ -10,21 +10,20 @@ import type { Metadata } from 'next';
 // Metadata.
 export const metadata: Metadata = {
   title: {
-    template: 'Urban Dish | A Modern Restaurant Website',
-    default: 'Urban Dish: A Modern Restaurant Website',
+    template: '%s | Urban Dish Authentication',
+    default: 'Urban Dish: Sign In or Create Account',
   },
   description:
-    'Urban Dish is a vibrant restaurant offering a diverse menu and a modern atmosphere. Enjoy online ordering, table reservations, and explore our latest news and events.',
+    'Access your Urban Dish account to enjoy online ordering, table reservations, and explore our latest news and events. Sign in or create a new account to get started.',
   keywords: [
     'Urban Dish',
+    'authentication',
+    'login',
+    'sign up',
     'restaurant',
     'online ordering',
     'table reservations',
-    'menu',
-    'food',
-    'dining',
-    'modern',
-    'urban',
+    'account creation',
   ],
   applicationName: 'Urban Dish',
   referrer: 'origin',
