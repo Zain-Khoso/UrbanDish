@@ -1,4 +1,5 @@
 // Lib Imports.
+import Image from 'next/image';
 import { Nunito } from 'next/font/google';
 
 // Styles.
@@ -53,7 +54,19 @@ const font = Nunito({ subsets: ['latin'] });
 export default function RootLayout({ children }: Readonly<ChildrenProp>) {
   return (
     <html lang="en">
-      <body className={`${font.className} antialiased`}>{children}</body>
+      <body className={`${font.className} relative h-dvh w-dvw antialiased`}>
+        <Image
+          fill
+          sizes="(max-width: 768px) 0, (max-width: 1280px) 1280px, 1980px"
+          alt="Authentication Background Image"
+          src="/images/auth-bg-image.webp"
+          className="absolute inset-0 -z-10"
+        />
+
+        <main className="flex h-full w-full flex-col items-end justify-center md:p-4">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
