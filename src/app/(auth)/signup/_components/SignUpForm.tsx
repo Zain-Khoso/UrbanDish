@@ -1,93 +1,33 @@
 'use client';
 
 // Lib Imports.
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
 
 // Components.
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import Step_1 from './Step_1';
 
 // Types.
-import { AuthFormT, schema } from '@/schemas/AuthForm.schema';
+import { SignUpT } from '@/schemas/AuthForm.schema';
+enum Steps {
+  EMAIL_PHONE = 0,
+  NAME_ADDRESS = 1,
+  IMAGE = 2,
+}
 
 // Component.
 export default function SignUpForm() {
-  const form = useForm<AuthFormT>({
-    resolver: zodResolver(schema),
-    defaultValues: {
-      email: '',
-      phone: '',
-      name: '',
-      image: '',
-      address: '',
-    },
+  const [step, setStep] = useState<Steps>(Steps.EMAIL_PHONE);
+  const [formData, setFormData] = useState<SignUpT>({
+    email: '',
+    address: '',
+    image: '',
+    name: '',
+    phone: '',
   });
 
-  const onSubmit: SubmitHandler<AuthFormT> = async function (data) {
-    console.log(data);
-  };
+  const onNext = () => setStep((value) => ++value);
+  const onPrev = () => setStep((value) => --value);
 
-  return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-4">
-        {/* Email */}
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-
-              <FormControl>
-                <Input placeholder="abc@xyz.com" {...field} />
-              </FormControl>
-
-              <FormDescription>A unique email address.</FormDescription>
-
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        {/* Phone */}
-        <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Phone</FormLabel>
-
-              <FormControl>
-                <Input placeholder="abc@xyz.com" {...field} />
-              </FormControl>
-
-              <FormDescription>Your active cell phone number.</FormDescription>
-
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <div className="flex w-full flex-row space-x-2">
-          <Button type="button" variant="outline" className="flex-1">
-            Back
-          </Button>
-
-          <Button type="submit" variant="gradiant" className="flex-1">
-            Create User
-          </Button>
-        </div>
-      </form>
-    </Form>
-  );
+  if (step === Steps.EMAIL_PHONE)
+    return <Step_1 onNext={onNext} defaultValues={formData} setFormData={setFormData} />;
 }
