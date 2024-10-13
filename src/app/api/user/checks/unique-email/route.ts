@@ -6,13 +6,17 @@ import prisma from '@/utils/prisma.db';
 
 // POST route handler.
 export async function POST(request: Request) {
-  const { email } = await request.json();
+  try {
+    const { email } = await request.json();
 
-  if (!email) return NextResponse.error();
+    if (!email) return NextResponse.error();
 
-  const user = await prisma.user.findUnique({ where: { email } });
+    const user = await prisma.user.findUnique({ where: { email } });
 
-  if (user) return NextResponse.json({ isUnique: false });
+    if (user) return NextResponse.json({ isUnique: false });
 
-  return NextResponse.json({ isUnique: true });
+    return NextResponse.json({ isUnique: true });
+  } catch {
+    return NextResponse.error();
+  }
 }
