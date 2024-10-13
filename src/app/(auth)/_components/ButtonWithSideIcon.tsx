@@ -22,6 +22,7 @@ type Props = {
   label?: string;
   icon?: IconType;
   side?: 'left' | 'right';
+  disabled?: boolean;
   className?: string;
   classNameText?: string;
   classNameIcon?: string;
@@ -35,6 +36,7 @@ export default function ButtonWithSideIcon({
   label,
   icon: Icon,
   side = 'right',
+  disabled = false,
   className,
   classNameText,
   classNameIcon,
@@ -44,6 +46,7 @@ export default function ButtonWithSideIcon({
     <Button
       type={type}
       variant={variant}
+      disabled={disabled}
       onClick={onClick}
       className={cn('flex w-full', side === 'right' ? 'flex-row' : 'flex-row-reverse', className)}
     >

@@ -15,58 +15,55 @@ import {
   FormItem,
   FormLabel,
   FormControl,
-  FormDescription,
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { SignUpT, SignUpStep2, Step2T } from '@/schemas/AuthForm.schema';
+import { SignUpT, SignUpStep3, Step3T } from '@/schemas/AuthForm.schema';
 import ButtonWithSideIcon from '../../_components/ButtonWithSideIcon';
 
 // Types.
 type Props = {
-  onNext: () => void;
+  onNext: (data: Step3T) => Promise<void>;
   onPrev: () => void;
-  defaultValues: Step2T;
+  defaultValues: Step3T;
   setFormData: Dispatch<SetStateAction<SignUpT>>;
 };
 
 // Component.
-export default function Step_2({ onNext, onPrev, defaultValues, setFormData }: Props) {
-  const form = useForm<Step2T>({
-    resolver: zodResolver(SignUpStep2),
+export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: Props) {
+  const form = useForm<Step3T>({
+    resolver: zodResolver(SignUpStep3),
     defaultValues,
   });
 
   const disabled = form.formState.isLoading || form.formState.isSubmitting;
 
   const handlePrev = function () {
-    const { name, password } = form.getValues();
+    const { address, image } = form.getValues();
 
-    setFormData((value) => ({ ...value, name, password }));
+    setFormData((value) => ({ ...value, address, image }));
 
     onPrev();
   };
 
-  const onSubmit: SubmitHandler<Step2T> = async function (data) {
-    setFormData((value) => ({ ...value, ...data }));
-
-    onNext();
+  const onSubmit: SubmitHandler<Step3T> = async function (data) {
+    await onNext(data);
   };
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-4">
-        {/* Name */}
+        {/* Address */}
         <FormField
           control={form.control}
-          name="name"
+          name="address"
           disabled={disabled}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Address</FormLabel>
 
               <FormControl>
-                <Input placeholder="John Doe" {...field} />
+                <Input placeholder="House No. 404, Error Street, Sukkur" {...field} />
               </FormControl>
 
               <FormMessage />
@@ -74,24 +71,20 @@ export default function Step_2({ onNext, onPrev, defaultValues, setFormData }: P
           )}
         />
 
-        {/* Password */}
+        {/* Image */}
         <FormField
           control={form.control}
-          name="password"
+          name="image"
           disabled={disabled}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Image</FormLabel>
 
               <FormControl>
-                <Input type="password" placeholder="********" {...field} />
+                <Input type="file" {...field} />
               </FormControl>
 
               <FormMessage />
-
-              <FormDescription>
-                Atleast 8 characters long, alphanumeric value with an special character.
-              </FormDescription>
             </FormItem>
           )}
         />
@@ -100,6 +93,7 @@ export default function Step_2({ onNext, onPrev, defaultValues, setFormData }: P
           <ButtonWithSideIcon
             type="button"
             variant="outline"
+            disabled={disabled}
             label="Back"
             icon={FaArrowLeft}
             side="left"
@@ -109,7 +103,8 @@ export default function Step_2({ onNext, onPrev, defaultValues, setFormData }: P
           <ButtonWithSideIcon
             type="submit"
             variant="gradiant"
-            label="Continue"
+            disabled={disabled}
+            label="Create Account"
             icon={FaArrowRight}
             side="right"
           />

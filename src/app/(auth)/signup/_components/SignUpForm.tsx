@@ -1,14 +1,15 @@
 'use client';
 
 // Lib Imports.
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 // Components.
 import Step_1 from './Step_1';
+import Step_2 from './Step_2';
+import Step_3 from './Step_3';
 
 // Types.
-import { SignUpT } from '@/schemas/AuthForm.schema';
-import Step_2 from './Step_2';
+import { SignUpT, Step3T } from '@/schemas/AuthForm.schema';
 enum Steps {
   EMAIL_PHONE = 0,
   NAME_PASSWORD = 1,
@@ -21,8 +22,8 @@ export default function SignUpForm() {
   const [formData, setFormData] = useState<SignUpT>({
     email: 'z@z.com',
     phone: '923123456789',
-    name: '',
-    password: '',
+    name: 'Zain Khoso',
+    password: 'Q12@gmail.com',
     address: '',
     image: '',
   });
@@ -30,11 +31,33 @@ export default function SignUpForm() {
   const onNext = () => setStep((value) => ++value);
   const onPrev = () => setStep((value) => --value);
 
+  const handleUserCreation = useCallback(
+    async function (data: Step3T) {
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          console.table({ ...formData, ...data });
+          resolve(undefined);
+        }, 10000);
+      });
+    },
+    [formData]
+  );
+
   if (step === Steps.EMAIL_PHONE)
     return <Step_1 onNext={onNext} defaultValues={formData} setFormData={setFormData} />;
 
   if (step === Steps.NAME_PASSWORD)
     return (
       <Step_2 onNext={onNext} onPrev={onPrev} defaultValues={formData} setFormData={setFormData} />
+    );
+
+  if (step === Steps.ADDRESS_IMAGE)
+    return (
+      <Step_3
+        onNext={handleUserCreation}
+        onPrev={onPrev}
+        defaultValues={formData}
+        setFormData={setFormData}
+      />
     );
 }

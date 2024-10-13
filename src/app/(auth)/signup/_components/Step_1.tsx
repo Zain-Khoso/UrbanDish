@@ -35,6 +35,8 @@ export default function Step_1({ onNext, defaultValues, setFormData }: Props) {
     defaultValues,
   });
 
+  const disabled = form.formState.isLoading || form.formState.isSubmitting;
+
   const onSubmit: SubmitHandler<Step1T> = async function (data) {
     setFormData((value) => ({ ...value, ...data }));
 
@@ -48,6 +50,7 @@ export default function Step_1({ onNext, defaultValues, setFormData }: Props) {
         <FormField
           control={form.control}
           name="email"
+          disabled={disabled}
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
@@ -65,6 +68,7 @@ export default function Step_1({ onNext, defaultValues, setFormData }: Props) {
         <FormField
           control={form.control}
           name="phone"
+          disabled={disabled}
           render={({ field }) => (
             <FormItem>
               <FormLabel>Phone</FormLabel>
