@@ -18,6 +18,8 @@ const password = z
   .max(40, 'Password is too long.')
   .refine((password) => isStrongPassword(password), 'Password is too weak.');
 
+const signInPassword = z.string().min(1, 'Password is required.');
+
 const address = z.string().min(1, 'Address is required').max(120, 'Address is too long.');
 
 const image = z.string().optional();
@@ -28,19 +30,23 @@ const SignUpStep2 = z.object({ name, password });
 const SignUpStep3 = z.object({ address, image });
 
 const signUpSchema = z.object({ email, phone, name, password, address, image });
+const signInSchema = z.object({ email, password: signInPassword });
 
 // Types.
 type Step1T = z.infer<typeof SignUpStep1>;
 type Step2T = z.infer<typeof SignUpStep2>;
 type Step3T = z.infer<typeof SignUpStep3>;
 type SignUpT = z.infer<typeof signUpSchema>;
+type SignInT = z.infer<typeof signInSchema>;
 
 export {
   signUpSchema,
+  signInSchema,
   SignUpStep1,
   SignUpStep2,
   SignUpStep3,
   type SignUpT,
+  type SignInT,
   type Step1T,
   type Step2T,
   type Step3T,
