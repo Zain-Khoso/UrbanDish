@@ -5,6 +5,9 @@ import { Dispatch, SetStateAction } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+// Icons.
+import { FaArrowRight } from 'react-icons/fa6';
+
 // Components.
 import {
   Form,
@@ -15,10 +18,10 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { SignUpT, SignUpStep1, Step1T } from '@/schemas/AuthForm.schema';
+import ButtonWithSideIcon from '../../_components/ButtonWithSideIcon';
 
 // Types.
-import { SignUpT, SignUpStep1, Step1T } from '@/schemas/AuthForm.schema';
 type Props = {
   onNext: () => void;
   defaultValues: Step1T;
@@ -75,9 +78,14 @@ export default function Step_1({ onNext, defaultValues, setFormData }: Props) {
           )}
         />
 
-        <Button type="submit" variant="gradiant" className="!mt-8 w-full">
-          Continue
-        </Button>
+        <ButtonWithSideIcon
+          type="submit"
+          variant="gradiant"
+          label="Continue"
+          icon={FaArrowRight}
+          side="right"
+          className="!mt-8"
+        />
       </form>
     </Form>
   );
