@@ -76,15 +76,15 @@ export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: P
         <FormField
           control={form.control}
           name="image"
-          disabled={disabled}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Image</FormLabel>
+              <FormLabel>Profile Picture</FormLabel>
 
               <FormControl>
                 <ProfilePictureInput
                   id="image"
                   value={field.value}
+                  disabled={disabled}
                   onChange={form.setValue}
                   errors={form.formState.errors}
                   clearErrors={form.clearErrors}

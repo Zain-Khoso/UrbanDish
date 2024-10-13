@@ -14,14 +14,22 @@ import { FieldErrors, UseFormClearErrors, UseFormSetValue } from 'react-hook-for
 import { Step3T } from '@/schemas/AuthForm.schema';
 type Props = {
   id: string;
-  value: string;
+  value?: string;
+  disabled?: boolean;
   onChange: UseFormSetValue<Step3T>;
   errors: FieldErrors;
   clearErrors: UseFormClearErrors<Step3T>;
 };
 
 // Component.
-export default function ProfilePictureInput({ id, value, onChange, errors, clearErrors }: Props) {
+export default function ProfilePictureInput({
+  id,
+  value,
+  disabled,
+  onChange,
+  errors,
+  clearErrors,
+}: Props) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleUpload = async function (result: any) {
     onChange('image', result.info.secure_url as string);
@@ -39,7 +47,7 @@ export default function ProfilePictureInput({ id, value, onChange, errors, clear
         <Button
           type="button"
           variant="outline"
-          disabled={value !== ''}
+          disabled={value !== '' || disabled}
           className={cn('w-full', errors[id] ? 'border-destructive' : '')}
           onClick={() => open?.()}
         >

@@ -15,11 +15,12 @@ const name = z.string().min(1, 'Name is required').max(20, 'Name is too long.');
 const password = z
   .string()
   .min(1, 'Password is required')
+  .max(40, 'Password is too long.')
   .refine((password) => isStrongPassword(password), 'Password is too weak.');
 
-const address = z.string().min(1, 'Address is required');
+const address = z.string().min(1, 'Address is required').max(120, 'Address is too long.');
 
-const image = z.string().min(1, 'Image is required');
+const image = z.string().optional();
 
 // Schemas.
 const SignUpStep1 = z.object({ email, phone });
