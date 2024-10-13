@@ -20,10 +20,10 @@ enum Steps {
 export default function SignUpForm() {
   const [step, setStep] = useState<Steps>(Steps.EMAIL_PHONE);
   const [formData, setFormData] = useState<SignUpT>({
-    email: 'z@z.com',
-    phone: '923123456789',
-    name: 'Zain Khoso',
-    password: 'Q12@gmail.com',
+    email: '',
+    phone: '',
+    name: '',
+    password: '',
     address: '',
     image: '',
   });

@@ -5,6 +5,9 @@ import { Nunito } from 'next/font/google';
 // Styles.
 import '../globals.css';
 
+// Providers.
+import ReactHotToastProvider from '@/providers/toast.provider';
+
 // Types.
 import type { Metadata } from 'next';
 
@@ -66,6 +69,8 @@ export default function RootLayout({ children }: Readonly<ChildrenProp>) {
         <main className="flex h-full w-full flex-col items-end justify-center md:p-4">
           {children}
         </main>
+
+        <ReactHotToastProvider />
       </body>
     </html>
   );
