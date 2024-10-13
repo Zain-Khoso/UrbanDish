@@ -61,7 +61,7 @@ export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: P
           disabled={disabled}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Address</FormLabel>
+              <FormLabel>Address *</FormLabel>
 
               <FormControl>
                 <Input placeholder="House No. 404, Error Street, Sukkur" {...field} />

@@ -74,7 +74,7 @@ export default function Step_1({ onNext, defaultValues, setFormData }: Props) {
           disabled={disabled}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Email *</FormLabel>
 
               <FormControl>
                 <Input placeholder="abc@xyz.com" {...field} />
@@ -92,7 +92,7 @@ export default function Step_1({ onNext, defaultValues, setFormData }: Props) {
           disabled={disabled}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Phone</FormLabel>
+              <FormLabel>Phone *</FormLabel>
 
               <FormControl>
                 <Input placeholder="923123456789" {...field} />

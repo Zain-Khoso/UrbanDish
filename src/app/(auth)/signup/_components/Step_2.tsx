@@ -63,7 +63,7 @@ export default function Step_2({ onNext, onPrev, defaultValues, setFormData }: P
           disabled={disabled}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Name *</FormLabel>
 
               <FormControl>
                 <Input placeholder="John Doe" {...field} />
@@ -81,7 +81,7 @@ export default function Step_2({ onNext, onPrev, defaultValues, setFormData }: P
           disabled={disabled}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Password *</FormLabel>
 
               <FormControl>
                 <Input type="password" placeholder="********" {...field} />
