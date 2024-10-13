@@ -4,6 +4,26 @@ import SocialButton from '../_components/SocialButton';
 import Separator from '@/components/ui/separator';
 import SignUpForm from './_components/SignUpForm';
 
+// Types.
+import { Metadata } from 'next';
+
+// Metadata.
+export const metadata: Metadata = {
+  title: 'Sign Up Now',
+  description:
+    'Join the Urban Dish community and create your account to enjoy online ordering, table reservations, and exclusive offers.',
+  keywords: [
+    'Urban Dish',
+    'signup',
+    'create account',
+    'register',
+    'join',
+    'restaurant',
+    'online ordering',
+    'table reservations',
+  ],
+};
+
 // Sign Up Page.
 export default function SignUpPage() {
   return (
