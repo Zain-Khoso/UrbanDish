@@ -20,6 +20,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { SignUpT, SignUpStep3, Step3T } from '@/schemas/AuthForm.schema';
 import ButtonWithSideIcon from '../../_components/ButtonWithSideIcon';
+import ProfilePictureInput from './ProfilePictureInput';
 
 // Types.
 type Props = {
@@ -81,7 +82,13 @@ export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: P
               <FormLabel>Image</FormLabel>
 
               <FormControl>
-                <Input type="file" {...field} />
+                <ProfilePictureInput
+                  id="image"
+                  value={field.value}
+                  onChange={form.setValue}
+                  errors={form.formState.errors}
+                  clearErrors={form.clearErrors}
+                />
               </FormControl>
 
               <FormMessage />
