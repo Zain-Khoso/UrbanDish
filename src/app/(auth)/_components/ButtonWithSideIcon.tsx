@@ -25,6 +25,7 @@ type Props = {
   className?: string;
   classNameText?: string;
   classNameIcon?: string;
+  onClick?: () => void;
 };
 
 // Component.
@@ -37,11 +38,13 @@ export default function ButtonWithSideIcon({
   className,
   classNameText,
   classNameIcon,
+  onClick,
 }: Props) {
   return (
     <Button
       type={type}
       variant={variant}
+      onClick={onClick}
       className={cn('flex w-full', side === 'right' ? 'flex-row' : 'flex-row-reverse', className)}
     >
       <span className={cn('flex-1', classNameText)}>{label}</span>
