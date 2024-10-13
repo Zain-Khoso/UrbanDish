@@ -1,7 +1,12 @@
 'use client';
 
 // Lib Imports.
+import { useRouter } from 'next/navigation';
 import { useState, useCallback } from 'react';
+import toast from 'react-hot-toast';
+
+// Utils.
+import { userReq } from '@/utils/axios.instances';
 
 // Components.
 import Step_1 from './Step_1';
@@ -18,6 +23,8 @@ enum Steps {
 
 // Component.
 export default function SignUpForm() {
+  const router = useRouter();
+
   const [step, setStep] = useState<Steps>(Steps.EMAIL_PHONE);
   const [formData, setFormData] = useState<SignUpT>({
     email: '',
@@ -33,12 +40,17 @@ export default function SignUpForm() {
 
   const handleUserCreation = useCallback(
     async function (data: Step3T) {
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          console.table({ ...formData, ...data });
-          resolve(undefined);
-        }, 10000);
+      const userData = { ...formData, ...data };
+
+      const response = await toast.promise(userReq.post('create-new-user', userData), {
+        loading: 'Creating your account.',
+        error: 'Something went wrong.',
+        success: 'Account Creation Successfull.',
       });
+
+      if (!response.data.email) return;
+
+      router.push('/signin');
     },
     [formData]
   );
