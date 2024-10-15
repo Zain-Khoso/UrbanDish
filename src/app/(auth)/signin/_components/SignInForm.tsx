@@ -1,7 +1,6 @@
 'use client';
 
 // Lib Imports.
-import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 import { signIn } from 'next-auth/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -29,22 +28,14 @@ import { signInSchema, SignInT } from '@/schemas/AuthForm.schema';
 
 // Component.
 export default function SignInForm() {
-  const router = useRouter();
-
   const form = useForm<SignInT>({
     resolver: zodResolver(signInSchema),
     defaultValues: { email: '', password: '' },
   });
 
-  const signInWithCreds = useCallback(
-    async function (data: SignInT) {
-      const res = await signIn('credentials', { ...data, redirect: false });
-
-      if (res?.ok) router.push('/');
-      else throw new Error();
-    },
-    [router]
-  );
+  const signInWithCreds = useCallback(async function (data: SignInT) {
+    await signIn('credentials', { ...data, callbackUrl: '/' });
+  }, []);
 
   const onSubmit: SubmitHandler<SignInT> = async function (data) {
     await toast.promise(signInWithCreds(data), {
