@@ -2,13 +2,11 @@
 
 // Lib Imports.
 import { useRouter } from 'next/navigation';
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
+import { signIn } from 'next-auth/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import toast from 'react-hot-toast';
-
-// Utils.
-import { userReq } from '@/utils/axios.instances';
 
 // Icons.
 import { FaArrowRight } from 'react-icons/fa6';
@@ -38,8 +36,22 @@ export default function SignInForm() {
     defaultValues: { email: '', password: '' },
   });
 
+  const signInWithCreds = useCallback(
+    async function (data: SignInT) {
+      const res = await signIn('credentials', { ...data, redirect: false });
+
+      if (res?.ok) router.push('/');
+      else throw new Error();
+    },
+    [router]
+  );
+
   const onSubmit: SubmitHandler<SignInT> = async function (data) {
-    console.table(data);
+    await toast.promise(signInWithCreds(data), {
+      loading: 'Validating your credentials',
+      error: 'Invalid credentials',
+      success: 'Sign In Successfull.',
+    });
   };
 
   return (

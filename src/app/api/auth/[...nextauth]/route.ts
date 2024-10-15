@@ -1,6 +1,9 @@
-// This route is handled by next-auth.
+// Lib Imports.
+import NextAuth from 'next-auth';
 
 // Local Imports.
-import { handlers } from '@/utils/auth';
+import { authOptions } from '@/utils/nextAuthOptions';
 
-export const { GET, POST } = handlers;
+const handlers = NextAuth(authOptions);
+
+export { handlers as GET, handlers as POST };

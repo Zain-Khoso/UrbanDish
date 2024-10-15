@@ -1,7 +1,7 @@
 'use client';
 
 // Lib Imports.
-import { Dispatch, SetStateAction } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -37,7 +37,8 @@ export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: P
     defaultValues,
   });
 
-  const disabled = form.formState.isLoading || form.formState.isSubmitting;
+  const [disabled, setDisabled] = useState(false);
+  const isLoading = form.formState.isLoading || form.formState.isSubmitting;
 
   const handlePrev = function () {
     const { address, image } = form.getValues();
@@ -48,7 +49,13 @@ export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: P
   };
 
   const onSubmit: SubmitHandler<Step3T> = async function (data) {
-    await onNext(data);
+    setDisabled(true);
+
+    try {
+      await onNext(data);
+    } catch {
+      setDisabled(false);
+    }
   };
 
   return (
@@ -58,7 +65,7 @@ export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: P
         <FormField
           control={form.control}
           name="address"
-          disabled={disabled}
+          disabled={disabled || isLoading}
           render={({ field }) => (
             <FormItem>
               <FormLabel>Address *</FormLabel>
@@ -84,7 +91,7 @@ export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: P
                 <ProfilePictureInput
                   id="image"
                   value={field.value}
-                  disabled={disabled}
+                  disabled={disabled || isLoading}
                   onChange={form.setValue}
                   errors={form.formState.errors}
                   clearErrors={form.clearErrors}
@@ -100,7 +107,7 @@ export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: P
           <ButtonWithSideIcon
             type="button"
             variant="outline"
-            disabled={disabled}
+            disabled={disabled || isLoading}
             label="Back"
             icon={FaArrowLeft}
             side="left"
@@ -110,7 +117,7 @@ export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: P
           <ButtonWithSideIcon
             type="submit"
             variant="gradiant"
-            disabled={disabled}
+            disabled={disabled || isLoading}
             label="Create Account"
             icon={FaArrowRight}
             side="right"
