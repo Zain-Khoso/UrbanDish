@@ -1,3 +1,6 @@
+// Lib Imports.
+import Link from 'next/link';
+
 // Components.
 import Heading from '@/components/Heading';
 import SocialButton from '../_components/SocialButton';
@@ -38,6 +41,13 @@ export default function SignUpPage() {
       <Separator text="OR" />
 
       <SignUpForm />
+
+      <p className="text-neutral-600">
+        Already have an account?{' '}
+        <Link href="/signin" className="font-semibold text-sky-500/80">
+          Sign In
+        </Link>
+      </p>
     </section>
   );
 }

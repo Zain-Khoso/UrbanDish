@@ -9,7 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import toast from 'react-hot-toast';
 
 // Icons.
-import { FaArrowRight } from 'react-icons/fa6';
+import { FaCheckCircle } from 'react-icons/fa';
 
 // Components.
 import {
@@ -98,8 +98,8 @@ export default function SignInForm() {
         <ButtonWithSideIcon
           type="submit"
           variant="gradiant"
-          label="Continue"
-          icon={FaArrowRight}
+          label="Sign In"
+          icon={FaCheckCircle}
           side="right"
           className="!mt-8"
         />

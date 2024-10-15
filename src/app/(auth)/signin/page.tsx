@@ -6,6 +6,7 @@ import SignInForm from './_components/SignInForm';
 
 // Types.
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 // Metadata.
 export const metadata: Metadata = {
@@ -37,6 +38,13 @@ export default function SignInPage() {
       <Separator text="OR" />
 
       <SignInForm />
+
+      <p className="text-neutral-600">
+        Don&apos;t have an account?{' '}
+        <Link href="/signup" className="font-semibold text-sky-500/80">
+          Sign Up
+        </Link>
+      </p>
     </section>
   );
 }

@@ -52,7 +52,7 @@ export default function SignUpForm() {
 
       router.push('/signin');
     },
-    [formData]
+    [formData, router]
   );
 
   if (step === Steps.EMAIL_PHONE)
