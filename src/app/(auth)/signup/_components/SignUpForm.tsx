@@ -25,21 +25,24 @@ enum Steps {
 export default function SignUpForm() {
   const router = useRouter();
 
-  const [step, setStep] = useState<Steps>(Steps.EMAIL_PHONE);
+  const [step, setStep] = useState<Steps>(Steps.ADDRESS_IMAGE);
   const [formData, setFormData] = useState<SignUpT>({
-    email: '',
-    phone: '',
-    name: '',
-    password: '',
-    address: '',
+    email: 'a',
+    phone: 'b',
+    name: 'c',
+    password: 'd',
+    address: 'e',
     image: '',
   });
+  const [picture, setPicture] = useState<null | File>(null);
 
   const onNext = () => setStep((value) => ++value);
   const onPrev = () => setStep((value) => --value);
 
   const handleUserCreation = useCallback(
     async function (data: Step3T) {
+      return console.log(picture);
+
       const userData = { ...formData, ...data };
 
       const response = await toast.promise(userReq.post('create-new-user', userData), {
@@ -52,7 +55,7 @@ export default function SignUpForm() {
 
       router.push('/signin');
     },
-    [formData, router]
+    [formData, router, picture]
   );
 
   if (step === Steps.EMAIL_PHONE)
@@ -70,6 +73,7 @@ export default function SignUpForm() {
         onPrev={onPrev}
         defaultValues={formData}
         setFormData={setFormData}
+        setCroppedImage={setPicture}
       />
     );
 }

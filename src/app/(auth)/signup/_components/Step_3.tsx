@@ -28,10 +28,17 @@ type Props = {
   onPrev: () => void;
   defaultValues: Step3T;
   setFormData: Dispatch<SetStateAction<SignUpT>>;
+  setCroppedImage: Dispatch<SetStateAction<null | File>>;
 };
 
 // Component.
-export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: Props) {
+export default function Step_3({
+  onNext,
+  onPrev,
+  defaultValues,
+  setFormData,
+  setCroppedImage,
+}: Props) {
   const form = useForm<Step3T>({
     resolver: zodResolver(SignUpStep3),
     defaultValues,
@@ -83,16 +90,16 @@ export default function Step_3({ onNext, onPrev, defaultValues, setFormData }: P
         <FormField
           control={form.control}
           name="image"
-          render={({ field }) => (
+          render={() => (
             <FormItem>
               <FormLabel>Profile Picture</FormLabel>
 
               <FormControl>
                 <ProfilePictureInput
                   id="image"
-                  value={field.value}
+                  setCroppedImage={setCroppedImage}
                   disabled={disabled || isLoading}
-                  onChange={form.setValue}
+                  setError={form.setError}
                   errors={form.formState.errors}
                   clearErrors={form.clearErrors}
                 />
