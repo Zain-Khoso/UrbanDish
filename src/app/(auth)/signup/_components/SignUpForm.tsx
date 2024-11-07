@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 
 // Utils.
 import { userReq } from '@/utils/axios.instances';
+import { uploadFile } from '@/utils/files.utils';
 
 // Components.
 import Step_1 from './Step_1';
@@ -25,13 +26,13 @@ enum Steps {
 export default function SignUpForm() {
   const router = useRouter();
 
-  const [step, setStep] = useState<Steps>(Steps.ADDRESS_IMAGE);
+  const [step, setStep] = useState<Steps>(Steps.EMAIL_PHONE);
   const [formData, setFormData] = useState<SignUpT>({
-    email: 'a',
-    phone: 'b',
-    name: 'c',
-    password: 'd',
-    address: 'e',
+    email: '',
+    phone: '',
+    name: '',
+    password: '',
+    address: '',
     image: '',
   });
   const [picture, setPicture] = useState<null | File>(null);
@@ -41,9 +42,21 @@ export default function SignUpForm() {
 
   const handleUserCreation = useCallback(
     async function (data: Step3T) {
-      return console.log(picture);
+      let imageUrl = '';
 
-      const userData = { ...formData, ...data };
+      if (typeof data.image === 'string' && data.image.startsWith('https://'))
+        imageUrl = data.image;
+      else if (picture) {
+        const result = await toast.promise(uploadFile(picture, 'UrbanDish/Pfps'), {
+          loading: 'Uploading Picture.',
+          error: 'Upload Error.',
+          success: 'Uploaded Successfully.',
+        });
+
+        imageUrl = result || '';
+      }
+
+      const userData = { ...formData, ...data, image: imageUrl };
 
       const response = await toast.promise(userReq.post('create-new-user', userData), {
         loading: 'Creating your account.',
