@@ -1,7 +1,7 @@
 'use client';
 
 // Lib Imports.
-import { useState, Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -44,8 +44,9 @@ export default function Step_3({
     defaultValues,
   });
 
-  const [disabled, setDisabled] = useState(false);
-  const isLoading = form.formState.isLoading || form.formState.isSubmitting;
+  const { isLoading, isSubmitting, isSubmitSuccessful } = form.formState;
+
+  const isDisabled = isLoading || isSubmitting || isSubmitSuccessful;
 
   const handlePrev = function () {
     const { address, image } = form.getValues();
@@ -56,13 +57,7 @@ export default function Step_3({
   };
 
   const onSubmit: SubmitHandler<Step3T> = async function (data) {
-    setDisabled(true);
-
-    try {
-      await onNext(data);
-    } catch {
-      setDisabled(false);
-    }
+    await onNext(data);
   };
 
   return (
@@ -72,7 +67,7 @@ export default function Step_3({
         <FormField
           control={form.control}
           name="address"
-          disabled={disabled || isLoading}
+          disabled={isDisabled}
           render={({ field }) => (
             <FormItem>
               <FormLabel>Address *</FormLabel>
@@ -98,7 +93,7 @@ export default function Step_3({
                 <ProfilePictureInput
                   id="image"
                   setCroppedImage={setCroppedImage}
-                  disabled={disabled || isLoading}
+                  disabled={isDisabled}
                   setError={form.setError}
                   errors={form.formState.errors}
                   clearErrors={form.clearErrors}
@@ -114,7 +109,7 @@ export default function Step_3({
           <ButtonWithSideIcon
             type="button"
             variant="outline"
-            disabled={disabled || isLoading}
+            disabled={isDisabled}
             label="Back"
             icon={FaArrowLeft}
             side="left"
@@ -124,7 +119,7 @@ export default function Step_3({
           <ButtonWithSideIcon
             type="submit"
             variant="gradiant"
-            disabled={disabled || isLoading}
+            disabled={isDisabled}
             label="Create Account"
             icon={FaArrowRight}
             side="right"

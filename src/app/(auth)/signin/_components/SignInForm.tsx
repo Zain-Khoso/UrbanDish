@@ -33,16 +33,24 @@ export default function SignInForm() {
     defaultValues: { email: '', password: '' },
   });
 
+  const { isLoading, isSubmitting, isSubmitSuccessful } = form.formState;
+
+  const isDisabled = isLoading || isSubmitting || isSubmitSuccessful;
+
   const signInWithCreds = useCallback(async function (data: SignInT) {
     await signIn('credentials', { ...data, callbackUrl: '/' });
   }, []);
 
   const onSubmit: SubmitHandler<SignInT> = async function (data) {
-    await toast.promise(signInWithCreds(data), {
-      loading: 'Validating your credentials',
-      error: 'Invalid credentials',
-      success: 'Sign In Successfull.',
-    });
+    await toast
+      .promise(signInWithCreds(data), {
+        loading: 'Validating your credentials',
+        error: 'Invalid credentials',
+        success: 'Sign In Successfull.',
+      })
+      .catch(() => {
+        throw new Error('Invalid Credentials');
+      });
   };
 
   return (
@@ -52,6 +60,7 @@ export default function SignInForm() {
         <FormField
           control={form.control}
           name="email"
+          disabled={isDisabled}
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email *</FormLabel>
@@ -69,6 +78,7 @@ export default function SignInForm() {
         <FormField
           control={form.control}
           name="password"
+          disabled={isDisabled}
           render={({ field }) => (
             <FormItem>
               <FormLabel>Password *</FormLabel>
@@ -93,6 +103,7 @@ export default function SignInForm() {
           icon={FaCheckCircle}
           side="right"
           className="!mt-8"
+          disabled={isDisabled}
         />
       </form>
     </Form>
