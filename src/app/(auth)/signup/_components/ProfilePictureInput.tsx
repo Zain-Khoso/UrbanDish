@@ -19,7 +19,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import ButtonWithSideIcon from '../../_components/ButtonWithSideIcon';
+import ButtonWithSideIcon from '../../../../components/ButtonWithSideIcon';
 
 // Types.
 import { FieldErrors, UseFormClearErrors, UseFormSetError } from 'react-hook-form';

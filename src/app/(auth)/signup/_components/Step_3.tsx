@@ -19,7 +19,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { SignUpT, SignUpStep3, Step3T } from '@/schemas/AuthForm.schema';
-import ButtonWithSideIcon from '../../_components/ButtonWithSideIcon';
+import ButtonWithSideIcon from '../../../../components/ButtonWithSideIcon';
 import ProfilePictureInput from './ProfilePictureInput';
 
 // Types.

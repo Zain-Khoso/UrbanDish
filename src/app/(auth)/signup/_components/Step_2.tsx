@@ -20,7 +20,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { SignUpT, SignUpStep2, Step2T } from '@/schemas/AuthForm.schema';
-import ButtonWithSideIcon from '../../_components/ButtonWithSideIcon';
+import ButtonWithSideIcon from '../../../../components/ButtonWithSideIcon';
 
 // Types.
 type Props = {
