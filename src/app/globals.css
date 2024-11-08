@@ -14,6 +14,10 @@ body {
   .bg-primary-gradiant {
     @apply bg-gradient-to-br from-red-600 to-red-500;
   }
+
+  .text-primary-gradiant {
+    @apply bg-primary-gradiant bg-clip-text text-transparent;
+  }
 }
 
 @layer base {
