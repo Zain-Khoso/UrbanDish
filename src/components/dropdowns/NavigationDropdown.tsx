@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/button';
 import ButtonLink from '../ButtonLink';
 
 // Component.
-export default function NavigationMenuDropdown() {
+export default function NavigationDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

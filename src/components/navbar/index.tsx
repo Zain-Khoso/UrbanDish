@@ -6,10 +6,10 @@ import Image from 'next/image';
 import Container from '../Container';
 import NavLink from './NavLink';
 import ButtonLink from '../ButtonLink';
+import { NavigationDropdown } from '@/components/dropdowns/index';
 
 // Types.
 import { User } from '@prisma/client';
-import NavigationDropdown from '../dropdowns/NavigationDropdown';
 type Props = {
   currentUser?: User | null;
 };
