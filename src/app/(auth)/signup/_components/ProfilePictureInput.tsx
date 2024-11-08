@@ -2,28 +2,20 @@
 
 // Lib Imports.
 import { Dispatch, SetStateAction, useRef, useState } from 'react';
-import AvatarEditor from 'react-avatar-editor';
 
 // Utils.
 import { cn } from '@/utils/helper_tailwind';
 
 // Icons.
 import { FaUpload } from 'react-icons/fa6';
-import { FaCheckCircle } from 'react-icons/fa';
 
 // Components.
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog';
-import ButtonWithSideIcon from '../../../../components/ButtonWithSideIcon';
+import { Step3T } from '@/schemas/AuthForm.schema';
+import { AvatarEditorModal } from '@/components/modals';
+import ButtonWithSideIcon from '@/components/ButtonWithSideIcon';
 
 // Types.
 import { FieldErrors, UseFormClearErrors, UseFormSetError } from 'react-hook-form';
-import { Step3T } from '@/schemas/AuthForm.schema';
 type Props = {
   id: string;
   disabled?: boolean;
@@ -65,19 +57,6 @@ export default function ProfilePictureInput({
     setIsDialogOpen(true);
   };
 
-  const handleFileCrop = function () {
-    if (!editorRef.current) return;
-
-    const resultingCanvas = editorRef.current.getImageScaledToCanvas();
-
-    resultingCanvas.toBlob(
-      (blob: Blob) => setCroppedImage(new File([blob], `${file?.name}`, { type: file?.type })),
-      file?.type
-    );
-
-    setIsDialogOpen(false);
-  };
-
   return (
     <>
       <input
@@ -99,31 +78,13 @@ export default function ProfilePictureInput({
         onClick={() => fileInput.current?.click()}
       />
 
-      <Dialog open={isDialogOpen} onOpenChange={(state) => setIsDialogOpen(state)}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Crop Your Image</DialogTitle>
-          </DialogHeader>
-
-          <div className="grid place-items-center">
-            {file && (
-              <AvatarEditor
-                ref={editorRef}
-                image={file}
-                width={250}
-                height={250}
-                border={50}
-                borderRadius={100}
-                scale={1}
-              />
-            )}
-          </div>
-
-          <DialogFooter>
-            <ButtonWithSideIcon icon={FaCheckCircle} label="Crop" onClick={handleFileCrop} />
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      <AvatarEditorModal
+        isOpen={isDialogOpen}
+        setIsOpen={setIsDialogOpen}
+        editorRef={editorRef}
+        image={file}
+        setCroppedImage={setCroppedImage}
+      />
     </>
   );
 }

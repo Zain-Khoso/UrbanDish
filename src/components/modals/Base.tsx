@@ -1,3 +1,6 @@
+// Utils.
+import { cn } from '@/utils/helper_tailwind';
+
 // Components.
 import {
   Dialog,
@@ -26,6 +29,7 @@ type Props = {
   secondaryActionFunc?: () => void;
   secondaryActionIcon?: IconType;
   children?: React.ReactNode;
+  fitContent?: boolean;
 };
 
 // Base modal component for the entire application.
@@ -42,12 +46,13 @@ export default function Base({
   secondaryActionFunc,
   secondaryActionIcon: SecondaryActionIcon,
   children,
+  fitContent = false,
 }: Props) {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => setIsOpen(open)}>
       <DialogContent
         hideClose={hideClose}
-        className="flex h-full flex-col justify-between md:h-fit"
+        className={cn('flex h-full flex-col justify-between md:h-fit', fitContent && 'w-fit')}
       >
         <DialogHeader>
           <DialogTitle className="text-xl">{title}</DialogTitle>

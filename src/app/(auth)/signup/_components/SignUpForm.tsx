@@ -42,6 +42,7 @@ export default function SignUpForm() {
 
   const handleUserCreation = useCallback(
     async function (data: Step3T) {
+      // return console.log(picture);
       let imageUrl = '';
 
       if (typeof data.image === 'string' && data.image.startsWith('https://'))
