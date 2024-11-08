@@ -12,7 +12,7 @@
   },
   "aliases": {
     "components": "@/components",
-    "utils": "@/utils/helper_tailwind.ts",
+    "utils": "@/utils/helper_tailwind",
     "ui": "@/components/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"

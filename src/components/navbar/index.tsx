@@ -9,6 +9,7 @@ import ButtonLink from '../ButtonLink';
 
 // Types.
 import { User } from '@prisma/client';
+import NavigationDropdown from '../dropdowns/NavigationDropdown';
 type Props = {
   currentUser?: User | null;
 };
@@ -17,7 +18,7 @@ type Props = {
 export default function Navbar({}: Props) {
   return (
     <Container>
-      <nav className="z-10 flex w-full items-center justify-between">
+      <nav className="z-10 flex w-full items-center justify-between pr-4 md:pr-0">
         {/* Branding */}
         <Link href="/">
           <Image
@@ -29,16 +30,21 @@ export default function Navbar({}: Props) {
           />
         </Link>
 
-        {/* Navigation */}
-        <div className="flex flex-row gap-8">
+        {/* Mobile/Tablet Navigation */}
+        <NavigationDropdown />
+
+        {/* Desktop Navigation */}
+        <div className="hidden flex-row gap-8 md:flex">
           <NavLink href="/about" label="About" />
           <NavLink href="/menu" label="Menu" />
           <NavLink href="/blog" label="Blog" />
           <NavLink href="/contact" label="Contact" />
         </div>
 
-        {/* CTA */}
-        <ButtonLink href="/reservations/new" variant="gradiant" label="Book a Table" />
+        {/* Desktop CTA */}
+        <div className="hidden md:block">
+          <ButtonLink href="/reservations/new" variant="gradiant" label="Book a Table" />
+        </div>
       </nav>
     </Container>
   );
