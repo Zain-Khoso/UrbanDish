@@ -5,6 +5,7 @@ import getCurrentUser from '../actions/getCurrentUser';
 import Navbar from '@/components/navbar';
 import HeroBackground from './_components/HeroBackground';
 import HeroSection from './_components/HeroSection';
+import Services from './_components/Services';
 
 // Home Page.
 export default async function Page() {
@@ -19,6 +20,10 @@ export default async function Page() {
 
         <HeroSection />
       </header>
+
+      <main className="flex flex-col gap-2">
+        <Services />
+      </main>
     </>
   );
 }

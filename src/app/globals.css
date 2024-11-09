@@ -83,4 +83,28 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  ::selection {
+    @apply bg-primary text-background;
+  }
+
+  ::-webkit-scrollbar {
+    @apply h-2 w-3;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-sm bg-muted-foreground;
+  }
+
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px hsl(var(--background)) inset !important;
+    box-shadow: 0 0 0 1000px hsl(var(--background)) inset !important;
+    -webkit-text-fill-color: hsl(var(--foreground)) !important;
+  }
 }

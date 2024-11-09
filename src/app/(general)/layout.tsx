@@ -54,7 +54,7 @@ const font = Nunito({ subsets: ['latin'] });
 export default function RootLayout({ children }: Readonly<ChildrenProp>) {
   return (
     <html lang="en">
-      <body className={`${font.className} antialiased`}>{children}</body>
+      <body className={`${font.className} bg-[#F3F4F6] antialiased`}>{children}</body>
     </html>
   );
 }
