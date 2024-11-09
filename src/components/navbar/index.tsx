@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Container from '../Container';
 import NavLink from './NavLink';
 import ButtonLink from '../ButtonLink';
-import { NavigationDropdown } from '@/components/dropdowns/index';
+import MobileNav from './MobileNav';
 
 // Types.
 import { User } from '@prisma/client';
@@ -31,7 +31,7 @@ export default function Navbar({}: Props) {
         </Link>
 
         {/* Mobile/Tablet Navigation */}
-        <NavigationDropdown />
+        <MobileNav />
 
         {/* Desktop Navigation */}
         <div className="hidden flex-row gap-8 md:flex">
