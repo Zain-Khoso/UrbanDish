@@ -1,5 +1,5 @@
 // Icons.
-import { MdMenu, MdLabel, MdOutlineRestaurant, MdPhone } from 'react-icons/md';
+import { MdMenu, MdLabel, MdOutlineRestaurant, MdPhone, MdFastfood } from 'react-icons/md';
 import { TfiWrite } from 'react-icons/tfi';
 
 // Components.
@@ -10,13 +10,19 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetFooter,
-  SheetClose,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import ButtonLink from '../ButtonLink';
+import SignOutButton from '../SignOutButton';
+
+// Types.
+import { User } from '@prisma/client';
+type Props = {
+  currentUser?: User | null;
+};
 
 // Component.
-export default function MobileNav() {
+export default function MobileNav({ currentUser }: Props) {
   return (
     <Sheet>
       <SheetTrigger asChild className="md:hidden">
@@ -32,6 +38,7 @@ export default function MobileNav() {
 
         <div className="flex flex-col gap-2">
           <ButtonLink href="/about" variant="secondary" label="About" icon={MdLabel} widthFull />
+
           <ButtonLink
             href="/menu"
             variant="secondary"
@@ -39,6 +46,17 @@ export default function MobileNav() {
             icon={MdOutlineRestaurant}
             widthFull
           />
+
+          <ButtonLink
+            href="/reservations/new"
+            variant="secondary"
+            label="Book a Table"
+            icon={MdFastfood}
+            widthFull
+          />
+
+          <ButtonLink href="/blog" variant="secondary" label="Blog" icon={TfiWrite} widthFull />
+
           <ButtonLink
             href="/contact"
             variant="secondary"
@@ -46,13 +64,10 @@ export default function MobileNav() {
             icon={MdPhone}
             widthFull
           />
-          <ButtonLink href="/blog" variant="secondary" label="Blog" icon={TfiWrite} widthFull />
         </div>
 
         <SheetFooter className="mt-auto">
-          <SheetClose asChild>
-            <Button variant="outline">Sign Out</Button>
-          </SheetClose>
+          <SignOutButton currentUser={currentUser} />
         </SheetFooter>
       </SheetContent>
     </Sheet>

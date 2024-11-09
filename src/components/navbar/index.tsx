@@ -15,10 +15,10 @@ type Props = {
 };
 
 // Main Navbar Component.
-export default function Navbar({}: Props) {
+export default function Navbar({ currentUser }: Props) {
   return (
     <Container>
-      <nav className="z-10 flex w-full items-center justify-between pr-4 md:pr-0">
+      <nav className="z-10 flex w-full items-center justify-between pr-4">
         {/* Branding */}
         <Link href="/">
           <Image
@@ -31,7 +31,7 @@ export default function Navbar({}: Props) {
         </Link>
 
         {/* Mobile/Tablet Navigation */}
-        <MobileNav />
+        <MobileNav currentUser={currentUser} />
 
         {/* Desktop Navigation */}
         <div className="hidden flex-row gap-8 md:flex">

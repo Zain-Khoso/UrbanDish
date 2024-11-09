@@ -10,7 +10,7 @@ import { Button } from './ui/button';
 // Types.
 import { User } from '@prisma/client';
 type Props = {
-  currentUser: User | null;
+  currentUser?: User | null;
 };
 
 // Component.
@@ -19,5 +19,9 @@ export default function SignOutButton({ currentUser }: Props) {
 
   const handleClick = () => (currentUser ? signOut() : router.push('/signin'));
 
-  return <Button onClick={handleClick}>{currentUser ? 'Sign out' : 'Sign in'}</Button>;
+  return (
+    <Button variant={currentUser ? 'outline' : 'gradiant'} onClick={handleClick}>
+      {currentUser ? 'Sign out' : 'Sign in'}
+    </Button>
+  );
 }
