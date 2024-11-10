@@ -28,7 +28,7 @@ export default function ButtonLink({
   iconSide = 'left',
 }: Props) {
   return (
-    <Link href={href} className={cn(widthFull && 'w-full')}>
+    <Link href={href} className={cn('block', widthFull ? 'w-full' : 'w-fit')}>
       <Button
         type="button"
         variant={variant}

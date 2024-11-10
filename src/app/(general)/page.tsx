@@ -6,6 +6,7 @@ import Navbar from '@/components/navbar';
 import HeroBackground from './_components/HeroBackground';
 import HeroSection from './_components/HeroSection';
 import ServicesSection from './_components/ServicesSection';
+import AboutSection from './_components/AboutSection';
 
 // Home Page.
 export default async function Page() {
@@ -21,8 +22,10 @@ export default async function Page() {
         <HeroSection />
       </header>
 
-      <main className="flex flex-col gap-2">
+      <main className="my-12 flex flex-col gap-12">
         <ServicesSection />
+
+        <AboutSection />
       </main>
     </>
   );

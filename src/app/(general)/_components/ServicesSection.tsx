@@ -47,7 +47,7 @@ const data: DataT = [
 export default function ServicesSection() {
   return (
     <Container>
-      <section className="my-12 grid w-full grid-cols-1 gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="grid w-full grid-cols-1 gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
         {data.map(({ id, Icon, title, desc }) => (
           <Card key={id} className="hover:bg-primary-gradiant group cursor-pointer transition">
             <CardHeader>
