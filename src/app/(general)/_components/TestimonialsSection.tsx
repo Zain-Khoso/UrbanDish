@@ -1,3 +1,6 @@
+// Lib Imports.
+import Image from 'next/image';
+
 // Components.
 import Container from '@/components/Container';
 import SectionHeading from '@/components/SectionHeading';
@@ -10,7 +13,6 @@ import {
   CarouselNext,
 } from '@/components/ui/carousel';
 import { Muted } from '@/components/ui/typography';
-import Image from 'next/image';
 
 // Types.
 type DataT = {
