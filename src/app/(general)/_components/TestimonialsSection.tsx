@@ -124,7 +124,10 @@ export default function TestimonialsSection() {
         >
           <CarouselContent>
             {data.map(({ id, name, location, picture, text }) => (
-              <CarouselItem key={id} className="basis-1/2 md:basis-1/3 2xl:basis-1/4">
+              <CarouselItem
+                key={id}
+                className="basis-1/1 max-w-[280px] sm:max-w-none sm:basis-1/2 md:basis-1/3 2xl:basis-1/4"
+              >
                 <div className="h-full">
                   <Card className="h-full">
                     <CardHeader className="flex flex-col items-center gap-4">
