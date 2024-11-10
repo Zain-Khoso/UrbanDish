@@ -8,6 +8,7 @@ import HeroSection from './_components/HeroSection';
 import ServicesSection from './_components/ServicesSection';
 import AboutSection from './_components/AboutSection';
 import ChefsSection from './_components/ChefsSection';
+import TestimonialsSection from './_components/TestimonialsSection';
 
 // Home Page.
 export default async function Page() {
@@ -23,12 +24,14 @@ export default async function Page() {
         <HeroSection />
       </header>
 
-      <main className="my-12 flex flex-col gap-12">
+      <main className="my-12 flex flex-col gap-20">
         <ServicesSection />
 
         <AboutSection />
 
         <ChefsSection />
+
+        <TestimonialsSection />
       </main>
     </>
   );
