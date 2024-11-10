@@ -3,17 +3,19 @@ import { GoDash } from 'react-icons/go';
 
 // Components.
 import { Lead, H3 } from './ui/typography';
+import { cn } from '@/utils/helper_tailwind';
 
 // Types.
 type Props = {
   title?: string;
   heading: string;
+  center?: boolean;
 };
 
 // Component.
-export default function SectionHeading({ title, heading }: Props) {
+export default function SectionHeading({ title, heading, center = false }: Props) {
   return (
-    <div className="flex flex-col">
+    <div className={cn('flex flex-col', center && 'items-center')}>
       {title && (
         <div className="flex flex-row items-center gap-2">
           <Lead className="text-primary-gradiant">{title}</Lead>

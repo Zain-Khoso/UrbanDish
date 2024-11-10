@@ -7,6 +7,7 @@ import HeroBackground from './_components/HeroBackground';
 import HeroSection from './_components/HeroSection';
 import ServicesSection from './_components/ServicesSection';
 import AboutSection from './_components/AboutSection';
+import ChefsSection from './_components/ChefsSection';
 
 // Home Page.
 export default async function Page() {
@@ -26,6 +27,8 @@ export default async function Page() {
         <ServicesSection />
 
         <AboutSection />
+
+        <ChefsSection />
       </main>
     </>
   );
