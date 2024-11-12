@@ -9,6 +9,7 @@ import ServicesSection from './_components/ServicesSection';
 import AboutSection from './_components/AboutSection';
 import ChefsSection from './_components/ChefsSection';
 import TestimonialsSection from './_components/TestimonialsSection';
+import MenuSection from './_components/MenuSection';
 
 // Home Page.
 export default async function Page() {
@@ -30,6 +31,8 @@ export default async function Page() {
         <AboutSection />
 
         <ChefsSection />
+
+        <MenuSection />
 
         <TestimonialsSection />
       </main>
