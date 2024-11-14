@@ -35,7 +35,7 @@ export default function ChefsSection() {
       <section className="space-y-8 px-4">
         <SectionHeading title="Master Chefs" heading="People who make your food." center />
 
-        <div className="grid-row-1 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 grid-rows-2 gap-4 lg:grid-cols-4 lg:grid-rows-1">
           {data.map(({ id, cousine, imageSrc, name }) => (
             <Card key={id}>
               <CardHeader className="flex flex-col items-center justify-center gap-4">
