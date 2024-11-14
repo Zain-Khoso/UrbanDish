@@ -10,6 +10,7 @@ import AboutSection from './_components/AboutSection';
 import ChefsSection from './_components/ChefsSection';
 import TestimonialsSection from './_components/TestimonialsSection';
 import MenuSection from './_components/MenuSection';
+import Footer from '@/components/footer';
 
 // Home Page.
 export default async function Page() {
@@ -36,6 +37,8 @@ export default async function Page() {
 
         <TestimonialsSection />
       </main>
+
+      <Footer />
     </>
   );
 }

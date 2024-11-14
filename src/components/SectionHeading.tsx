@@ -7,8 +7,8 @@ import { cn } from '@/utils/helper_tailwind';
 
 // Types.
 type Props = {
-  title?: string;
-  heading: string;
+  title: string;
+  heading?: string;
   center?: boolean;
 };
 
