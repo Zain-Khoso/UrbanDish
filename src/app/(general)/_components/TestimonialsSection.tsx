@@ -139,7 +139,7 @@ export default function TestimonialsSection() {
                         className="rounded-full"
                       />
 
-                      <div>
+                      <div className="w-full text-left">
                         <Muted>{location}</Muted>
                         <CardTitle>{name}</CardTitle>
                       </div>
