@@ -32,7 +32,7 @@ export default function DishCard({ picture, title, desc, price }: Props) {
   return (
     <Card className="overflow-hidden">
       <CardHeader className="relative flex flex-col gap-2 p-0 pb-4">
-        <Image alt="Dish Picture" src={picture} width={300} height={300} />
+        <Image alt="Dish Picture" src={picture} width={300} height={300} className="w-full" />
 
         <div className="absolute -top-[6px] left-1/2 flex -translate-x-1/2 flex-row gap-1">
           <span className="bg-primary-gradiant h-6 w-2 rounded-b-sm"></span>

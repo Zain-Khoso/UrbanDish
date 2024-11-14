@@ -51,7 +51,7 @@ export default function MenuSection() {
       <section className="space-y-6 px-4">
         <SectionHeading title="Best Dishes" heading="Some of our best cuisines." center />
 
-        <div className="flex flex-row justify-between gap-4">
+        <div className="flex flex-col justify-between gap-4 md:flex-row">
           {data.map(({ id, picture, title, desc, price }) => (
             <DishCard key={id} picture={picture} title={title} desc={desc} price={price} />
           ))}
