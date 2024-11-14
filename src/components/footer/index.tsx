@@ -17,17 +17,13 @@ export default function Footer() {
   return (
     <section className="w-full bg-white">
       <Container>
-        <footer className="flex flex-col items-start gap-8 py-8">
-          <section className="flex w-full flex-row items-start justify-between">
+        <footer className="flex flex-col items-start gap-8 px-4 py-8 2xl:px-0">
+          <section className="grid w-full grid-cols-1 grid-rows-4 gap-8 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1">
             <div className="flex flex-col gap-2">
-              <SectionHeading title="Brand" />
+              <SectionHeading title="Company" />
 
               <Link href="/menu" className="text-neutral-600 underline-offset-2 hover:underline">
                 Menu
-              </Link>
-
-              <Link href="/about" className="text-neutral-600 underline-offset-2 hover:underline">
-                About Us
               </Link>
 
               <Link href="/faqs" className="text-neutral-600 underline-offset-2 hover:underline">
@@ -70,7 +66,7 @@ export default function Footer() {
                 <span>contact@urbandish.com</span>
               </div>
 
-              <div className="mt-4 flex flex-row items-center gap-6 text-neutral-600 opacity-75">
+              <div className="flex flex-row items-center gap-6 text-neutral-600 opacity-75 lg:mt-4">
                 <Link href="https://www.facebook.com/urbandish">
                   <FaFacebook fill="#1877F2" size={24} />
                 </Link>
@@ -90,7 +86,7 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <SectionHeading title="Opening Hours" />
+              <SectionHeading title="Open Hours" />
 
               <div>
                 <Large className="text-neutral-600">Monday - Saturday</Large>
@@ -116,8 +112,8 @@ export default function Footer() {
 
           <Separator />
 
-          <section className="flex w-full flex-row items-center justify-between">
-            <P className="text-neutral-600">
+          <section className="flex w-full flex-row flex-wrap items-center justify-between gap-4">
+            <P className="text-pretty text-neutral-600">
               &copy; Urban Dish, All Rights Reserved. Created By{' '}
               <Link
                 href="https://github.com/Zain-Khoso"
