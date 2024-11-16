@@ -38,6 +38,7 @@ export default function ProfilePictureInput({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const editorRef = useRef<any>(null);
 
+  const [buttonLabel, setButtonLabel] = useState('Upload File');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [file, setFile] = useState<null | File>(null);
   const allowedImageTypes = ['image/jpeg', 'image/jpg', 'image/pjpeg', 'image/png', 'image/webp'];
@@ -55,6 +56,7 @@ export default function ProfilePictureInput({
     setFile(selectedFile);
     setCroppedImage(selectedFile);
     setIsDialogOpen(true);
+    setButtonLabel('File Uploaded');
   };
 
   return (
@@ -74,7 +76,7 @@ export default function ProfilePictureInput({
         icon={FaUpload}
         className={cn(errors[id] && 'border-red-500')}
         classNameIcon="opacity-60"
-        label="Upload File"
+        label={buttonLabel}
         onClick={() => fileInput.current?.click()}
       />
 

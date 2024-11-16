@@ -26,7 +26,7 @@ enum Steps {
 export default function SignUpForm() {
   const router = useRouter();
 
-  const [step, setStep] = useState<Steps>(Steps.EMAIL_PHONE);
+  const [step, setStep] = useState<Steps>(Steps.ADDRESS_IMAGE);
   const [formData, setFormData] = useState<SignUpT>({
     email: '',
     phone: '',

@@ -56,6 +56,7 @@ export default function AvatarEditorModal({
       actionLabel="Save"
       actionFunc={handleFileCrop}
       actionIcon={FaSave}
+      notCloseable
     >
       {image && (
         <div className="relative flex h-full w-full flex-col items-center justify-center">

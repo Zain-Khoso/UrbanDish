@@ -30,6 +30,7 @@ type Props = {
   secondaryActionIcon?: IconType;
   children?: React.ReactNode;
   fitContent?: boolean;
+  notCloseable?: boolean;
 };
 
 // Base modal component for the entire application.
@@ -47,10 +48,12 @@ export default function Base({
   secondaryActionIcon: SecondaryActionIcon,
   children,
   fitContent = false,
+  notCloseable = false,
 }: Props) {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => setIsOpen(open)}>
       <DialogContent
+        onInteractOutside={notCloseable ? (e) => e.preventDefault() : () => {}}
         hideClose={hideClose}
         className={cn('flex h-full flex-col justify-between md:h-fit', fitContent && 'w-fit')}
       >
