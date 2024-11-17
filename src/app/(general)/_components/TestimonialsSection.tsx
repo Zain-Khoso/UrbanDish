@@ -128,16 +128,18 @@ export default function TestimonialsSection() {
                 key={id}
                 className="basis-1/1 max-w-[280px] sm:max-w-none sm:basis-1/2 md:basis-1/3 2xl:basis-1/4"
               >
-                <div className="h-full">
+                <div className="group h-full">
                   <Card className="h-full">
                     <CardHeader className="flex flex-col items-center gap-4">
-                      <Image
-                        alt={name + ' ' + location}
-                        src={picture}
-                        width={150}
-                        height={150}
-                        className="rounded-full"
-                      />
+                      <div className="overflow-hidden rounded-full">
+                        <Image
+                          alt={name + ' ' + location}
+                          src={picture}
+                          width={150}
+                          height={150}
+                          className="transition group-hover:scale-110"
+                        />
+                      </div>
 
                       <div className="w-full text-left">
                         <Muted>{location}</Muted>

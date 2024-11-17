@@ -13,7 +13,7 @@ export default function NumberHighlight({ number, title, subtitle }: Props) {
   return (
     <div className="flex flex-row items-center gap-4 md:justify-between">
       <div className="flex flex-row items-center gap-2">
-        <div className="bg-primary-gradiant h-[2lh] w-2 rounded-sm"></div>
+        <div className="bg-primary-gradiant h-[2lh] w-[6px] rounded-sm"></div>
 
         <H1 className="text-primary-gradiant">{number}</H1>
       </div>

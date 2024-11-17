@@ -1,3 +1,8 @@
+'use client';
+
+// Lib Imports.
+import { motion } from 'motion/react';
+
 // Icons.
 import { MdCelebration, MdFamilyRestroom } from 'react-icons/md';
 import { FaShippingFast, FaDollarSign } from 'react-icons/fa';
@@ -49,15 +54,23 @@ export default function ServicesSection() {
     <Container>
       <section className="grid w-full grid-cols-1 gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
         {data.map(({ id, Icon, title, desc }) => (
-          <Card key={id} className="hover:bg-primary-gradiant group cursor-pointer transition">
-            <CardHeader>
-              <CardTitle className="flex flex-row items-center gap-2 group-hover:text-white">
-                <Icon className="group-hover:fill-white" />
-                {title}
-              </CardTitle>
-              <CardDescription className="group-hover:text-white">{desc}</CardDescription>
-            </CardHeader>
-          </Card>
+          <motion.div
+            key={id}
+            initial={{ translateY: '50px' }}
+            whileInView={{ translateY: 0 }}
+            transition={{ type: 'spring' }}
+            viewport={{ once: true, margin: '-50px' }}
+          >
+            <Card className="hover:bg-primary-gradiant group h-full w-full cursor-pointer transition">
+              <CardHeader>
+                <CardTitle className="flex flex-row items-center gap-2 group-hover:text-white">
+                  <Icon className="group-hover:fill-white" />
+                  {title}
+                </CardTitle>
+                <CardDescription className="group-hover:text-white">{desc}</CardDescription>
+              </CardHeader>
+            </Card>
+          </motion.div>
         ))}
       </section>
     </Container>

@@ -1,3 +1,8 @@
+'use client';
+
+// Lib Imports.
+import { motion } from 'motion/react';
+
 // Components.
 import Container from '@/components/Container';
 import SectionHeading from '@/components/SectionHeading';
@@ -53,7 +58,14 @@ export default function MenuSection() {
 
         <div className="flex flex-col justify-between gap-4 md:flex-row">
           {data.map(({ id, picture, title, desc, price }) => (
-            <DishCard key={id} picture={picture} title={title} desc={desc} price={price} />
+            <motion.div
+              key={id}
+              initial={{ scale: '50%' }}
+              whileInView={{ scale: '100%' }}
+              viewport={{ once: true }}
+            >
+              <DishCard picture={picture} title={title} desc={desc} price={price} />
+            </motion.div>
           ))}
         </div>
       </section>
