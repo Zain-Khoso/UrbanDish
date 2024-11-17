@@ -13,7 +13,7 @@ import type { Metadata } from 'next';
 // Metadata.
 export const metadata: Metadata = {
   title: {
-    template: '% | Urban Dish',
+    template: '%s | Urban Dish',
     default: 'Urban Dish: A Modern Restaurant Website',
   },
   description:
