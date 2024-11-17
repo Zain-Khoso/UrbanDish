@@ -35,7 +35,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="animate-spin-slow hidden aspect-square w-1/3 lg:block">
+      <div className="hidden aspect-square w-1/3 animate-spin-slow lg:block">
         <Image
           alt="Rotating Pizza"
           about="Hero section decoration image"

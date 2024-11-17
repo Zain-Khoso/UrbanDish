@@ -67,19 +67,19 @@ export default function Footer() {
               </div>
 
               <div className="flex flex-row items-center gap-6 text-neutral-600 opacity-75 lg:mt-4">
-                <Link href="https://www.facebook.com/urbandish">
+                <Link href="https://www.facebook.com/urbandish" target="_blank">
                   <FaFacebook fill="#1877F2" size={24} />
                 </Link>
 
-                <Link href="https://www.youtube.com/urbandish">
+                <Link href="https://www.youtube.com/urbandish" target="_blank">
                   <FaYoutube fill="#FF0000" size={24} />
                 </Link>
 
-                <Link href="https://twitter.com/urbandish">
+                <Link href="https://twitter.com/urbandish" target="_blank">
                   <FaTwitter fill="#1DA1F2" size={24} />
                 </Link>
 
-                <Link href="https://www.linkedin.com/in/urbandish">
+                <Link href="https://www.linkedin.com/in/urbandish" target="_blank">
                   <FaLinkedin fill="#0077B5" size={24} />
                 </Link>
               </div>
@@ -117,6 +117,7 @@ export default function Footer() {
               &copy; Urban Dish, All Rights Reserved. Created By{' '}
               <Link
                 href="https://github.com/Zain-Khoso"
+                target="_blank"
                 className="font-semibold underline-offset-2 hover:underline"
               >
                 Zain Khoso
@@ -125,7 +126,7 @@ export default function Footer() {
 
             <div className="flex flex-row gap-4">
               <Link
-                href="https://github.com/Zain-Khoso"
+                href="/"
                 className="text-nowrap font-semibold text-neutral-600 underline-offset-2 hover:underline"
               >
                 Home
@@ -134,7 +135,7 @@ export default function Footer() {
               <Separator orientation="vertical" />
 
               <Link
-                href="https://github.com/Zain-Khoso"
+                href="/about"
                 className="text-nowrap font-semibold text-neutral-600 underline-offset-2 hover:underline"
               >
                 About Us
@@ -143,7 +144,7 @@ export default function Footer() {
               <Separator orientation="vertical" />
 
               <Link
-                href="https://github.com/Zain-Khoso"
+                href="/blog"
                 className="text-nowrap font-semibold text-neutral-600 underline-offset-2 hover:underline"
               >
                 Blog
@@ -152,7 +153,7 @@ export default function Footer() {
               <Separator orientation="vertical" />
 
               <Link
-                href="https://github.com/Zain-Khoso"
+                href="/contact"
                 className="text-nowrap font-semibold text-neutral-600 underline-offset-2 hover:underline"
               >
                 Contact
