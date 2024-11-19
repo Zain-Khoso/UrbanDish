@@ -1,13 +1,12 @@
 // Components.
 import Container from '@/components/Container';
-import { H2, P } from '@/components/ui/typography';
+import { H2 } from '@/components/ui/typography';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import Footer from '@/components/footer';
 
 // Types.
 import { Metadata } from 'next';
@@ -94,23 +93,14 @@ const data: DataT = [
 ];
 
 // FAQs Page.
-export default async function FaqsPage() {
+export default async function Page() {
   return (
     <>
       <Container>
         <main className="w-full space-y-8">
-          <section className="space-y-4 text-pretty text-center">
-            <H2>
-              Common Questions, <br className="hidden" /> Clear Answers
-            </H2>
+          <H2 className="!my-12">Frequestly Asked Questions</H2>
 
-            <P>
-              Have a question? Find the answer here. <br className="hidden md:block" /> We&apos;ve
-              compiled a list of common questions to help you navigate your Urban Dish experience.
-            </P>
-          </section>
-
-          <Accordion type="single" collapsible>
+          <Accordion type="single" collapsible className="!mb-8">
             {data.map(({ id, question, answer }) => (
               <AccordionItem key={id} value={`FAQ-${id}`}>
                 <AccordionTrigger className="text-lg">{question}</AccordionTrigger>
@@ -120,8 +110,6 @@ export default async function FaqsPage() {
           </Accordion>
         </main>
       </Container>
-
-      <Footer />
     </>
   );
 }

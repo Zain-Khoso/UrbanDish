@@ -12,6 +12,7 @@ import '../globals.css';
 
 // Components.
 import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
 
 // Types.
 import type { Metadata } from 'next';
@@ -71,6 +72,8 @@ export default async function RootLayout({ children }: Readonly<ChildrenProp>) {
         <Navbar currentUser={currentUser} />
 
         {children}
+
+        <Footer />
       </body>
     </html>
   );
