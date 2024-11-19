@@ -1,4 +1,5 @@
 // Components.
+import Container from '@/components/Container';
 import { H2, P } from '@/components/ui/typography';
 import {
   Accordion,
@@ -10,7 +11,6 @@ import Footer from '@/components/footer';
 
 // Types.
 import { Metadata } from 'next';
-import Navbar from '@/components/navbar';
 type DataT = {
   id: number;
   question: string;
@@ -97,30 +97,29 @@ const data: DataT = [
 export default async function FaqsPage() {
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
+      <Container>
+        <main className="w-full space-y-8">
+          <section className="space-y-4 text-pretty text-center">
+            <H2>
+              Common Questions, <br className="hidden" /> Clear Answers
+            </H2>
 
-      <main className="w-full space-y-8 p-8">
-        <section className="space-y-12 text-pretty text-center">
-          <H2>Common Questions, Clear Answers</H2>
+            <P>
+              Have a question? Find the answer here. <br className="hidden md:block" /> We&apos;ve
+              compiled a list of common questions to help you navigate your Urban Dish experience.
+            </P>
+          </section>
 
-          <P>
-            Have a question? Find the answer here. <br />
-            We&apos;ve compiled a list of common questions to help you navigate your Urban Dish
-            experience.
-          </P>
-        </section>
-
-        <Accordion type="single" collapsible className="mx-auto max-w-screen-lg">
-          {data.map(({ id, question, answer }) => (
-            <AccordionItem key={id} value={`FAQ-${id}`}>
-              <AccordionTrigger className="text-lg">{question}</AccordionTrigger>
-              <AccordionContent className="text-lg">{answer}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </main>
+          <Accordion type="single" collapsible>
+            {data.map(({ id, question, answer }) => (
+              <AccordionItem key={id} value={`FAQ-${id}`}>
+                <AccordionTrigger className="text-lg">{question}</AccordionTrigger>
+                <AccordionContent className="text-lg">{answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </main>
+      </Container>
 
       <Footer />
     </>
