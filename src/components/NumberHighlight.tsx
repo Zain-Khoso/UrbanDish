@@ -15,7 +15,7 @@ export default function NumberHighlight({ number, title, subtitle }: Props) {
       <div className="flex flex-row items-center gap-2">
         <div className="bg-primary-gradiant h-[2lh] w-[6px] rounded-sm"></div>
 
-        <H1 className="text-primary-gradiant">{number}</H1>
+        <H1 className="text-theme">{number}</H1>
       </div>
 
       <div>

@@ -10,7 +10,7 @@ type Props = {
 // Component.
 export default function NavLink({ href, label }: Props) {
   return (
-    <Link href={href} className="hover:text-primary-gradiant text-lg font-bold transition">
+    <Link href={href} className="hover:text-theme text-lg font-bold transition">
       {label}
     </Link>
   );

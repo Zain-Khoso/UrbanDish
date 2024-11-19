@@ -18,7 +18,7 @@ export default function SectionHeading({ title, heading, center = false }: Props
     <div className={cn('flex flex-col', center && 'items-center')}>
       {title && (
         <div className="flex flex-row items-center gap-2">
-          <Lead className="text-primary-gradiant">{title}</Lead>
+          <Lead className="text-theme">{title}</Lead>
 
           <GoDash className="fill-red-600" />
         </div>

@@ -18,7 +18,7 @@ type Props = {
 export default function Navbar({ currentUser }: Props) {
   return (
     <Container>
-      <nav className="z-10 flex w-full items-center justify-between pr-4">
+      <nav className="z-10 mb-8 flex w-full items-center justify-between pr-4">
         {/* Branding */}
         <Link href="/">
           <Image

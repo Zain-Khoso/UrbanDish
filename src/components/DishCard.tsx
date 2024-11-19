@@ -59,7 +59,7 @@ export default function DishCard({ picture, title, desc, price }: Props) {
       </CardHeader>
 
       <CardContent>
-        <Lead className="text-primary-gradiant font-bold">Rs {price}</Lead>
+        <Lead className="text-theme font-bold">Rs {price}</Lead>
       </CardContent>
 
       <CardFooter className="relative flex flex-row-reverse gap-2">

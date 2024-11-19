@@ -1,11 +1,17 @@
 // Lib Imports.
 import { Nunito } from 'next/font/google';
 
+// Actions.
+import getCurrentUser from '../actions/getCurrentUser';
+
 // Providers.
 import ReactHotToastProvider from '@/providers/toast.provider';
 
 // Styles.
 import '../globals.css';
+
+// Components.
+import Navbar from '@/components/navbar';
 
 // Types.
 import type { Metadata } from 'next';
@@ -54,11 +60,15 @@ export const metadata: Metadata = {
 const font = Nunito({ subsets: ['latin'] });
 
 // General Section Root Layout.
-export default function RootLayout({ children }: Readonly<ChildrenProp>) {
+export default async function RootLayout({ children }: Readonly<ChildrenProp>) {
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={`${font.className} bg-[#F3F4F6] antialiased`}>
         <ReactHotToastProvider />
+
+        <Navbar currentUser={currentUser} />
 
         {children}
       </body>
